@@ -1,8 +1,8 @@
-import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/globals.scss";
 
 function Application({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default Application
+export default Application;
