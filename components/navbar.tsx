@@ -15,7 +15,7 @@ export default class NavBar extends Component<Props, State> {
       <Row className="p-5">
         <Col xs={6}>
           <a href="#home">
-            <Image src="/images/emblem.svg" height={50} width={50} />
+            <Image src="/images/emblem.png" height={50} width={50} />
           </a>
         </Col>
         <Col xs={6} className="text-end pt-1">
