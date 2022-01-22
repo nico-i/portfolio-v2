@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 
 interface Props {}
 
@@ -13,7 +12,7 @@ const links = ["#about", "#projects", "#contact"];
 export default class NavBar extends Component<Props, State> {
   render() {
     return (
-      <div className="sticky-top px-lg-5 pt-lg-3 px-md-4 ps-4 pe-3 pt-2">
+      <div className="sticky-top px-lg-5 pt-lg-3 px-md-4 px-3 pt-2">
         <Navbar collapseOnSelect bg="white" expand="md">
             <Navbar.Brand href="#home">
               <Image
