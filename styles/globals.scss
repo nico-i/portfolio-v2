@@ -1,0 +1,28 @@
+$primary: #0080FF;
+$primary-hover: #0077EC;
+$light: #F7F7F7;
+$text: #262626;
+
+@import "@fontsource/poppins";
+
+* {
+    font-family: Poppins SemiBold;
+}
+
+p {
+    font-family: Poppins 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+    background-color: $primary;
+    color: $light;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: $primary-hover;
+}
