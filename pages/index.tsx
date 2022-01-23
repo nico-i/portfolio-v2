@@ -110,12 +110,17 @@ export default class Home extends Component<Props, State> {
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Portfolio von Nico Ismaili" />
           <meta name="description" content="Willkommen zu meinem Portfolio!" />
-          <meta property="og:url" content="https://www.example.com/" />
+          <meta property="og:url" content="https://nico-ismaili.netlify.app/" />
           <meta
             property="og:description"
-            content="Hier finden Sie mein Kontaktdaten, vergangene Projekte und meine Qualifikationen."
+            content="Willkommen zu meinem Portfolio! Hier finden Sie meine Kontaktdaten, vergangene Projekte und Qualifikationen."
           ></meta>
-          <meta property="og:image" content="https://raw.githubusercontent.com/ismailinico/next-js-portfolio/main/public/images/social.jpg"></meta>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta
+            property="og:image"
+            content="https://nico-ismaili.netlify.app/images/social.webp"
+          ></meta>
         </Head>
         <NavBar />
         <div className="typed-heading mx-lg-5 mx-3">
@@ -125,7 +130,7 @@ export default class Home extends Component<Props, State> {
                 <Typewriter
                   options={{
                     strings: [
-                      'Hi.',
+                      "Hi.",
                       'Mein Name ist<br class="d-none d-md-block d-lg-none"/> <span class="text-primary">Nico</span> Ismaili.',
                       'Ich bin ein <span class="text-primary">Full-<br class="d-block d-lg-none"/>Stack <br class="d-none d-lg-block" /> Entwickler</span> aus Wiesbaden, <br /> Deutsch&shyland.',
                       'Willkommen <br class="d-md-none d-block"/>zu <br class="d-none d-md-block"/>meinem <br class="d-md-none d-block"/><span class="text-primary">Portfolio</span>.',
