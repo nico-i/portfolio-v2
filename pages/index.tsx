@@ -115,7 +115,7 @@ export default class Home extends Component<Props, State> {
             property="og:description"
             content="Hier finden Sie mein Kontaktdaten, vergangene Projekte und meine Qualifikationen."
           ></meta>
-          <meta property="og:image" content=""></meta>
+          <meta property="og:image" content="https://raw.githubusercontent.com/ismailinico/next-js-portfolio/main/public/images/social.jpg"></meta>
         </Head>
         <NavBar />
         <div className="typed-heading mx-lg-5 mx-3">
