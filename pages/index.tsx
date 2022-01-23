@@ -1,35 +1,121 @@
 import Head from "next/head";
-import NavBar from "../components/navbar";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Typewriter from "typewriter-effect";
-
 import React, { Component } from "react";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Typewriter from "typewriter-effect";
+import NavBar from "../components/navbar";
 
 interface Props {}
-interface State {
-  isTyping: boolean;
-}
+interface State {}
 
 export default class Home extends Component<Props, State> {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isTyping: true,
-    };
   }
 
-  handleTypingToggle() {}
-
   render() {
-    const { isTyping } = this.state;
     return (
       <>
         <Head>
           <title>Nico Ismaili</title>
-          <link rel="icon" href="images/favicon.png" />
+          <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+          <link
+            rel="icon"
+            sizes="16x16 32x32 64x64"
+            href="/images/favicon/favicon.ico"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="196x196"
+            href="/images/favicon/favicon-192.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="160x160"
+            href="/images/favicon/favicon-160.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/images/favicon/favicon-96.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="64x64"
+            href="/images/favicon/favicon-64.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon/favicon-32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon/favicon-16.png"
+          />
+          <link rel="apple-touch-icon" href="/images/favicon/favicon-57.png" />
+          <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/images/favicon/favicon-114.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/images/favicon/favicon-72.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/images/favicon/favicon-144.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/images/favicon/favicon-60.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/images/favicon/favicon-120.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/images/favicon/favicon-76.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/images/favicon/favicon-152.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicon/favicon-180.png"
+          />
+          <meta name="msapplication-TileColor" content="#F7F7F7" />
+          <meta
+            name="msapplication-TileImage"
+            content="/images/favicon/favicon-144.png"
+          />
+          <meta name="msapplication-config" content="/browserconfig.xml" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Portfolio von Nico Ismaili" />
+          <meta name="description" content="Willkommen zu meinem Portfolio!" />
+          <meta property="og:url" content="https://www.example.com/" />
+          <meta
+            property="og:description"
+            content="Hier finden Sie mein Kontaktdaten, vergangene Projekte und meine Qualifikationen."
+          ></meta>
+          <meta property="og:image" content=""></meta>
         </Head>
         <NavBar />
         <div className="typed-heading mx-lg-5 mx-3">
@@ -40,14 +126,13 @@ export default class Home extends Component<Props, State> {
                   options={{
                     strings: [
                       'Hi.',
-                      'Mein Name ist <span class="text-primary">Nico</span> Ismaili.',
-                      'Ich bin ein <span class="text-primary">Full-Stack Entwickler </span>aus Wiesbaden, Deutsch&shyland.',
-                      'Willkommen zu meiner <span class="text-primary">Portfolio</span> Website.'
+                      'Mein Name ist<br class="d-none d-md-block d-lg-none"/> <span class="text-primary">Nico</span> Ismaili.',
+                      'Ich bin ein <span class="text-primary">Full-<br class="d-block d-lg-none"/>Stack <br class="d-none d-lg-block" /> Entwickler</span> aus Wiesbaden, <br /> Deutsch&shyland.',
+                      'Willkommen <br class="d-md-none d-block"/>zu <br class="d-none d-md-block"/>meinem <br class="d-md-none d-block"/><span class="text-primary">Portfolio</span>.',
                     ],
                     autoStart: true,
                     loop: true,
                   }}
-
                 />
               </h1>
             </Col>
