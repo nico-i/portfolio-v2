@@ -33,7 +33,7 @@ p {
     font-family: Poppins "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-button {
+.themed-button {
     background-color: $primary;
     color: $light;
     padding: 0.5rem 1rem;
@@ -43,7 +43,7 @@ button {
     transition: background-color 0.2s ease-in-out;
 }
 
-button:hover {
+.themed-button:hover {
     background-color: $primary-hover;
 }
 
@@ -53,6 +53,7 @@ button:hover {
 
 .themed-nav,
 .navbar-light {
+    background-color: $light;
     color: $text;
     .active:after {
         content: "";
@@ -97,10 +98,12 @@ button:hover {
     padding: 0;
     box-shadow: none;
     transition: none;
+    filter: none;
     &:focus {
         border: none;
         border-radius: 0;
         box-shadow: none;
+        filter: none;
     }
     &:hover {
         background-color: transparent;
