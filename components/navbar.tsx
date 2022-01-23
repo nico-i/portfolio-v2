@@ -29,8 +29,8 @@ export default class NavBar extends Component<Props, State> {
             className="border-0 pb-1"
             aria-controls="offcanvasNavbar"
           />
-          <div className="d-none d-md-block">
-            <Nav className="me-auto"></Nav>
+          <div className="d-none d-md-flex flex-grow-1"></div>
+          <div className="d-none d-md-flex">
             <Nav defaultActiveKey="#home">
               {pages.map((page, index) => (
                 <Nav.Link
@@ -60,7 +60,6 @@ export default class NavBar extends Component<Props, State> {
                 />
               </Offcanvas.Title>
             </Offcanvas.Header>
-
             <Offcanvas.Body>
               <Nav defaultActiveKey="#home" className="flex-grow-1 d-sm-none">
                 {pages.map((page, index) => (
