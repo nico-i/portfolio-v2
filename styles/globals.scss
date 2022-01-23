@@ -52,7 +52,8 @@ p {
 }
 
 .themed-nav,
-.navbar-light {
+.navbar-light,
+.offcanvas-body {
     background-color: $light;
     color: $text;
     .active:after {

@@ -62,11 +62,11 @@ export default class NavBar extends Component<Props, State> {
             </Offcanvas.Header>
 
             <Offcanvas.Body>
-              <Nav className="flex-grow-1 d-sm-none">
+              <Nav defaultActiveKey="#home" className="flex-grow-1 d-sm-none">
                 {pages.map((page, index) => (
                   <Nav.Link
                     className="themed-nav p-0 mx-3 pb-1 mt-1"
-                    key={"nav-" + index}
+                    key={"canvas-" + index}
                     href={links[index]}
                   >
                     {page.toString()}
