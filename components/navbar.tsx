@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { Component } from "react";
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 interface Props {}
@@ -17,8 +17,10 @@ export default class NavBar extends Component<Props, State> {
         <Navbar collapseOnSelect expand="md">
           <Navbar.Brand href="#home">
             <Image
+              priority
+              alt="Logo"
               className="mw-100"
-              src="/images/emblem.png"
+              src="/images/emblem.webp"
               height={50}
               width={50}
             />
@@ -28,18 +30,18 @@ export default class NavBar extends Component<Props, State> {
             aria-controls="offcanvasNavbar"
           />
           <div className="d-none d-md-block">
-          <Nav className="me-auto"></Nav>
-          <Nav defaultActiveKey="#home">
-            {pages.map((page, index) => (
-              <Nav.Link
-                className="themed-nav p-0 mx-3 pb-1 mt-1"
-                key={"nav-" + index}
-                href={links[index]}
-              >
-                {page.toString()}
-              </Nav.Link>
-            ))}
-          </Nav>
+            <Nav className="me-auto"></Nav>
+            <Nav defaultActiveKey="#home">
+              {pages.map((page, index) => (
+                <Nav.Link
+                  className="themed-nav p-0 mx-3 pb-1 mt-1"
+                  key={"nav-" + index}
+                  href={links[index]}
+                >
+                  {page.toString()}
+                </Nav.Link>
+              ))}
+            </Nav>
           </div>
           <Navbar.Offcanvas
             id="offcanvasNavbar"
@@ -49,8 +51,10 @@ export default class NavBar extends Component<Props, State> {
             <Offcanvas.Header className="pb-0" closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel">
                 <Image
+                  priority
+                  alt="Logo"
                   className="mw-100"
-                  src="/images/emblem.png"
+                  src="/images/emblem.webp"
                   height={50}
                   width={50}
                 />
