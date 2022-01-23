@@ -34,7 +34,7 @@ export default class NavBar extends Component<Props, State> {
             <Nav defaultActiveKey="#home">
               {pages.map((page, index) => (
                 <Nav.Link
-                  className="themed-nav p-0 mx-3 pb-1 mt-1"
+                  className="p-0 mx-3 pb-1 mt-1"
                   key={"nav-" + index}
                   href={links[index]}
                 >
@@ -64,7 +64,7 @@ export default class NavBar extends Component<Props, State> {
               <Nav defaultActiveKey="#home" className="flex-grow-1 d-sm-none">
                 {pages.map((page, index) => (
                   <Nav.Link
-                    className="themed-nav p-0 mx-3 pb-1 mt-1"
+                    className="p-0 mx-3 pb-1 mt-1"
                     key={"canvas-" + index}
                     href={links[index]}
                   >

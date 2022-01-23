@@ -5,6 +5,8 @@ $text: #262626;
 
 @import "@fontsource/poppins";
 
+// Default element declarations begin here.
+
 * {
     font-family: Poppins SemiBold;
     font-size: 24px;
@@ -33,7 +35,9 @@ p {
     font-family: Poppins "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.themed-button {
+// Class declarations begin here.
+
+.button--primary {
     background-color: $primary;
     color: $light;
     padding: 0.5rem 1rem;
@@ -43,15 +47,10 @@ p {
     transition: background-color 0.2s ease-in-out;
 }
 
-.themed-button:hover {
+.button--primary:hover {
     background-color: $primary-hover;
 }
 
-.greeting {
-    bottom: 5%;
-}
-
-.themed-nav,
 .navbar-light,
 .offcanvas-body {
     background-color: $light;
@@ -91,31 +90,26 @@ p {
             transform: scaleX(1);
         }
     }
-}
-
-.navbar-toggler {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    border: 0;
-    padding: 0;
-    box-shadow: none;
-    transition: none;
-    filter: none;
-    &:focus {
-        border: none;
-        border-radius: 0;
+    .navbar-toggler {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        border: 0;
+        padding: 0;
         box-shadow: none;
+        transition: none;
         filter: none;
-    }
-    &:hover {
-        background-color: transparent;
+        &:focus {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            filter: none;
+        }
+        &:hover {
+            background-color: transparent;
+        }
     }
 }
 
-.shadow {
-    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
-}
-
-.text-primary {
+.text--primary {
     color: $primary;
 }
 
@@ -124,6 +118,7 @@ p {
 }
 
 @media (min-width: 768px) {
+    // This toggles the margin above the typed heading when in mobile.
     .typed-heading {
         margin-top: 11rem;
     }
