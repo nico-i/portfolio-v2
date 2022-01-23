@@ -2,6 +2,7 @@ $primary: #007dff;
 $primary-hover: #007dff;
 $light: #f7f7f7;
 $text: #262626;
+$text-hover: hsl(0, 0%, 30%);
 
 @import "@fontsource/poppins";
 
@@ -14,13 +15,13 @@ $text: #262626;
 }
 
 a {
+    font-family: Poppins Medium;
     position: relative;
     text-decoration: none;
     color: $text;
-}
-
-a:hover {
-    color: $text;
+    &:hover {
+        color: $text;
+    }
 }
 
 h1 {
@@ -31,8 +32,18 @@ h1 {
     }
 }
 
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: calc(1.325rem + .9vw);
+    span {
+        font-size: calc(1.325rem + .9vw);
+        // filter: drop-shadow(0 1px 4px rgba(0, 128, 255, 0.2));
+    }
+}
+
 p {
-    font-family: Poppins "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-family: Poppins Medium;
+    margin-bottom: 1.3rem;
 }
 
 // Class declarations begin here.
@@ -67,6 +78,7 @@ p {
         transform: scaleX(1);
     }
     .nav-link {
+        font-family: Poppins SemiBold;
         color: $text;
         &:hover {
             color: $text;
@@ -109,17 +121,63 @@ p {
     }
 }
 
+.section {
+    margin-top: 15rem;
+}
+
+.section__greeting {
+    margin-top: 14rem;
+
+}
+
 .text--primary {
     color: $primary;
 }
 
+.text--underlined {
+    color: $text;
+    text-decoration: none;
+    font-family: Poppins Medium;
+    &:hover {
+        color: $text-hover;
+    }
+    &::before {
+        color: $text;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary;
+        transform: scaleX(1);
+        transform-origin: top right;
+        transition: transform 0.4s ease;
+    }
+}
+
 .typed-heading {
-    margin-top: 0rem;
+    position: absolute;
+    top: 20%;
 }
 
 @media (min-width: 768px) {
-    // This toggles the margin above the typed heading when in mobile.
     .typed-heading {
-        margin-top: 11rem;
+        z-index: 9;
+        position: absolute;
+        top: 46%;
+    }
+}
+
+@media (min-width: 460px) { 
+    .section {
+        margin-bottom: 16rem;
+        margin-top: 16rem;
+    }
+    // Toggles the margin above the typed heading when in mobile.
+    .section__greeting {
+        margin-top: 48rem;
+        margin-bottom: 8rem;
     }
 }

@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Image from "next/image";
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Typewriter from "typewriter-effect";
 import NavBar from "../components/navbar";
@@ -8,6 +10,8 @@ import NavBar from "../components/navbar";
 interface Props {}
 interface State {}
 
+//TODO https://www.thisdot.co/blog/next-js-adding-localization-with-next-intl
+//TODO https://codesandbox.io/s/brave-kepler-fdbzv?file=/src/styles.css&resolutionWidth=320&resolutionHeight=675
 export default class Home extends Component<Props, State> {
   constructor(props) {
     super(props);
@@ -144,6 +148,59 @@ export default class Home extends Component<Props, State> {
             </Col>
           </Row>
         </div>
+        <Container className="section__greeting">
+          <Row>
+            <Col xs={6} md={4} className="mx-auto my-3 d-none d-lg-block">
+              <Image
+                priority
+                alt="Profile image"
+                className="rounded-pill img-fluid"
+                src="/images/profile.webp"
+                height={300}
+                width={300}
+              />
+            </Col>
+            <Col>
+              <h2>
+                Darf ich mich <span className="text--primary">vorstellen?</span>
+              </h2>
+              <p>
+                Wie bereits erwähnt heiße ich Nico. Ich studiere{" "}
+                <a className="link--underlined" href="#">
+                  <span className="text--underlined">Medieninformatik</span>
+                </a>{" "}
+                im 5. Semester an der{" "}
+                <a className="link--underlined" href="#">
+                  <span className="text--underlined">Hochschule RheinMain</span>
+                </a>{" "}
+                in Wiesbaden.
+              </p>
+              <p>
+                Das ist natürlich nicht alles. Parallel zu meinem Studium
+                arbeite ich als Werkstudent bei{" "}
+                <a className="link--underlined" href="#">
+                  <span className="text--underlined">forsuxess</span>
+                </a>
+                , ein Unternehmen dass sich auf HR-IT spezialisiert.
+              </p>
+              <p>
+                In meiner Freizeit widme ich mich der{" "}
+                <a href="#">
+                  <span className="text--underlined">Fotografie</span>
+                </a>{" "}
+                oder halte mich auf dem Laufenden was die neuesten Technologien
+                anbelangt.
+              </p>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="section">
+          <Row>
+            <Col>
+              <h2 className="text-center">Was ich in <span className="text--primary">letzter Zeit</span> so getrieben habe?</h2>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }
