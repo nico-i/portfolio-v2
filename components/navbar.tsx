@@ -13,7 +13,7 @@ export default class NavBar extends Component<Props, State> {
   render() {
     return (
       <div className="sticky-top px-lg-5 pt-lg-3 px-md-4 px-3 pt-2">
-        <Navbar collapseOnSelect bg="white" expand="md">
+        <Navbar collapseOnSelect bg="transparent" expand="md">
             <Navbar.Brand href="#home">
               <Image
                 className="mw-100"
