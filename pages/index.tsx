@@ -137,6 +137,7 @@ export default class Home extends Component<Props, State> {
                     ],
                     autoStart: true,
                     loop: true,
+                    delay: Math.floor(Math.random() * (130 - 90 + 1)) + 90,
                   }}
                 />
               </h1>
