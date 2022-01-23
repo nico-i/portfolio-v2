@@ -7,6 +7,8 @@ interface Props {
   icon: IconType;
 }
 
+//TODO https://codesandbox.io/s/vymm4oln6y?file=/index.js:2181-2492
+
 export default function Skill(props: Props) {
   return (
        <CircularProgressbar
