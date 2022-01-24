@@ -137,7 +137,7 @@ export default class Home extends Component<Props, State> {
                       "Hi.",
                       'Mein Name ist<br class="d-block d-lg-none"/> <span class="text-primary">Nico</span> Ismaili.',
                       'Ich bin ein <span class="text-primary">Full-<br class="d-block d-lg-none"/>Stack <br class="d-none d-lg-block" /> Entwickler</span> aus Wiesbaden, <br /> Deutsch&shyland.',
-                      'Willkommen <br class="d-md-none d-block"/>zu <br class="d-none d-md-block"/>meinem <br class="d-md-none d-block"/><span class="text-primary">Portfolio</span>.',
+                      'Willkommen <br class="d-md-none d-block"/>zu <br class="d-none d-md-block"/>meinem <br class="d-md-none d-block"/><span class="text-primary">Portfolio.</span>',
                     ],
                     autoStart: true,
                     loop: true,
@@ -176,7 +176,7 @@ export default class Home extends Component<Props, State> {
                 in Wiesbaden.
               </p>
               <p>
-                Das ist natürlich nicht alles. Parallel zu meinem Studium
+                Parallel zu meinem Studium
                 arbeite ich als Werkstudent bei{" "}
                 <a className="link--underlined" href="#">
                   <span className="text--underlined">forsuxess</span>
@@ -188,8 +188,8 @@ export default class Home extends Component<Props, State> {
                 <a href="#">
                   <span className="text--underlined">Fotografie</span>
                 </a>{" "}
-                oder halte mich auf dem Laufenden was die neuesten Technologien
-                anbelangt.
+                oder halte mich auf dem Laufenden was die neueste Technik
+                angeht.
               </p>
             </Col>
           </Row>
