@@ -20,7 +20,7 @@ export default class NavBar extends Component<Props, State> {
               priority
               alt="Logo"
               className="mw-100"
-              src="/images/emblem.webp"
+              src="/images/emblem.svg"
               height={50}
               width={50}
             />
