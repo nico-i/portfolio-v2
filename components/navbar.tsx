@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-
+import logo from "../public/images/emblem.png";
 interface Props {}
 
 interface State {}
@@ -20,9 +20,7 @@ export default class NavBar extends Component<Props, State> {
               priority
               alt="Logo"
               className="mw-100"
-              src="/images/emblem.svg"
-              height={50}
-              width={50}
+              src={logo}
             />
           </Navbar.Brand>
           <Navbar.Toggle
