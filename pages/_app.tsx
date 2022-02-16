@@ -6,14 +6,8 @@ function Application({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link href="../assets/Poppins/Poppins-SemiBold.ttf" rel="stylesheet" />
         <link
-          href="../assets/Poppins/Poppins-SemiBoldItalic.ttf"
-          rel="stylesheet"
-        />
-        <link href="../assets/Poppins/Poppins-Medium.ttf" rel="stylesheet" />
-        <link
-          href="../assets/Poppins/Poppins-MediumItalic.ttf"
+          href="https://fonts.googleapis.com/css2?family=Poppins&display=optional"
           rel="stylesheet"
         />
         <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
