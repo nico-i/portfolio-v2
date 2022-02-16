@@ -3,19 +3,17 @@ $primary-hover: #007dff;
 $light: #f7f7f7;
 $text: #262626;
 $text-hover: hsl(0, 0%, 30%);
-
-@import "@fontsource/poppins";
-
+$text-medium: Poppins Medium;
+$text-semibold: Poppins SemiBold;
 // Default element declarations begin here.
-
 * {
-    font-family: Poppins SemiBold;
+    font-family: $text-semibold;
     font-size: 24px;
     background-color: $light;
 }
 
 a {
-    font-family: Poppins Medium;
+    font-family: $text-medium;
     position: relative;
     text-decoration: none;
     color: $text;
@@ -34,20 +32,19 @@ h1 {
 
 h2 {
     margin-bottom: 1.5rem;
-    font-size: calc(1.325rem + .9vw);
+    font-size: calc(1.325rem + 0.9vw);
     span {
-        font-size: calc(1.325rem + .9vw);
+        font-size: calc(1.325rem + 0.9vw);
         // filter: drop-shadow(0 1px 4px rgba(0, 128, 255, 0.2));
     }
 }
 
 p {
-    font-family: Poppins Medium;
+    font-family: $text-medium;
     margin-bottom: 1.3rem;
 }
 
 // Class declarations begin here.
-
 .button--primary {
     background-color: $primary;
     color: $light;
@@ -78,7 +75,7 @@ p {
         transform: scaleX(1);
     }
     .nav-link {
-        font-family: Poppins SemiBold;
+        font-family: $text-semibold;
         color: $text;
         &:hover {
             color: $text;
@@ -127,7 +124,6 @@ p {
 
 .section__greeting {
     margin-top: 14rem;
-
 }
 
 .text--primary {
@@ -137,7 +133,7 @@ p {
 .text--underlined {
     color: $text;
     text-decoration: none;
-    font-family: Poppins Medium;
+    font-family: $text-medium;
     &:hover {
         color: $text-hover;
     }
@@ -170,7 +166,7 @@ p {
     }
 }
 
-@media (min-width: 460px) { 
+@media (min-width: 460px) {
     .section {
         margin-bottom: 16rem;
         margin-top: 16rem;
