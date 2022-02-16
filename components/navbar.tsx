@@ -16,12 +16,7 @@ export default class NavBar extends Component<Props, State> {
       <div className="sticky-top px-lg-5 pt-lg-3 px-md-4 px-3 pt-2">
         <Navbar collapseOnSelect expand="md">
           <Navbar.Brand href="#home">
-            <Image
-              priority
-              alt="Logo"
-              className="mw-100"
-              src={logo}
-            />
+            <Image priority alt="Logo" className="mw-100" src={logo} />
           </Navbar.Brand>
           <Navbar.Toggle
             className="border-0 pb-1"
@@ -50,14 +45,7 @@ export default class NavBar extends Component<Props, State> {
           >
             <Offcanvas.Header className="pb-0" closeButton>
               <Offcanvas.Title id="menu-1-label">
-                <Image
-                  priority
-                  alt="Logo"
-                  className="mw-100"
-                  src="/images/emblem.webp"
-                  height={50}
-                  width={50}
-                />
+                <Image priority alt="Logo" className="mw-100" src={logo} />
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
