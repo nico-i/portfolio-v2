@@ -27,7 +27,9 @@ export default class NavBar extends Component<Props, State> {
           </Navbar.Brand>
           <Navbar.Toggle
             className="border-0 pb-1"
-            aria-controls="offcanvasNavbar"
+            role="menu"
+            aria-controls="menu-1"
+            aria-haspopup="true"
           />
           <div className="d-none d-md-flex flex-grow-1"></div>
           <div className="d-none d-md-flex">
@@ -44,12 +46,12 @@ export default class NavBar extends Component<Props, State> {
             </Nav>
           </div>
           <Navbar.Offcanvas
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
+            id="menu-1"
+            aria-labelledby="menu-1-label"
             placement="end"
           >
             <Offcanvas.Header className="pb-0" closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">
+              <Offcanvas.Title id="menu-1-label">
                 <Image
                   priority
                   alt="Logo"
