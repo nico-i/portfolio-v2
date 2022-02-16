@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Typewriter from "typewriter-effect";
 import NavBar from "../components/navbar";
+import profileImage from "../public/images/profile.png";
 
 interface Props {}
 interface State {}
@@ -59,9 +60,7 @@ export default class Home extends Component<Props, State> {
                 priority
                 alt="Profile image"
                 className="rounded-pill img-fluid"
-                src="/images/profile.webp"
-                height={300}
-                width={300}
+                src={profileImage}
               />
             </Col>
             <Col>
