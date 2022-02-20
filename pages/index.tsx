@@ -14,8 +14,8 @@ import skills from "../utils/skills";
 interface Props {}
 interface State {}
 
-//TODO https://blog.logrocket.com/complete-guide-internationalization-nextjs/
-//TODO https://spacejelly.dev/posts/how-to-use-cloudinary-images-in-next-js-with-blurred-placeholders/
+//TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
+//TODO Optimize images -> https://spacejelly.dev/posts/how-to-use-cloudinary-images-in-next-js-with-blurred-placeholders/
 
 export default function Home(props: Props) {
   const {ref, inView} = useInView({
