@@ -14,7 +14,8 @@ interface Props {}
 
 //TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
 //TODO Optimize images -> https://spacejelly.dev/posts/how-to-use-cloudinary-images-in-next-js-with-blurred-placeholders/
-
+//TODO Make text fade in with react-spring
+//TODO Split code and make loading dynamic
 export default function Home(props: Props) {
   const { ref, inView } = useInView({
     threshold: 0,
