@@ -108,7 +108,7 @@ export default function Home(props: Props) {
         </Row>
       </Container>
       <Container className="section" style={{maxWidth:'600px'}}>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center" ref={ref}>
           {skills.map((entry) => (
             <Col
               sm={4}
@@ -117,7 +117,6 @@ export default function Home(props: Props) {
               key={entry.skill}
               className="pb-4"
               style={{ width: 100 }}
-              ref={ref}
             >
               <Skill
                 endPercentage={entry.percentage}
