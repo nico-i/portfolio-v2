@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import { useInView } from "react-intersection-observer";
 import Typewriter from "typewriter-effect";
 import NavBar from "../components/Navbar";
-import Skill from "../components/skill";
+import Skill from "../components/SkillCircle";
 import profileImage from "../public/images/profile.png";
 import skills from "../utils/skills";
 
