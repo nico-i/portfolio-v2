@@ -14,6 +14,8 @@ interface Props {}
 
 //TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
 //TODO Make text fade in with react-spring
+//TODO Smooth scrolling and automatic active navitems
+//TODO Add scrollable timeline https://codesandbox.io/s/brave-kepler-fdbzv?file=/src/App.js:2443-2454
 export default function Home(props: Props) {
   const { ref, inView } = useInView({
     threshold: 0,
@@ -32,6 +34,7 @@ export default function Home(props: Props) {
       </Head>
       <PortfolioNav />
       <div className="typed-heading mx-lg-5 mx-3">
+      <a className="anchor"  id="home" style={{top: '-20rem'}}></a>
         <Row>
           <Col>
             <h1>
@@ -53,6 +56,7 @@ export default function Home(props: Props) {
         </Row>
       </div>
       <Container className="section__greeting">
+      <a className="anchor"  id="about" style={{top: '-14rem'}}></a>
         <Row>
           <Col xs={6} md={4} className="mx-auto my-3 d-none d-lg-block">
             <Image
