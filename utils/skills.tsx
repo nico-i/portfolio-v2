@@ -1,15 +1,13 @@
 import {
   DiCss3,
   DiHtml5,
-  DiJava,
   DiJsBadge,
   DiMongodb,
   DiPostgresql,
   DiPython,
-  DiReact,
-  DiTypo3
+  DiTypo3,
 } from "react-icons/di";
-import { SiNextdotjs, SiVuedotjs, SiWordpress } from "react-icons/si";
+import { SiNextdotjs, SiVuedotjs, SiJava, SiWordpress, SiReact, } from "react-icons/si";
 
 const skills = [
   {
@@ -35,7 +33,7 @@ const skills = [
   },
   {
     skill: "React",
-    icon: DiReact,
+    icon: SiReact,
     percentage: 70,
     subtext: "",
     url: "",
@@ -56,7 +54,7 @@ const skills = [
   },
   {
     skill: "Java",
-    icon: DiJava,
+    icon: SiJava,
     percentage: 100,
     subtext: "",
     url: "",
