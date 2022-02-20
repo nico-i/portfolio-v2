@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../public/images/emblem.png";
 
-export default function NavBar(props) {
+export default function PortfolioNav(props) {
   const pages = ["über mich", "projekte", "kontakt"];
   const links = ["#about", "#projects", "#contact"];
   return (
