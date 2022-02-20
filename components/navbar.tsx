@@ -10,6 +10,8 @@ interface State {}
 
 const pages = ["über mich", "projekte", "kontakt"];
 const links = ["#about", "#projects", "#contact"];
+
+// TODO Convert class to function because it is stateless.
 export default class NavBar extends Component<Props, State> {
   render() {
     return (
