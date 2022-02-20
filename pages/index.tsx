@@ -5,14 +5,16 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Typewriter from "typewriter-effect";
-import NavBar from "../components/navbar";
+import NavBar from "../components/Navbar";
+import Skill from "../components/Skill";
 import profileImage from "../public/images/profile.png";
+import skills from "../utils/skills";
 
 interface Props {}
 interface State {}
 
-//TODO https://www.thisdot.co/blog/next-js-adding-localization-with-next-intl
-//TODO https://codesandbox.io/s/brave-kepler-fdbzv?file=/src/styles.css&resolutionWidth=320&resolutionHeight=675
+//TODO https://blog.logrocket.com/complete-guide-internationalization-nextjs/
+//TODO https://spacejelly.dev/posts/how-to-use-cloudinary-images-in-next-js-with-blurred-placeholders/
 export default class Home extends Component<Props, State> {
   constructor(props) {
     super(props);
@@ -104,6 +106,28 @@ export default class Home extends Component<Props, State> {
                 so getrieben habe?
               </h2>
             </Col>
+          </Row>
+        </Container>
+        <Container className="section">
+          <Row className="justify-content-center">
+            {skills.map((entry) => (
+              <Col
+                sm={4}
+                md={3}
+                lg={2}
+                key={entry.skill}
+                className="pb-4"
+                style={{ width: 100 }}
+              >
+                <Skill
+                  endPercentage={entry.percentage}
+                  skill={entry.skill}
+                  backgroundColor="#007dff"
+                  pathColor="#f7f7f7"
+                  icon={entry.icon.name}
+                />
+              </Col>
+            ))}
           </Row>
         </Container>
       </>
