@@ -52,7 +52,7 @@ export default function Skill(props: Props) {
             update={() => ({
               value: [isInView ? endPercentage : startPercentage],
               timing: {
-                duration: (duration ? duration : 1.4) * 1000,
+                duration: (duration ? duration : 2) * 1000,
                 ease: easeQuadInOut,
               },
             })}
