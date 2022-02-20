@@ -65,7 +65,8 @@ p {
 }
 
 .navbar-light,
-.offcanvas-body {
+.offcanvas-body,
+.offcanvas-header {
     background-color: $light;
     color: $text;
     .nav-link {
