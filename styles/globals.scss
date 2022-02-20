@@ -17,11 +17,13 @@ a {
     }
 }
 
+html,
 body {
     background-color: $light;
     font-size: 24px;
     font-family: $font;
     font-weight: $medium;
+    scroll-behavior: smooth;
 }
 
 h1 {
@@ -50,6 +52,12 @@ p {
 }
 
 // Class declarations begin here.
+.anchor {
+    display: block;
+    position: relative;
+    visibility: hidden;
+}
+
 .button--primary {
     background-color: $primary;
     color: $light;
