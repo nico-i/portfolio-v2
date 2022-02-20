@@ -28,4 +28,10 @@ module.exports = {
         domains: ['nico-ismaili.netlify.app'],
         basepath: '/images',
     },
+    i18n: {
+        // Supported Locales
+        locales: ["en-US", "de"],
+        // Default Locale
+        defaultLocale: "en-US",
+    },
 }
