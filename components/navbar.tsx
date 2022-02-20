@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../public/images/emblem.png";
 
-function NavBar() {
+export default function NavBar(props) {
   const pages = ["über mich", "projekte", "kontakt"];
   const links = ["#about", "#projects", "#contact"];
   return (
@@ -62,5 +62,3 @@ function NavBar() {
     </div>
   );
 }
-
-export default NavBar;
