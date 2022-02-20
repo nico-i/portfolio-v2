@@ -16,9 +16,6 @@ export default function PortfolioNav(props) {
         </Navbar.Brand>
         <Navbar.Toggle
           className="border-0 pb-1"
-          role="menu"
-          aria-controls="menu-1"
-          aria-haspopup="true"
         />
         <div className="d-none d-md-flex flex-grow-1"></div>
         <div className="d-none d-md-flex">
