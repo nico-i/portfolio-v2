@@ -10,15 +10,13 @@ import PortfolioNav from "../components/PortfolioNav";
 import Skill from "../components/SkillCircle";
 import profileImage from "../public/images/profile.png";
 import skills from "../utils/skills";
-
 interface Props {}
-interface State {}
 
 //TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
 //TODO Optimize images -> https://spacejelly.dev/posts/how-to-use-cloudinary-images-in-next-js-with-blurred-placeholders/
 
 export default function Home(props: Props) {
-  const {ref, inView} = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
   });
   return (
@@ -107,7 +105,7 @@ export default function Home(props: Props) {
           </Col>
         </Row>
       </Container>
-      <Container className="section" style={{maxWidth:'600px'}}>
+      <Container className="section" style={{ maxWidth: "600px" }}>
         <Row className="justify-content-center" ref={ref}>
           {skills.map((entry) => (
             <Col
