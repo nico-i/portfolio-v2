@@ -107,7 +107,7 @@ export default function Home(props: Props) {
           </Col>
         </Row>
       </Container>
-      <Container className="section">
+      <Container className="section" style={{maxWidth:'600px'}}>
         <Row className="justify-content-center">
           {skills.map((entry) => (
             <Col
