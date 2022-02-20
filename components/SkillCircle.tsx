@@ -1,13 +1,14 @@
 import { easeQuadInOut } from "d3-ease";
 import React from "react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {
   buildStyles,
-  CircularProgressbarWithChildren,
+  CircularProgressbarWithChildren
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { IconType } from "react-icons";
 import { Animate } from "react-move";
-import DynamicIcon from "../utils/DynamicIcon";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
+
 interface Props {
   startPercentage?: number;
   endPercentage: number;
@@ -17,20 +18,13 @@ interface Props {
   backgroundColor: string;
   pathColor: string;
   repeat?: boolean;
-  icon: string;
+  icon: IconType;
   isInView: boolean;
 }
 
 export default function Skill(props: Props) {
-  const {
-    skill,
-    width,
-    endPercentage,
-    backgroundColor,
-    pathColor,
-    icon,
-    isInView,
-  } = props;
+  const { skill, width, endPercentage, backgroundColor, pathColor, isInView } =
+    props;
   const startPercentage = props.startPercentage ? props.startPercentage : 0;
   const duration = props.duration ? props.duration : 1.4;
   return (
@@ -40,7 +34,7 @@ export default function Skill(props: Props) {
         delay={{ show: 250, hide: 400 }}
         overlay={
           <Tooltip id={skill.replace(/\s/g, "") + "-tooltip"}>
-            <span style={{fontSize:'0.6em'}}>{skill}</span>
+            <span style={{ fontSize: "0.6em" }}>{skill}</span>
           </Tooltip>
         }
       >
@@ -71,7 +65,7 @@ export default function Skill(props: Props) {
                     trailColor: "transparent",
                   })}
                 >
-                  <DynamicIcon name={icon} fill={pathColor} />
+                  <props.icon fill={pathColor} />
                 </CircularProgressbarWithChildren>
               );
             }}

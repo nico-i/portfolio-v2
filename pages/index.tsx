@@ -122,7 +122,7 @@ export default function Home(props: Props) {
                 skill={entry.skill}
                 backgroundColor="#007dff"
                 pathColor="#f7f7f7"
-                icon={entry.icon.name}
+                icon={entry.icon}
                 isInView={inView}
               />
             </Col>
