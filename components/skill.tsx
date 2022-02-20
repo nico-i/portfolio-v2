@@ -7,6 +7,7 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 import { Animate } from "react-move";
 import DynamicIcon from "../utils/DynamicIcon";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 interface Props {
   startPercentage?: number;
   endPercentage: number;
@@ -30,45 +31,53 @@ export default function Skill(props: Props) {
     icon,
     isInView,
   } = props;
-  const startPercentage = props.startPercentage
-    ? props.startPercentage
-    : 0;
+  const startPercentage = props.startPercentage ? props.startPercentage : 0;
   const duration = props.duration ? props.duration : 1.4;
   return (
     <>
-      <div style={{ width: width }}>
-        <Animate
-          start={() => ({
-            value: startPercentage,
-          })}
-          update={() => ({
-            value: [isInView ? endPercentage : startPercentage],
-            timing: {
-              duration: (duration ? duration : 1.4) * 1000,
-              ease: easeQuadInOut,
-            },
-          })}
-        >
-          {({ value }) => {
-            return (
-              <CircularProgressbarWithChildren
-                key={skill}
-                background
-                backgroundPadding={6}
-                value={value}
-                styles={buildStyles({
-                  pathTransition: "none",
-                  backgroundColor: backgroundColor,
-                  pathColor: pathColor,
-                  trailColor: "transparent",
-                })}
-              >
-                <DynamicIcon name={icon} fill={pathColor} />
-              </CircularProgressbarWithChildren>
-            );
-          }}
-        </Animate>
-      </div>
+      <OverlayTrigger
+        placement="bottom"
+        delay={{ show: 250, hide: 400 }}
+        overlay={
+          <Tooltip id={skill.replace(/\s/g, "") + "-tooltip"}>
+            <span style={{fontSize:'0.6em'}}>{skill}</span>
+          </Tooltip>
+        }
+      >
+        <div style={{ width: width }}>
+          <Animate
+            start={() => ({
+              value: startPercentage,
+            })}
+            update={() => ({
+              value: [isInView ? endPercentage : startPercentage],
+              timing: {
+                duration: (duration ? duration : 1.4) * 1000,
+                ease: easeQuadInOut,
+              },
+            })}
+          >
+            {({ value }) => {
+              return (
+                <CircularProgressbarWithChildren
+                  key={skill}
+                  background
+                  backgroundPadding={6}
+                  value={value}
+                  styles={buildStyles({
+                    pathTransition: "none",
+                    backgroundColor: backgroundColor,
+                    pathColor: pathColor,
+                    trailColor: "transparent",
+                  })}
+                >
+                  <DynamicIcon name={icon} fill={pathColor} />
+                </CircularProgressbarWithChildren>
+              );
+            }}
+          </Animate>
+        </div>
+      </OverlayTrigger>
     </>
   );
 }
