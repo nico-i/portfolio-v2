@@ -1,4 +1,7 @@
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+})
+module.exports = withBundleAnalyzer({
     "plugins": [
         "postcss-flexbugs-fixes", [
             "postcss-preset-env",
@@ -34,4 +37,4 @@ module.exports = {
         // Default Locale
         defaultLocale: "en-US",
     },
-}
+});
