@@ -8,6 +8,7 @@ import { useInView } from "react-intersection-observer";
 import Typewriter from "typewriter-effect";
 import PortfolioNav from "../components/PortfolioNav";
 import Skill from "../components/SkillCircle";
+import ContactForm from "../components/ContactForm";
 import profileImage from "../public/images/profile.png";
 import skills from "../utils/skills";
 interface Props {}
@@ -34,7 +35,7 @@ export default function Home(props: Props) {
       </Head>
       <PortfolioNav />
       <div className="typed-heading mx-lg-5 mx-3">
-      <a className="anchor"  id="home" style={{top: '-20rem'}}></a>
+        <a className="anchor" id="home" style={{ top: "-20rem" }}></a>
         <Row>
           <Col>
             <h1>
@@ -56,7 +57,7 @@ export default function Home(props: Props) {
         </Row>
       </div>
       <Container className="section__greeting">
-      <a className="anchor"  id="about" style={{top: '-14rem'}}></a>
+        <a className="anchor" id="about" style={{ top: "-14rem" }}></a>
         <Row>
           <Col xs={6} md={4} className="mx-auto my-3 d-none d-lg-block">
             <Image
@@ -130,6 +131,9 @@ export default function Home(props: Props) {
             </Col>
           ))}
         </Row>
+      </Container>
+      <Container className="contact-form">
+        <ContactForm />
       </Container>
     </>
   );
