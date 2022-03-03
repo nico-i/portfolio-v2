@@ -10,7 +10,7 @@ import PortfolioNav from "../components/PortfolioNav";
 import Skill from "../components/SkillCircle";
 import ContactForm from "../components/ContactForm";
 import profileImage from "../public/images/profile.png";
-import skills from "../utils/skills";
+import skills from "../data/skills";
 interface Props {}
 
 //TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
