@@ -2,6 +2,7 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 interface Props {
   //budgetOptions: string[];
 }
@@ -66,7 +67,11 @@ export default function ContactForm(props: Props) {
               <p>Social Media</p>
             </Col>
             <Col md={3}>
-              <button>Test</button>
+              <div className="d-grid gap-2">
+                <Button variant="primary" size="sm">
+                  Abschicken
+                </Button>
+              </div>
             </Col>
             <Col md={3}>
               <p>Social Media</p>
