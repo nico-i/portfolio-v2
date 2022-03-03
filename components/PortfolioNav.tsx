@@ -6,6 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Logo from "../public/images/emblem.svg";
 
 export default function PortfolioNav(props) {
+  //TODO move these to /data
   const pages = ["über mich", "projekte", "kontakt"];
   const links = ["#about", "#projects", "#contact"];
   return (
