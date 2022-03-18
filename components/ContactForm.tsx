@@ -19,7 +19,7 @@ interface Props {
 
 export default function ContactForm(props: Props) {
   return (
-    <Form className="mb-3 mb-lg-4 mb-md-2 px-2 px-md-0">
+    <Form className="mb-3 mb-md-2 px-2 px-md-0">
       <Row>
         <Col xs={12} lg={3}>
           <h2 className="text-start mb-4">
