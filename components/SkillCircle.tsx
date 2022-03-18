@@ -65,7 +65,7 @@ export default function Skill(props: Props) {
                     trailColor: "transparent",
                   })}
                 >
-                  <props.icon fill={pathColor} />
+                  <props.icon size={30} fill={pathColor} />
                 </CircularProgressbarWithChildren>
               );
             }}
