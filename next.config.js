@@ -1,4 +1,7 @@
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+})
+module.exports = withBundleAnalyzer({
     "plugins": [
         "postcss-flexbugs-fixes", [
             "postcss-preset-env",
@@ -28,4 +31,10 @@ module.exports = {
         domains: ['nico-ismaili.netlify.app'],
         basepath: '/images',
     },
-}
+    i18n: {
+        // Supported Locales
+        locales: ["en-US", "de"],
+        // Default Locale
+        defaultLocale: "en-US",
+    },
+});
