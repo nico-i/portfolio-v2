@@ -33,10 +33,10 @@ export default function ContactForm(props: Props) {
           </h2>
           <Form.Group
             className="mb-3 w-100"
-            controlId="exampleForm.ControlInput1"
+            controlId="contactForm.BudgetSelect"
           >
             <Form.Label>Budget</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Budget selection">
               <option value="1000">€1.000 – €1.500</option>
               <option value="1500">€1.500 – €2.000</option>
               <option value="2500">€2.500 – €3.000</option>
@@ -45,14 +45,14 @@ export default function ContactForm(props: Props) {
           </Form.Group>
           <Form.Group
             className="mb-3 w-100"
-            controlId="exampleForm.ControlInput1"
+            controlId="contactForm.NameInput"
           >
             <Form.Label>Vor- & Nachname</Form.Label>
             <Form.Control type="text" placeholder="John Doe" />
           </Form.Group>
           <Form.Group
             className="mb-3 w-100"
-            controlId="exampleForm.ControlInput1"
+            controlId="contactForm.EmailInput"
           >
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="name@example.com" />
@@ -61,7 +61,7 @@ export default function ContactForm(props: Props) {
         <Col xs={12} lg={9}>
           <Form.Group
             className="mb-3 w-100"
-            controlId="exampleForm.ControlTextarea1"
+            controlId="contactForm.MessageTextarea"
           >
             <Form.Label>Nachricht</Form.Label>
             <Form.Control className="mb-lg-4" as="textarea" rows={14} />

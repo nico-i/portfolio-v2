@@ -35,7 +35,7 @@ export default function Home(props: Props) {
       </Head>
       <PortfolioNav />
       <div className="typed-heading mx-lg-5 mx-3">
-        <a className="anchor" id="home" style={{ top: "-20rem" }}></a>
+        <span className="anchor" id="home" style={{ top: "-20rem" }}></span>
         <Row>
           <Col>
             <h1>
@@ -57,7 +57,7 @@ export default function Home(props: Props) {
         </Row>
       </div>
       <Container className="section__greeting">
-        <a className="anchor" id="about" style={{ top: "-14rem" }}></a>
+        <span className="anchor" id="about" style={{ top: "-14rem" }}></span>
         <Row>
           <Col xs={6} md={4} className="mx-auto my-3 d-none d-lg-block">
             <Image
@@ -133,6 +133,7 @@ export default function Home(props: Props) {
         </Row>
       </Container>
       <Container className="contact-form">
+      <span className="anchor" id="contact"></span>
         <ContactForm />
       </Container>
     </>
