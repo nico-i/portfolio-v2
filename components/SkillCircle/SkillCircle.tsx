@@ -30,7 +30,7 @@ const SkillCircle = ({
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     setProgress(inView ? percentage : 0);
-  });
+  }, [inView, percentage]);
   const relSize = 0.8;
   const strokeWidth = size * 0.075;
   const viewBox = "0 0 ${size} ${size}";
@@ -58,7 +58,7 @@ const SkillCircle = ({
           transform={"rotate(-90 " + size / 2 + " " + size / 2 + ")"}
           strokeDasharray={dash + "," + (circumference - dash)}
           strokeLinecap="round"
-          style={{ transition: "stroke-dasharray " + duration }}
+          style={{ transition: "stroke-dasharray " + duration + "s" }}
         ></circle>
       </svg>
       <Icon
