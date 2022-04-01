@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Check Prettier standards
+npm run check-format
+# Check ESLint Standards
+npm run check-lint 
+# Check tsconfig standards
+npm run check-types
+# If everything passes... Now we can commit
+npm run build
