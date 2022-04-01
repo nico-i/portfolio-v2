@@ -18,6 +18,7 @@ interface Props {}
 //TODO Make text fade in with react-spring
 //TODO Smooth scrolling and automatic active navitems
 //TODO Add scrollable timeline https://codesandbox.io/s/brave-kepler-fdbzv?file=/src/App.js:2443-2454
+//TODO Make sections fade in https://play.tailwindcss.com/BdrgWoC3kG
 export default function Home(props: Props) {
   const { ref, inView } = useInView({
     threshold: 0,
