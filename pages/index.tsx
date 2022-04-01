@@ -6,11 +6,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { useInView } from "react-intersection-observer";
 import Typewriter from "typewriter-effect";
+import ContactForm from "../components/ContactForm";
 import PortfolioNav from "../components/PortfolioNav";
 import Skill from "../components/SkillCircle";
-import ContactForm from "../components/ContactForm";
+import Skills from "../components/skills";
 import profileImage from "../public/images/profile.png";
-import skills from "../data/skills";
+
 interface Props {}
 
 //TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
@@ -111,7 +112,7 @@ export default function Home(props: Props) {
       </Container>
       <Container className="section" style={{ maxWidth: "600px" }}>
         <Row className="justify-content-center" ref={ref}>
-          {skills.map((entry) => (
+          {Skills.map((entry) => (
             <Col
               sm={4}
               md={3}
@@ -133,7 +134,7 @@ export default function Home(props: Props) {
         </Row>
       </Container>
       <Container className="contact-form">
-      <span className="anchor" id="contact"></span>
+        <span className="anchor" id="contact"></span>
         <ContactForm />
       </Container>
     </>
