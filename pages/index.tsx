@@ -15,6 +15,7 @@ const Home: NextPage = () => {
           <SkillCircle
             key={entry.skill}
             percentage={entry.percentage}
+            duration={1}
             size={80}
             bgColor="#007dff"
             pathColor="#f7f7f7"

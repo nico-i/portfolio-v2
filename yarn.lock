@@ -72,7 +72,7 @@
   "resolved" "https://registry.npmjs.org/@next/env/-/env-12.1.4.tgz"
   "version" "12.1.4"
 
-"@next/eslint-plugin-next@12.1.4":
+"@next/eslint-plugin-next@^12.1.4", "@next/eslint-plugin-next@12.1.4":
   "integrity" "sha512-BRy565KVK6Cdy8LHaHTiwctLqBu/RT84RLpESug70BDJzBlV8QBvODyx/j7wGhvYqp9kvstM05lyb6JaTkSCcQ=="
   "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-12.1.4.tgz"
   "version" "12.1.4"
