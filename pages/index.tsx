@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import SkillCircle from "../components/SkillCircle/SkillCircle";
-import Skills from "../components/Skills/Skills";
+import Skills from "../data/Skills";
 
 const Home: NextPage = () => {
   const { ref, inView } = useInView({
