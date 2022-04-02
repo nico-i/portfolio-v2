@@ -18,9 +18,9 @@ const Home: NextPage = () => {
             options={{
               strings: [
                 "Hi.",
-                'Mein Name ist <span class="text-primary">Nico</span> Ismaili.',
-                'Ich bin ein <span class="text-primary">Full-Stack<br />Entwickler</span> aus Wiesbaden, Deutsch&shyland.',
-                'Willkommen zu meinem <span class="text-primary">Portfolio.</span>',
+                'Mein Name ist <span class="highlighted">Nico</span> Ismaili.',
+                'Ich bin ein <span class="highlighted">Full-Stack<br />Entwickler</span> aus Wiesbaden, Deutsch&shyland.',
+                'Willkommen zu meinem <span class="highlighted">Portfolio.</span>',
               ],
               autoStart: true,
               loop: true,

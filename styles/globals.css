@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply bg-light dark:bg-dark text-dark;
+}
+
+.highlighted {
+  @apply text-primary;
+}
