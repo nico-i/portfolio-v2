@@ -1,0 +1,11 @@
+.typedHero {
+  @apply text-[11.5vmin] px-20 font-semibold leading-tight;
+}
+
+.section {
+  @apply flex items-center justify-center w-full h-screen snap-start;
+}
+
+.siteWrapper {
+  @apply snap-y snap-mandatory h-screen w-full overflow-scroll;
+}
