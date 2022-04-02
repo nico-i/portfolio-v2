@@ -1,5 +1,5 @@
 .skillWrapper {
-  @apply relative inline;
+  @apply relative;
 }
 
 .skillIcon {

@@ -40,7 +40,7 @@ const SkillCircle = ({
   const iconSize = size * 0.35;
   return (
     <div className={styles.skillWrapper}>
-      <svg width={size} height={size} viewBox={viewBox} className="inline">
+      <svg width={size} height={size} viewBox={viewBox}>
         <circle
           r={radius}
           fill={bgColor}
