@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply bg-light dark:bg-dark text-dark;
+body {
+  @apply bg-light dark:bg-dark text-dark dark:text-light;
 }
 
 .highlighted {
