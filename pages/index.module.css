@@ -1,15 +1,15 @@
 .typedHero {
-  @apply text-[11.5vmin] px-20 font-semibold leading-tight;
+  @apply text-[11.5vmin] px-6 md:px-20 font-semibold leading-tight;
 }
 
 .section {
   @apply flex items-center justify-center w-full h-screen snap-start;
 }
 
-.siteWrapper {
+.sectionsWrapper {
   @apply snap-y snap-mandatory w-full h-screen overflow-scroll;
 }
 
 .skillGrid {
-  @apply grid grid-cols-6 gap-4;
+  @apply grid grid-cols-3 md:grid-cols-6 gap-4;
 }
