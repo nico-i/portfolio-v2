@@ -1,19 +1,23 @@
 import type { NextPage } from "next";
+import { useTheme } from "next-themes";
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import resolveConfig from "tailwindcss/resolveConfig";
 import TypreWriter from "typewriter-effect";
 import NavBar from "../components/NavBar/NavBar";
 import SkillCircle from "../components/SkillCircle/SkillCircle";
 import Skills from "../data/Skills";
+import tailwindConfig from "../tailwind.config.js";
 import styles from "./index.module.css";
-
 const Home: NextPage = () => {
   const { ref, inView } = useInView({
     threshold: 0,
   });
+  const tailwindCfg = resolveConfig(tailwindConfig);
+  const { theme, setTheme } = useTheme();
   return (
     <>
-      <NavBar />
+      <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
         <section className={styles.section} style={{ justifyContent: "start" }}>
           <h1 className={styles.typedHero}>
@@ -41,8 +45,12 @@ const Home: NextPage = () => {
                   percentage={entry.percentage}
                   duration={1.8}
                   size={80}
-                  bgColor="#007dff"
-                  pathColor="#f7f7f7"
+                  bgColor={
+                    theme === "dark"
+                      ? tailwindCfg.theme.colors["primary_dark"]
+                      : tailwindCfg.theme.colors["primary"]
+                  }
+                  pathColor={tailwindCfg.theme.colors["light"]}
                   inView={inView}
                   Icon={entry.Icon}
                 />
