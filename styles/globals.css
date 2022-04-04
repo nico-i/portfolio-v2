@@ -7,5 +7,5 @@ body {
 }
 
 .highlighted {
-  @apply text-primary;
+  @apply text-primary dark:text-primary_dark;
 }
