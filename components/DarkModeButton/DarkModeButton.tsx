@@ -17,10 +17,9 @@ export default function DarkModeButton({ onThemeChange, theme }: Props) {
       aria-label="Toggle Dark Mode"
       type="button"
       onClick={() => onThemeChange(theme === "dark" ? "light" : "dark")}
+      className={styles.themeToggle}
     >
-      <div className={styles.themeToggle}>
-        {theme === "dark" ? <RiSunFill /> : <RiMoonFill />}
-      </div>
+      {theme === "dark" ? <RiSunFill /> : <RiMoonFill />}
     </button>
   );
 }
