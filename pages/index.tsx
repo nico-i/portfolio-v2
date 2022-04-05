@@ -19,9 +19,14 @@ const Home: NextPage = () => {
     <>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
-        <section className={styles.section} style={{ justifyContent: "start" }}>
+        <section
+          id="home"
+          className={styles.section}
+          style={{ justifyContent: "start" }}
+        >
           <h1 className={styles.typedHero}>
             <TypreWriter
+              aria-hidden="true"
               options={{
                 strings: [
                   "Hi.",
@@ -34,6 +39,10 @@ const Home: NextPage = () => {
                 delay: Math.floor(Math.random() * (130 - 90 + 1)) + 90,
               }}
             />
+            <span className={styles.a11yHero}>
+              Hi, mein Name ist Nico Ismaili. Ich bin ein Full-Stack Entwickler
+              aus Wiesbaden, Deutschland. Willkommen zu meinem Portfolio.
+            </span>
           </h1>
         </section>
         <section className={styles.section} ref={ref}>

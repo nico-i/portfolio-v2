@@ -7,9 +7,13 @@
 }
 
 .sectionsWrapper {
-  @apply snap-y snap-mandatory w-full h-screen overflow-scroll;
+  @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
 }
 
 .skillGrid {
   @apply grid grid-cols-3 md:grid-cols-6 gap-4;
+}
+
+.a11yHero {
+  @apply sr-only;
 }
