@@ -15,7 +15,7 @@ import {
   SiReact,
 } from "react-icons/si";
 
-const skills = [
+const SkillsData = [
   {
     skill: "HTML5",
     Icon: DiHtml5,
@@ -102,4 +102,4 @@ const skills = [
   },
 ].sort((a, b) => b.percentage - a.percentage);
 
-export default skills;
+export default SkillsData;

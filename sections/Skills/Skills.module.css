@@ -1,0 +1,3 @@
+.skillGrid {
+  @apply grid grid-cols-3 md:grid-cols-6 gap-4;
+}
