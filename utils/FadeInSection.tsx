@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { ReactNode } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface Props {
   id?: string;
@@ -11,20 +12,11 @@ interface Props {
  * @return {React.ReactNode}
  */
 function FadeInSection({ children, id }: Props) {
-  const [isVisible, setVisible] = React.useState(false);
-  const domRef = React.useRef() as React.MutableRefObject<HTMLElement>;
-  React.useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => setVisible(entry.isIntersecting));
-    });
-    observer.observe(domRef.current);
-  }, []);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
   return (
-    <section
-      id={id}
-      className={classNames({ "fade-in-up": isVisible })}
-      ref={domRef}
-    >
+    <section id={id} className={classNames({ "fade-in-up": inView })} ref={ref}>
       {children}
     </section>
   );
