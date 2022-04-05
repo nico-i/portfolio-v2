@@ -3,13 +3,13 @@
 }
 
 .profilePicWrapper {
-  @apply max-w-xs justify-self-center items-center flex px-8 mt-12 md:mt-0;
+  @apply hidden md:flex max-w-xs justify-self-center items-center;
 }
 
 .profilePic {
-  @apply rounded-full bg-primary dark:bg-primary_dark outline outline-light dark:outline-dark outline-offset-[-1];
+  @apply transition-[outline-color] rounded-full bg-primary dark:bg-primary_dark outline outline-light dark:outline-dark outline-offset-[-1];
 }
 
 .aboutText {
-  @apply text-justify max-w-2xl justify-self-start px-8;
+  @apply max-w-2xl justify-self-start;
 }
