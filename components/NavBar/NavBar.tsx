@@ -52,7 +52,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
             </a>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#about">
+            <a className={styles.navLink} href="#contact">
               kontakt
             </a>
           </li>
