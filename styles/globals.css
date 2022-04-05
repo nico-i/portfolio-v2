@@ -3,7 +3,19 @@
 @tailwind utilities;
 
 body {
-  @apply bg-light dark:bg-dark text-dark dark:text-light;
+  @apply bg-light dark:bg-dark text-dark dark:text-light font-medium text-lg;
+}
+
+h2 {
+  @apply font-semibold text-4xl mb-8;
+}
+
+a {
+  @apply decoration-primary underline decoration-2 underline-offset-4;
+}
+
+p {
+  @apply mb-4;
 }
 
 .highlighted {

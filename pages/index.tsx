@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useTheme } from "next-themes";
+import Head from "next/head";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -9,6 +10,9 @@ import SkillCircle from "../components/SkillCircle/SkillCircle";
 import Skills from "../data/Skills";
 import tailwindConfig from "../tailwind.config.js";
 import styles from "./index.module.css";
+import Image from "next/image";
+import profileImage from "../public/images/profile.png";
+
 const Home: NextPage = () => {
   const { ref, inView } = useInView({
     threshold: 0,
@@ -17,6 +21,16 @@ const Home: NextPage = () => {
   const { theme, setTheme } = useTheme();
   return (
     <>
+      <Head>
+        <title>Nico Ismaili</title>
+        <meta property="og:title" content="Portfolio von Nico Ismaili" />
+        <meta name="description" content="Willkommen zu meinem Portfolio!" />
+        <meta property="og:url" content="https://nico-ismaili.netlify.app/" />
+        <meta
+          property="og:description"
+          content="Willkommen zu meinem Portfolio! Hier finden Sie meine Kontaktdaten, vergangene Projekte und Qualifikationen."
+        ></meta>
+      </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
         <section
@@ -44,6 +58,46 @@ const Home: NextPage = () => {
               aus Wiesbaden, Deutschland. Willkommen zu meinem Portfolio.
             </span>
           </h1>
+        </section>
+        <section className={styles.section} id="about">
+          <div className={styles.aboutWrapper}>
+            <div className={styles.profilePicWrapper}>
+              <Image
+                priority
+                alt="Profile image"
+                className={styles.profilePic}
+                src={profileImage}
+              />
+            </div>
+            <div className={styles.aboutText}>
+              <h2>
+                Darf ich mich <span className="highlighted">vorstellen?</span>
+              </h2>
+              <p>
+                Wie bereits erwähnt heiße ich Nico. Ich studiere{" "}
+                <a className="link" href="#">
+                  Medieninformatik
+                </a>{" "}
+                im 5. Semester an der{" "}
+                <a className="link--underlined" href="#">
+                  Hochschule RheinMain
+                </a>{" "}
+                in Wiesbaden.
+              </p>
+              <p>
+                Parallel zu meinem Studium arbeite ich als Werkstudent bei{" "}
+                <a className="link--underlined" href="#">
+                  forsuxess
+                </a>
+                , ein Unternehmen dass sich auf HR-IT spezialisiert.
+              </p>
+              <p>
+                In meiner Freizeit widme ich mich der <a href="#">Fotografie</a>{" "}
+                oder halte mich auf dem Laufenden was die neueste Technik
+                angeht.
+              </p>
+            </div>
+          </div>
         </section>
         <section className={styles.section} ref={ref}>
           <div>

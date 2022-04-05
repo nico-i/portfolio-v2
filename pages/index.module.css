@@ -17,3 +17,19 @@
 .a11yHero {
   @apply sr-only;
 }
+
+.aboutWrapper {
+  @apply flex gap-8 flex-wrap justify-center;
+}
+
+.profilePicWrapper {
+  @apply max-w-xs justify-self-center items-center flex px-8 mt-12 md:mt-0;
+}
+
+.profilePic {
+  @apply rounded-full;
+}
+
+.aboutText {
+  @apply text-justify max-w-2xl justify-self-start px-8;
+}
