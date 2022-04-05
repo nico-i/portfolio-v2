@@ -9,3 +9,10 @@ body {
 .highlighted {
   @apply text-primary dark:text-primary_dark;
 }
+.showMenu {
+  @apply translate-x-0;
+}
+
+.hideMenu {
+  @apply translate-x-full;
+}
