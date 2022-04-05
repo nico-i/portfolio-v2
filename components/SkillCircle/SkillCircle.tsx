@@ -58,7 +58,14 @@ const SkillCircle = ({
           transform={"rotate(-90 " + size / 2 + " " + size / 2 + ")"}
           strokeDasharray={dash + "," + (circumference - dash)}
           strokeLinecap="round"
-          style={{ transition: "stroke-dasharray " + duration + "s" }}
+          style={
+            inView
+              ? {
+                  transition: "stroke-dasharray " + duration + "s",
+                  transitionDelay: "0.3s",
+                }
+              : { transition: "none" }
+          }
         ></circle>
       </svg>
       <Icon
