@@ -19,7 +19,7 @@ export default function DarkModeButton({ onThemeChange, theme }: Props) {
       onClick={() => onThemeChange(theme === "dark" ? "light" : "dark")}
       className={styles.themeToggle}
     >
-      {theme === "dark" ? <RiSunFill /> : <RiMoonFill />}
+      {theme === "light" ? <RiMoonFill /> : <RiSunFill />}
     </button>
   );
 }
