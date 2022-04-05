@@ -62,7 +62,7 @@ const SkillCircle = ({
             inView
               ? {
                   transition: "stroke-dasharray " + duration + "s",
-                  transitionDelay: "0.3s",
+                  transitionDelay: "0.1s",
                 }
               : { transition: "none" }
           }

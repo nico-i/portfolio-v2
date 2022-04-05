@@ -16,7 +16,7 @@ interface Props {
  */
 export default function Skills({ tailwindCfg, theme }: Props) {
   const { ref, inView } = useInView({
-    threshold: 0,
+    threshold: 0.1,
   });
   return (
     <section ref={ref} className={classNames({ "fade-in-up": inView })}>
