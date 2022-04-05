@@ -18,6 +18,28 @@ p {
   @apply mb-4 text-justify;
 }
 
+section {
+  @apply flex items-center justify-center w-full h-screen snap-start px-8;
+}
+
+.fade-in-up {
+  animation: fade-in 0.9s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.1;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .highlighted {
   @apply text-primary dark:text-primary_dark;
 }

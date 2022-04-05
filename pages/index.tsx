@@ -2,19 +2,16 @@ import type { NextPage } from "next";
 import { useTheme } from "next-themes";
 import Head from "next/head";
 import React from "react";
-import { useInView } from "react-intersection-observer";
 import resolveConfig from "tailwindcss/resolveConfig";
 import NavBar from "../components/NavBar/NavBar";
-import tailwindConfig from "../tailwind.config.js";
-import styles from "./index.module.css";
-import Hero from "../sections/Hero/Hero";
 import About from "../sections/About/About";
+import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
+import tailwindConfig from "../tailwind.config.js";
+import FadeInSection from "../utils/FadeInSection";
+import styles from "./index.module.css";
 
 const Home: NextPage = () => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-  });
   const tailwindCfg = resolveConfig(tailwindConfig);
   const { theme, setTheme } = useTheme();
   return (
@@ -31,28 +28,22 @@ const Home: NextPage = () => {
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
-        <section
-          id="home"
-          className={styles.section}
-          style={{ justifyContent: "start" }}
-        >
+        <section id="home" style={{ justifyContent: "start" }}>
           <Hero />
         </section>
-        <section className={styles.section} id="about">
+        <FadeInSection id="about">
           <About />
-        </section>
-        <section className={styles.section}>
+        </FadeInSection>
+        <FadeInSection>
           <div className={styles.queryWrapper}>
             <h2>
               Was ich in <span className="highlighted">letzter Zeit</span> so
               getrieben habe?
             </h2>
           </div>
-        </section>
-        <section className={styles.section} ref={ref}>
-          <Skills theme={theme} tailwindCfg={tailwindCfg} inView={inView} />
-        </section>
-        <section className={styles.section}>
+        </FadeInSection>
+        <Skills theme={theme} tailwindCfg={tailwindCfg} />
+        <FadeInSection id="contact">
           <div className={styles.contactWrapper}>
             <h2>
               Lassen Sie uns etwas{" "}
@@ -60,7 +51,7 @@ const Home: NextPage = () => {
               schaffen.
             </h2>
           </div>
-        </section>
+        </FadeInSection>
       </main>
     </>
   );

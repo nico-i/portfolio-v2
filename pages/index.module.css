@@ -1,7 +1,3 @@
-.section {
-  @apply flex items-center justify-center w-full h-screen snap-start px-8;
-}
-
 .sectionsWrapper {
   @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
 }

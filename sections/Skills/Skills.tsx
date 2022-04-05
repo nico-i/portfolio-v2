@@ -1,11 +1,12 @@
+import classNames from "classnames";
 import React from "react";
+import { useInView } from "react-intersection-observer";
 import SkillCircle from "../../components/SkillCircle/SkillCircle";
 import SkillsData from "../../data/SkillsData";
 import styles from "./Skills.module.css";
 
 interface Props {
   theme: string;
-  inView: boolean;
   tailwindCfg: any;
 }
 
@@ -13,9 +14,12 @@ interface Props {
  *
  * @return {React.ReactNode}
  */
-export default function Skills({ tailwindCfg, theme, inView }: Props) {
+export default function Skills({ tailwindCfg, theme }: Props) {
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
   return (
-    <div>
+    <section ref={ref} className={classNames({ "fade-in-up": inView })}>
       <div className={styles.skillGrid}>
         {SkillsData.map((entry) => (
           <SkillCircle
@@ -34,6 +38,6 @@ export default function Skills({ tailwindCfg, theme, inView }: Props) {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
