@@ -1,7 +1,3 @@
 .sectionsWrapper {
   @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
 }
-
-.contactWrapper {
-  @apply grid grid-cols-4 content-center max-w-7xl;
-}

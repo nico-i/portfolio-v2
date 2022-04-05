@@ -5,6 +5,7 @@ import React from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import NavBar from "../components/NavBar/NavBar";
 import About from "../sections/About/About";
+import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
 import tailwindConfig from "../tailwind.config.js";
@@ -44,13 +45,7 @@ const Home: NextPage = () => {
         </FadeInSection>
         <Skills theme={theme} tailwindCfg={tailwindCfg} />
         <FadeInSection id="contact">
-          <div className={styles.contactWrapper}>
-            <h2>
-              Lassen Sie uns etwas{" "}
-              <span className="highlighted">großartiges</span> zusammen
-              schaffen.
-            </h2>
-          </div>
+          <Contact />
         </FadeInSection>
       </main>
     </>
