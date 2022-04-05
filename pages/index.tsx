@@ -11,7 +11,7 @@ import Skills from "../data/Skills";
 import tailwindConfig from "../tailwind.config.js";
 import styles from "./index.module.css";
 import Image from "next/image";
-import profileImage from "../public/images/profile.png";
+import profileImage from "../public/images/pb.png";
 
 const Home: NextPage = () => {
   const { ref, inView } = useInView({

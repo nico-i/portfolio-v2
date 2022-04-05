@@ -27,7 +27,7 @@
 }
 
 .profilePic {
-  @apply rounded-full;
+  @apply rounded-full bg-primary dark:bg-primary_dark outline outline-light dark:outline-dark outline-offset-[-1];
 }
 
 .aboutText {
