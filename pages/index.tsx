@@ -41,8 +41,25 @@ const Home: NextPage = () => {
         <section className={styles.section} id="about">
           <About />
         </section>
+        <section className={styles.section}>
+          <div className={styles.queryWrapper}>
+            <h2>
+              Was ich in <span className="highlighted">letzter Zeit</span> so
+              getrieben habe?
+            </h2>
+          </div>
+        </section>
         <section className={styles.section} ref={ref}>
           <Skills theme={theme} tailwindCfg={tailwindCfg} inView={inView} />
+        </section>
+        <section className={styles.section}>
+          <div className={styles.contactWrapper}>
+            <h2>
+              Lassen Sie uns etwas{" "}
+              <span className="highlighted">großartiges</span> zusammen
+              schaffen.
+            </h2>
+          </div>
         </section>
       </main>
     </>

@@ -1,7 +1,11 @@
 .section {
-  @apply flex items-center justify-center w-full h-screen snap-start;
+  @apply flex items-center justify-center w-full h-screen snap-start px-8;
 }
 
 .sectionsWrapper {
   @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
+}
+
+.contactWrapper {
+  @apply grid grid-cols-4 content-center max-w-7xl;
 }
