@@ -1,5 +1,5 @@
 .typedHero {
-  @apply text-[11.5vmin] px-6 md:px-20 font-semibold leading-tight;
+  @apply text-[11.5vmin] md:px-10 font-semibold leading-tight;
 }
 
 .a11yHero {
