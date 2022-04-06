@@ -5,6 +5,8 @@ import LogoLight from "../../../public/images/emblem_light.svg";
 import LogoDark from "../../../public/images/emblem_dark.svg";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
+import navLinks from "../../data/navData.json";
+import { useTranslation } from "next-i18next";
 
 interface Props {
   onThemeChange: Function;
@@ -21,11 +23,12 @@ export default function NavBar({ onThemeChange, theme }: Props) {
   useEffect(() => {
     setLogo(theme == "light" ? <LogoLight /> : <LogoDark />);
   }, [theme]);
+  const { t } = useTranslation("nav");
   return (
     <header className={styles.nav}>
       <a href="#home">
         <div className="w-12 h-12">{logo}</div>
-        <span className="sr-only">Home</span>
+        <span className="sr-only">{t("home")}</span>
       </a>
       <nav>
         <button
@@ -42,33 +45,17 @@ export default function NavBar({ onThemeChange, theme }: Props) {
             { "translate-x-full": !isMenuOpen }
           )}
         >
-          <li className={styles.navItem}>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className={styles.navLink}
-              href="#about"
-            >
-              über mich
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className={styles.navLink}
-              href="#projects"
-            >
-              projekte
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a
-              onClick={() => setIsMenuOpen(false)}
-              className={styles.navLink}
-              href="#contact"
-            >
-              kontakt
-            </a>
-          </li>
+          {navLinks.map((navLink) => (
+            <li className={styles.navItem} key={navLink.text}>
+              <a
+                onClick={() => setIsMenuOpen(false)}
+                className={styles.navLink}
+                href={navLink.href}
+              >
+                {t(navLink.text)}
+              </a>
+            </li>
+          ))}
           <li className={styles.modeToggle}>
             <DarkModeButton onThemeChange={onThemeChange} theme={theme} />
           </li>
