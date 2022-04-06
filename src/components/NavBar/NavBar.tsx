@@ -24,8 +24,8 @@ export default function NavBar({ onThemeChange, theme }: Props) {
   return (
     <header className={styles.nav}>
       <a href="#home">
-        <div className={styles.logo}>{logo}</div>
-        <span className={styles.a11yLogo}>Home</span>
+        <div className="w-12 h-12">{logo}</div>
+        <span className="sr-only">Home</span>
       </a>
       <nav>
         <button
@@ -38,22 +38,34 @@ export default function NavBar({ onThemeChange, theme }: Props) {
         <ul
           className={classNames(
             styles.navList,
-            { showMenu: isMenuOpen },
-            { hideMenu: !isMenuOpen }
+            { "translate-x-full": isMenuOpen },
+            { "translate-x-0": !isMenuOpen }
           )}
         >
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#about">
+            <a
+              onClick={() => setIsMenuOpen(false)}
+              className={styles.navLink}
+              href="#about"
+            >
               über mich
             </a>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#projects">
+            <a
+              onClick={() => setIsMenuOpen(false)}
+              className={styles.navLink}
+              href="#projects"
+            >
               projekte
             </a>
           </li>
           <li className={styles.navItem}>
-            <a className={styles.navLink} href="#contact">
+            <a
+              onClick={() => setIsMenuOpen(false)}
+              className={styles.navLink}
+              href="#contact"
+            >
               kontakt
             </a>
           </li>

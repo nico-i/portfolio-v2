@@ -1,7 +1,3 @@
 .typedHero {
   @apply text-[11.5vmin] md:px-10 font-semibold leading-tight;
 }
-
-.a11yHero {
-  @apply sr-only;
-}

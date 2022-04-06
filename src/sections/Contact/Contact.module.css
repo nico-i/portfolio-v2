@@ -30,10 +30,6 @@
   @apply h-28 md:h-40 lg:h-96;
 }
 
-.messageField {
-  @apply col-span-4;
-}
-
 .smLink {
   @apply flex text-dark align-middle col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold justify-center md:justify-start;
 }
@@ -52,12 +48,4 @@
 
 .headline {
   @apply text-[1.7rem] md:text-4xl;
-}
-
-.lgShow {
-  @apply hidden lg:inline;
-}
-
-.smShow {
-  @apply inline md:hidden;
 }

@@ -24,7 +24,7 @@ export default function Hero() {
           delay: Math.floor(Math.random() * (130 - 90 + 1)) + 90,
         }}
       />
-      <span className={styles.a11yHero}>{t("full-text")}</span>
+      <span className="sr-only">{t("full-text")}</span>
     </h1>
   );
 }
