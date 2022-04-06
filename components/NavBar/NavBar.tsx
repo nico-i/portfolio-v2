@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import Image from "next/image";
 import React, { useState } from "react";
 import { HiMenu } from "react-icons/hi";
-import darkLogo from "../../public/images/emblem_dark.png";
-import lightLogo from "../../public/images/emblem_light.png";
+import LogoLight from "../../public/images/emblem_light.svg";
+import LogoDark from "../../public/images/emblem_dark.svg";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
 
@@ -20,11 +19,10 @@ export default function NavBar({ onThemeChange, theme }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className={styles.nav}>
-      <a href="#home">
-        <Image
-          src={theme === "light" ? lightLogo : darkLogo}
-          alt="Nico Ismaili Logo"
-        />
+      <a href="#home<">
+        <div className={styles.logo}>
+          {theme === "dark" ? <LogoDark size={50} /> : <LogoLight />}
+        </div>
       </a>
       <nav>
         <button

@@ -6,6 +6,10 @@
   @apply transition text-dark dark:text-light text-3xl md:hidden;
 }
 
+.logo {
+  @apply w-12 h-12;
+}
+
 .navLink {
   background-size: 0% 0.3em;
   background-position-y: 110%;
