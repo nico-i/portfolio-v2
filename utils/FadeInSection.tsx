@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 interface Props {
   id?: string;
+  style?: React.CSSProperties;
   children: ReactNode | ReactNode[];
 }
 
@@ -11,12 +12,17 @@ interface Props {
  *
  * @return {React.ReactNode}
  */
-function FadeInSection({ children, id }: Props) {
+function FadeInSection({ children, id, style }: Props) {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
   return (
-    <section id={id} className={classNames({ "fade-in-up": inView })} ref={ref}>
+    <section
+      id={id}
+      style={style}
+      className={classNames({ "fade-in-up": inView })}
+      ref={ref}
+    >
       {children}
     </section>
   );

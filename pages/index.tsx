@@ -43,6 +43,18 @@ const Home: NextPage = () => {
             </h2>
           </div>
         </FadeInSection>
+        <FadeInSection style={{ justifyContent: "start" }}>
+          <div className={styles.introSkills}>
+            <h2>
+              Ich habe auch<br/><span className="highlighted">etwas Zeit</span> in
+              mich gesteckt.
+            </h2>
+            <p>
+              Und dabei vor allem mein Wissens über neue Technologien und
+              Anwendungen auf Vordermann gebracht.
+            </p>
+          </div>
+        </FadeInSection>
         <Skills theme={theme} tailwindCfg={tailwindCfg} />
         <FadeInSection id="contact">
           <Contact />
