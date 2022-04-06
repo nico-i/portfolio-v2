@@ -1,4 +1,6 @@
 import type { NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
 import React from "react";
@@ -8,11 +10,9 @@ import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
-import tailwindConfig from "../tailwind.config.js";
+import tailwindConfig from "../../tailwind.config.js";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 
 const Home: NextPage = () => {
   const tailwindCfg = resolveConfig(tailwindConfig);
@@ -73,8 +73,7 @@ const Home: NextPage = () => {
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale, ["common", "hero"])),
     },
   };
 }

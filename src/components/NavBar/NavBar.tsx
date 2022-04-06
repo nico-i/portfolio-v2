@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { HiMenu } from "react-icons/hi";
-import LogoLight from "../../public/images/emblem_light.svg";
-import LogoDark from "../../public/images/emblem_dark.svg";
+import LogoLight from "../../../public/images/emblem_light.svg";
+import LogoDark from "../../../public/images/emblem_dark.svg";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
 
