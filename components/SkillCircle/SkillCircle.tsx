@@ -33,7 +33,7 @@ const SkillCircle = ({
   }, [inView, percentage]);
   const relSize = 0.8;
   const strokeWidth = size * 0.075;
-  const viewBox = "0 0 ${size} ${size}";
+  const viewBox = "0 0 " + size + " " + size;
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * relSize * Math.PI * 2;
   const dash = (progress * circumference) / 100;
@@ -46,7 +46,7 @@ const SkillCircle = ({
           fill={bgColor}
           cy={size / 2}
           cx={size / 2}
-          strokeWidth={"${strokeWidth}px"}
+          strokeWidth={strokeWidth + "px"}
         ></circle>
         <circle
           fill="none"
