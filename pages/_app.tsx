@@ -1,3 +1,4 @@
+import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 import { AppProps } from "next/app";
 import React from "react";
@@ -16,4 +17,4 @@ function PortfolioApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default PortfolioApp;
+export default appWithTranslation(PortfolioApp);
