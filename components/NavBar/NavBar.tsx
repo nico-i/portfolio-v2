@@ -22,7 +22,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
     <header className={styles.nav}>
       <a href="#home">
         <Image
-          src={theme === "dark" ? darkLogo : lightLogo}
+          src={theme === "light" ? lightLogo : darkLogo}
           alt="Nico Ismaili Logo"
           height={50}
         />
