@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import LogoLight from "../../public/images/emblem_light.svg";
 import LogoDark from "../../public/images/emblem_dark.svg";
@@ -17,12 +17,14 @@ interface Props {
  */
 export default function NavBar({ onThemeChange, theme }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logo, setLogo] = useState(<LogoLight />);
+  useEffect(() => {
+    setLogo(theme == "light" ? <LogoLight /> : <LogoDark />);
+  }, [theme]);
   return (
     <header className={styles.nav}>
       <a href="#home<">
-        <div className={styles.logo}>
-          {theme === "light" ? <LogoLight /> : <LogoDark />}
-        </div>
+        <div className={styles.logo}>{logo}</div>
       </a>
       <nav>
         <button
