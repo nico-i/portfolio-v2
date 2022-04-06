@@ -1,0 +1,15 @@
+.aboutWrapper {
+  @apply flex gap-8 flex-wrap justify-center;
+}
+
+.profilePicWrapper {
+  @apply hidden md:flex max-w-xs justify-self-center items-center;
+}
+
+.profilePic {
+  @apply transition-[outline-color] rounded-full bg-primary dark:bg-primary_dark outline outline-light dark:outline-dark outline-offset-[-1];
+}
+
+.aboutText {
+  @apply max-w-2xl justify-self-start;
+}

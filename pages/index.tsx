@@ -1,26 +1,20 @@
+import type { NextPage } from "next";
+import { useTheme } from "next-themes";
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import { useInView } from "react-intersection-observer";
-import Typewriter from "typewriter-effect";
-import PortfolioNav from "../components/PortfolioNav";
-import Skill from "../components/SkillCircle";
-import ContactForm from "../components/ContactForm";
-import profileImage from "../public/images/profile.png";
-import skills from "../data/skills";
-interface Props {}
+import resolveConfig from "tailwindcss/resolveConfig";
+import NavBar from "../components/NavBar/NavBar";
+import About from "../sections/About/About";
+import Contact from "../sections/Contact/Contact";
+import Hero from "../sections/Hero/Hero";
+import Skills from "../sections/Skills/Skills";
+import tailwindConfig from "../tailwind.config.js";
+import FadeInSection from "../utils/FadeInSection";
+import styles from "./index.module.css";
 
-//TODO Add i18n -> https://blog.logrocket.com/complete-guide-internationalization-nextjs/
-//TODO Make text fade in with react-spring
-//TODO Smooth scrolling and automatic active navitems
-//TODO Add scrollable timeline https://codesandbox.io/s/brave-kepler-fdbzv?file=/src/App.js:2443-2454
-export default function Home(props: Props) {
-  const { ref, inView } = useInView({
-    threshold: 0,
-  });
+const Home: NextPage = () => {
+  const tailwindCfg = resolveConfig(tailwindConfig);
+  const { theme, setTheme } = useTheme();
   return (
     <>
       <Head>
@@ -33,109 +27,29 @@ export default function Home(props: Props) {
           content="Willkommen zu meinem Portfolio! Hier finden Sie meine Kontaktdaten, vergangene Projekte und Qualifikationen."
         ></meta>
       </Head>
-      <PortfolioNav />
-      <div className="typed-heading mx-lg-5 mx-3">
-        <span className="anchor" id="home" style={{ top: "-20rem" }}></span>
-        <Row>
-          <Col>
-            <h1>
-              <Typewriter
-                options={{
-                  strings: [
-                    "Hi.",
-                    'Mein Name ist<br/><span class="text-primary">Nico</span> Ismaili.',
-                    'Ich bin ein<span class="d-none d-lg-inline"> </span><br class="d-block d-lg-none"/><span class="text-primary">Full-Stack<br />Entwickler</span> aus<span class="d-none d-md-inline"> </span><br class="d-block d-md-none"/>Wiesbaden, <br /> Deutsch&shyland.',
-                    'Willkommen <br class="d-lg-none d-block"/>zu <br class="d-none d-lg-block"/>meinem <br class="d-lg-none d-block"/><span class="text-primary">Portfolio.</span>',
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  delay: Math.floor(Math.random() * (130 - 90 + 1)) + 90,
-                }}
-              />
-            </h1>
-          </Col>
-        </Row>
-      </div>
-      <Container className="section__greeting">
-        <span className="anchor" id="about" style={{ top: "-14rem" }}></span>
-        <Row>
-          <Col xs={6} md={4} className="mx-auto my-3 d-none d-lg-block">
-            <Image
-              priority
-              alt="Profile image"
-              className="rounded-pill img-fluid"
-              src={profileImage}
-            />
-          </Col>
-          <Col>
+      <NavBar onThemeChange={setTheme} theme={theme} />
+      <main className={styles.sectionsWrapper}>
+        <section id="home" style={{ justifyContent: "start" }}>
+          <Hero />
+        </section>
+        <FadeInSection id="about">
+          <About />
+        </FadeInSection>
+        <FadeInSection>
+          <div className={styles.queryWrapper}>
             <h2>
-              Darf ich mich <span className="text--primary">vorstellen?</span>
-            </h2>
-            <p>
-              Wie bereits erwähnt heiße ich Nico. Ich studiere{" "}
-              <a className="link--underlined" href="#">
-                <span className="text--underlined">Medieninformatik</span>
-              </a>{" "}
-              im 5. Semester an der{" "}
-              <a className="link--underlined" href="#">
-                <span className="text--underlined">Hochschule RheinMain</span>
-              </a>{" "}
-              in Wiesbaden.
-            </p>
-            <p>
-              Parallel zu meinem Studium arbeite ich als Werkstudent bei{" "}
-              <a className="link--underlined" href="#">
-                <span className="text--underlined">forsuxess</span>
-              </a>
-              , ein Unternehmen dass sich auf HR-IT spezialisiert.
-            </p>
-            <p>
-              In meiner Freizeit widme ich mich der{" "}
-              <a href="#">
-                <span className="text--underlined">Fotografie</span>
-              </a>{" "}
-              oder halte mich auf dem Laufenden was die neueste Technik angeht.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="section">
-        <Row>
-          <Col>
-            <h2 className="text-center">
-              Was ich in <span className="text--primary">letzter Zeit</span> so
+              Was ich in <span className="highlighted">letzter Zeit</span> so
               getrieben habe?
             </h2>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="section" style={{ maxWidth: "600px" }}>
-        <Row className="justify-content-center" ref={ref}>
-          {skills.map((entry) => (
-            <Col
-              sm={4}
-              md={3}
-              lg={2}
-              key={entry.skill}
-              className="pb-4"
-              style={{ width: 100 }}
-            >
-              <Skill
-                endPercentage={entry.percentage}
-                skill={entry.skill}
-                backgroundColor="#007dff"
-                pathColor="#f7f7f7"
-                icon={entry.icon}
-                isInView={inView}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-      <Container className="contact-form">
-      <span className="anchor" id="contact"></span>
-        <ContactForm />
-      </Container>
+          </div>
+        </FadeInSection>
+        <Skills theme={theme} tailwindCfg={tailwindCfg} />
+        <FadeInSection id="contact">
+          <Contact />
+        </FadeInSection>
+      </main>
     </>
   );
-}
+};
+
+export default Home;

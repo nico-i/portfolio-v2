@@ -7,93 +7,99 @@ import {
   DiPython,
   DiTypo3,
 } from "react-icons/di";
-import { SiNextdotjs, SiVuedotjs, SiJava, SiWordpress, SiReact, } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiVuedotjs,
+  SiJava,
+  SiWordpress,
+  SiReact,
+} from "react-icons/si";
 
-const skills = [
+const SkillsData = [
   {
     skill: "HTML5",
-    icon: DiHtml5,
+    Icon: DiHtml5,
     percentage: 100,
     subtext: "",
     url: "",
   },
   {
     skill: "CSS3",
-    icon: DiCss3,
-    percentage: 90,
+    Icon: DiCss3,
+    percentage: 85,
     subtext: "",
     url: "",
   },
   {
     skill: "Plain Javascript",
-    icon: DiJsBadge,
+    Icon: DiJsBadge,
     percentage: 85,
     subtext: "",
     url: "",
   },
   {
     skill: "React",
-    icon: SiReact,
+    Icon: SiReact,
     percentage: 70,
     subtext: "",
     url: "",
   },
   {
     skill: "Next.js",
-    icon: SiNextdotjs,
+    Icon: SiNextdotjs,
     percentage: 55,
     subtext: "",
     url: "",
   },
   {
     skill: "Vue.js",
-    icon: SiVuedotjs,
+    Icon: SiVuedotjs,
     percentage: 60,
     subtext: "",
     url: "",
   },
   {
     skill: "Java",
-    icon: SiJava,
+    Icon: SiJava,
     percentage: 100,
     subtext: "",
     url: "",
   },
   {
     skill: "Python",
-    icon: DiPython,
+    Icon: DiPython,
     percentage: 100,
     subtext: "",
     url: "",
   },
   {
     skill: "PostgreSQL",
-    icon: DiPostgresql,
+    Icon: DiPostgresql,
     percentage: 80,
     subtext: "",
     url: "",
   },
   {
     skill: "MongoDB",
-    icon: DiMongodb,
+    Icon: DiMongodb,
     percentage: 80,
     subtext: "",
     url: "",
   },
   {
     skill: "Typo3",
-    icon: DiTypo3,
+    Icon: DiTypo3,
     percentage: 80,
     subtext: "",
     url: "",
   },
   {
     skill: "Wordpress",
-    icon: SiWordpress,
+    Icon: SiWordpress,
     percentage: 100,
     subtext: "",
     url: "",
   },
 ].sort((a, b) => b.percentage - a.percentage);
 
-export default skills;
+export default SkillsData;
