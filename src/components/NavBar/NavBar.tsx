@@ -38,8 +38,8 @@ export default function NavBar({ onThemeChange, theme }: Props) {
         <ul
           className={classNames(
             styles.navList,
-            { "translate-x-full": isMenuOpen },
-            { "translate-x-0": !isMenuOpen }
+            { "translate-x-0": isMenuOpen },
+            { "translate-x-full": !isMenuOpen }
           )}
         >
           <li className={styles.navItem}>
