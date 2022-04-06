@@ -4,11 +4,7 @@
     "meta-desc": "Welcom to my portfolio!",
     "meta-url": "https://nico-ismaili.netlify.app/",
     "meta-og-desc": "Welcom to my portfolio! Here you can find my contact details, past projects and my skills and qualifications!",
-    "timeline-intro-h2-0": "What I do with ",
-    "timeline-intro-h2-1-hl": "my time",
-    "timeline-intro-h2-2": "?",
-    "skills-intro-h2-0": "I also invested<br/>",
-    "skills-intro-h2-1-hl": "some time",
-    "skills-intro-h2-2": " into myself.",
+    "timeline-intro": "What I do with <span class=\"highlighted\">my time</span>?",
+    "skills-intro": "I also invested<br/><span class=\"highlighted\">some time</span> into myself.",
     "skills-intro-p": "In which I predominantly focused on expanding my knowledge on new technologies and modern development tools."
 }

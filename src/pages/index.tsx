@@ -38,9 +38,9 @@ const Home: NextPage = () => {
         <FadeInSection>
           <div>
             <h2>
-              {t("timeline-intro-h2-0")}
-              <span className="highlighted">{t("timeline-intro-h2-1-hl")}</span>
-              {t("timeline-intro-h2-2")}
+              <span
+                dangerouslySetInnerHTML={{ __html: t("timeline-intro") }}
+              ></span>
             </h2>
           </div>
         </FadeInSection>
@@ -48,10 +48,8 @@ const Home: NextPage = () => {
           <div className={styles.introSkills}>
             <h2>
               <span
-                dangerouslySetInnerHTML={{ __html: t("skills-intro-h2-0") }}
+                dangerouslySetInnerHTML={{ __html: t("skills-intro") }}
               ></span>
-              <span className="highlighted">{t("skills-intro-h2-1-hl")}</span>
-              {t("skills-intro-h2-2")}
             </h2>
             <p>{t("skills-intro-p")}</p>
           </div>
