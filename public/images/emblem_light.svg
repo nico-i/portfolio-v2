@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69">
     <g transform="translate(2.204 2.204)">
-        <rect width="62" height="62" fill="none" stroke="#007DFF" stroke-width="4" transform="translate(0.796 1.796)"/>
+        <rect width="62" height="62" fill="none" stroke="#006AFF" stroke-width="4" transform="translate(0.796 1.796)"/>
         <circle cx="34.5" cy="34.5" r="34.5" fill="none" transform="translate(-2.204 -2.204)"/>
         <g>
             <path fill="#262626" fill-rule="evenodd" d="M89.979,72.488l31.6,37.523h2.9v-44.9h-3.856v37.505L89.037,65.114H86.123v44.9h3.856Z" transform="translate(1.987 1.986) translate(-74.777 -57.02)"/>
-            <path fill="#007DFF" fill-rule="evenodd" d="M197.547,234.894v24.06H201.4V239.438Z" transform="translate(1.987 1.986) translate(-168.951 -198.514)"/>
-            <path fill="#007DFF" fill-rule="evenodd" d="M201.4,40.837V16.777h-3.856V36.293Z" transform="translate(1.987 1.986) translate(-168.951 -16.166)"/>
+            <path fill="#006AFF" fill-rule="evenodd" d="M197.547,234.894v24.06H201.4V239.438Z" transform="translate(1.987 1.986) translate(-168.951 -198.514)"/>
+            <path fill="#006AFF" fill-rule="evenodd" d="M201.4,40.837V16.777h-3.856V36.293Z" transform="translate(1.987 1.986) translate(-168.951 -16.166)"/>
         </g>
     </g>
 </svg>

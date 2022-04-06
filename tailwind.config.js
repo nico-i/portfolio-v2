@@ -1,20 +1,20 @@
 module.exports = {
   darkMode: "class",
   content: [
-    "./pages/**/*.{tsx} ",
-    "./components/**/*.{tsx} ",
-    "./sections/**/*.{tsx} ",
+    "./pages/**/*.tsx ",
+    "./components/**/*.tsx ",
+    "./sections/**/*.tsx ",
   ],
   theme: {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      primary: "#007dff",
-      primary_dark: "#2890FF",
-      light: "#f7f7f7",
-      lighter: "#fcfcfc",
+      primary: "#006AFF",
+      primary_dark: "#218CFF",
+      light: "#fcfcfc",
+      lighter: "#ffffff",
       dark: "#262626",
-      darker: "#1a1a1a",
+      darker: "#1C1C1C",
     },
     fontFamily: {
       sans: ["Poppins ", "sans-serif "],
