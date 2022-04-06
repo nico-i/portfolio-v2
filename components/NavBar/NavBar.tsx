@@ -23,7 +23,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
   }, [theme]);
   return (
     <header className={styles.nav}>
-      <a href="#home<">
+      <a href="#home">
         <div className={styles.logo}>{logo}</div>
       </a>
       <nav>
