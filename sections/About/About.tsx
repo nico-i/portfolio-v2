@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import profileImage from "../../public/images/pb.png";
+import profileImage from "../../public/images/pb.avif";
 import styles from "./About.module.css";
 
 /**
@@ -16,6 +16,7 @@ export default function About() {
           alt="Profile image"
           className={styles.profilePic}
           src={profileImage}
+          placeholder="blur"
         />
       </div>
       <div className={styles.aboutText}>

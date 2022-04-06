@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiMenu } from "react-icons/hi";
-import darkLogo from "../../public/images/emblem_dark.svg";
-import lightLogo from "../../public/images/emblem_light.svg";
+import LogoLight from "../../public/images/emblem_light.svg";
+import LogoDark from "../../public/images/emblem_dark.svg";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
 
@@ -18,19 +17,20 @@ interface Props {
  */
 export default function NavBar({ onThemeChange, theme }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logo, setLogo] = useState(<LogoLight />);
+  useEffect(() => {
+    setLogo(theme == "light" ? <LogoLight /> : <LogoDark />);
+  }, [theme]);
   return (
     <header className={styles.nav}>
-      <a href="#home">
-        <Image
-          src={theme === "dark" ? darkLogo : lightLogo}
-          alt="Nico Ismaili Logo"
-          height={50}
-        />
+      <a href="#home<">
+        <div className={styles.logo}>{logo}</div>
       </a>
       <nav>
         <button
           className={styles.menu}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="mobile menu toggle button"
         >
           <HiMenu />
         </button>

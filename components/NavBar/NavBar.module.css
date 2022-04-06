@@ -6,6 +6,10 @@
   @apply transition text-dark dark:text-light text-3xl md:hidden;
 }
 
+.logo {
+  @apply w-12 h-12;
+}
+
 .navLink {
   background-size: 0% 0.3em;
   background-position-y: 110%;
@@ -19,7 +23,7 @@
 }
 
 .navList {
-  @apply transition fixed left-0 right-0 min-h-screen bg-light dark:bg-dark space-y-8 p-8 transform md:translate-x-0 mt-4 md:relative md:flex md:min-h-0 md:space-y-0 md:space-x-10 md:p-0;
+  @apply transition fixed left-0 right-0 min-h-screen bg-light dark:bg-dark space-y-8 p-8 transform md:translate-x-0 mt-4 md:mt-0 md:relative md:flex md:min-h-0 md:space-y-0 md:space-x-10 md:p-0;
 }
 
 .navItem {

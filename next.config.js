@@ -5,7 +5,6 @@ module.exports = {
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)
     const rules = config.module.rules.find((r) => !!r.oneOf);
-
     // Interate over the found rules
     rules.oneOf.forEach((loaders) => {
       // Focus on the the loaders that have an array of `use` statements
@@ -40,6 +39,15 @@ module.exports = {
       }
     });
 
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
     return config;
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
   },
 };

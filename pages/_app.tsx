@@ -10,7 +10,7 @@ import "../styles/globals.css";
  */
 function PortfolioApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" enableSystem={false}>
       <Component {...pageProps} />
     </ThemeProvider>
   );

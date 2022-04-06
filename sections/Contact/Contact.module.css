@@ -23,7 +23,7 @@
 }
 
 .button {
-  @apply order-first text-lg font-semibold mb-6 mt-4 lg:mt-0 lg:mb-0 lg:order-none transition text-light bg-primary dark:bg-primary_dark w-full py-2 rounded-sm col-span-6 lg:col-span-1;
+  @apply order-first text-lg font-semibold mb-6 mt-4 lg:mt-0 lg:mb-0 lg:order-none transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1;
 }
 
 .textArea {
@@ -39,7 +39,11 @@
 }
 
 .smLinkText {
-  @apply hidden pl-2 md:inline;
+  @apply sr-only md:not-sr-only;
+}
+
+.smLinkSpace {
+  @apply px-1;
 }
 
 .smLinkIcon {
