@@ -43,3 +43,27 @@ section {
 .highlighted {
   @apply text-primary dark:text-primary_dark;
 }
+
+.showOnlyOnLg {
+  @apply hidden lg:inline;
+}
+
+.hideOnLg {
+  @apply inline lg:hidden;
+}
+
+.showOnlyOnMd {
+  @apply hidden md:inline lg:hidden;
+}
+
+.hideOnMd {
+  @apply inline md:hidden lg:inline;
+}
+
+.showOnlyOnSm {
+  @apply inline md:hidden;
+}
+
+.hideOnSm {
+  @apply hidden md:inline;
+}
