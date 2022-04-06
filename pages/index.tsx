@@ -11,21 +11,21 @@ import Skills from "../sections/Skills/Skills";
 import tailwindConfig from "../tailwind.config.js";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Home: NextPage = () => {
   const tailwindCfg = resolveConfig(tailwindConfig);
   const { theme, setTheme } = useTheme();
+  const { t } = useTranslation("common");
   return (
     <>
       <Head>
-        <title>Nico Ismaili</title>
-        <meta property="og:title" content="Portfolio von Nico Ismaili" />
-        <meta name="description" content="Willkommen zu meinem Portfolio!" />
-        <meta property="og:url" content="https://nico-ismaili.netlify.app/" />
-        <meta
-          property="og:description"
-          content="Willkommen zu meinem Portfolio! Hier finden Sie meine Kontaktdaten, vergangene Projekte und Qualifikationen."
-        ></meta>
+        <title>{t("title")}</title>
+        <meta name="description" content={t("meta-desc")} />
+        <meta property="og:title" content={t("meta-title")} />
+        <meta property="og:url" content={t("meta-url")} />
+        <meta property="og:description" content={t("meta-og-desc")} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
@@ -36,23 +36,24 @@ const Home: NextPage = () => {
           <About />
         </FadeInSection>
         <FadeInSection>
-          <div className={styles.queryWrapper}>
+          <div>
             <h2>
-              Was ich in <span className="highlighted">letzter Zeit</span> so
-              getrieben habe?
+              {t("timeline-intro-h2-0")}
+              <span className="highlighted">{t("timeline-intro-h2-1-hl")}</span>
+              {t("timeline-intro-h2-2")}
             </h2>
           </div>
         </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>
           <div className={styles.introSkills}>
             <h2>
-              Ich habe auch<br/><span className="highlighted">etwas Zeit</span> in
-              mich gesteckt.
+              <span
+                dangerouslySetInnerHTML={{ __html: t("skills-intro-h2-0") }}
+              ></span>
+              <span className="highlighted">{t("skills-intro-h2-1-hl")}</span>
+              {t("skills-intro-h2-2")}
             </h2>
-            <p>
-              Und dabei vor allem mein Wissens über neue Technologien und
-              Anwendungen auf Vordermann gebracht.
-            </p>
+            <p>{t("skills-intro-p")}</p>
           </div>
         </FadeInSection>
         <Skills theme={theme} tailwindCfg={tailwindCfg} />
@@ -63,5 +64,19 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+/**
+ *
+ * @param {string} locale
+ * @return {React.ReactNode}
+ */
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // Will be passed to the page component as props
+    },
+  };
+}
 
 export default Home;

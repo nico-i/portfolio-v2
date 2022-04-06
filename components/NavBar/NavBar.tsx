@@ -25,6 +25,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
     <header className={styles.nav}>
       <a href="#home">
         <div className={styles.logo}>{logo}</div>
+        <span className={styles.a11yLogo}>Home</span>
       </a>
       <nav>
         <button
