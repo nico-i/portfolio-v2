@@ -2,8 +2,8 @@ import classNames from "classnames";
 import Image from "next/image";
 import React, { useState } from "react";
 import { HiMenu } from "react-icons/hi";
-import darkLogo from "../../public/images/emblem_dark.svg";
-import lightLogo from "../../public/images/emblem_light.svg";
+import darkLogo from "../../public/images/emblem_dark.png";
+import lightLogo from "../../public/images/emblem_light.png";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
 
@@ -24,7 +24,6 @@ export default function NavBar({ onThemeChange, theme }: Props) {
         <Image
           src={theme === "light" ? lightLogo : darkLogo}
           alt="Nico Ismaili Logo"
-          height={50}
         />
       </a>
       <nav>
