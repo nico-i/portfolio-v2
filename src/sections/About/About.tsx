@@ -17,6 +17,8 @@ export default function About() {
           className={styles.profilePic}
           src={profileImage}
           placeholder="blur"
+          height={1080}
+          width={1080}
         />
       </div>
       <div className={styles.aboutText}>
