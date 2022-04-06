@@ -21,7 +21,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
     <header className={styles.nav}>
       <a href="#home<">
         <div className={styles.logo}>
-          {theme === "dark" ? <LogoDark size={50} /> : <LogoLight />}
+          {theme === "light" ? <LogoLight /> : <LogoDark />}
         </div>
       </a>
       <nav>
