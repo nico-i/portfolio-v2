@@ -39,7 +39,11 @@
 }
 
 .smLinkText {
-  @apply hidden pl-2 md:inline;
+  @apply sr-only md:not-sr-only;
+}
+
+.smLinkSpace {
+  @apply px-1;
 }
 
 .smLinkIcon {

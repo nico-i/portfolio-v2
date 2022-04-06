@@ -31,6 +31,7 @@ export default function NavBar({ onThemeChange, theme }: Props) {
         <button
           className={styles.menu}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="mobile menu toggle button"
         >
           <HiMenu />
         </button>
