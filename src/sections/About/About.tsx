@@ -25,32 +25,32 @@ export default function About() {
       </div>
       <div className={styles.aboutText}>
         <h2>
-          <span dangerouslySetInnerHTML={{ __html: t("heading") }}></span>
+          <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
         </h2>
         <p>
-          {t("p1-0")}
-          <a href={t("p1-a-0-href")} target="_blank" rel="noreferrer">
-            {t("p1-a-0-text")}
+          {t("p-1-txt-0")}
+          <a href={t("p-1-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p-1-a-0-txt")}
           </a>
-          {t("p1-1")}
-          <a href={t("p1-a-1-href")} target="_blank" rel="noreferrer">
-            {t("p1-a-1-text")}
+          {t("p-1-txt-1")}
+          <a href={t("p-1-a-1-href")} target="_blank" rel="noreferrer">
+            {t("p-1-a-1-txt")}
           </a>
-          {t("p1-2")}
+          {t("p-1-txt-2")}
         </p>
         <p>
-          {t("p2-0")}
-          <a href={t("p2-a-0-href")} target="_blank" rel="noreferrer">
-            {t("p2-a-0-text")}
+          {t("p-2-txt-0")}
+          <a href={t("p-2-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p-2-a-0-txt")}
           </a>
-          {t("p2-1")}
+          {t("p-2-txt-1")}
         </p>
         <p>
-          {t("p3-0")}
-          <a href={t("p3-a-0-href")} target="_blank" rel="noreferrer">
-            {t("p3-a-0-text")}
+          {t("p-3-txt-0")}
+          <a href={t("p-3-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p-3-a-0-txt")}
           </a>
-          {t("p3-1")}
+          {t("p-3-txt-1")}
         </p>
       </div>
     </div>
