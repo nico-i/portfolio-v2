@@ -14,18 +14,6 @@ import tailwindConfig from "../../tailwind.config.js";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
 
-export const getStaticProps = async ({ locale }: { locale: string }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, [
-      "common",
-      "nav",
-      "hero",
-      "about",
-      "contact",
-    ])),
-  },
-});
-
 const Home: NextPage = () => {
   const tailwindCfg = resolveConfig(tailwindConfig);
   const { theme, setTheme } = useTheme();
@@ -81,5 +69,24 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+/**
+ *
+ * @param {string} locale
+ * @return {React.ReactNode}
+ */
+export async function getStaticProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "nav",
+        "hero",
+        "about",
+        "contact",
+      ])),
+    },
+  };
+}
 
 export default Home;
