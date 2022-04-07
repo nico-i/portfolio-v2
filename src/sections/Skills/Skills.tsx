@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import SkillCircle from "../../components/SkillCircle/SkillCircle";
-import SkillsData from "../../data/SkillsData";
+import skillData from "../../data/skillData";
 import styles from "./Skills.module.css";
 
 interface Props {
@@ -21,7 +21,7 @@ export default function Skills({ tailwindCfg, theme }: Props) {
   return (
     <section ref={ref} className={classNames({ "fade-in-up": inView })}>
       <div className={styles.skillGrid}>
-        {SkillsData.map((entry) => (
+        {skillData.map((entry) => (
           <SkillCircle
             key={entry.skill}
             percentage={entry.percentage}
