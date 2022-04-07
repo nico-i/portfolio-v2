@@ -75,7 +75,7 @@ const Home: NextPage = () => {
  * @param {string} locale
  * @return {React.ReactNode}
  */
-export async function getServerSideProps({ locale }: { locale: string }) {
+export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, [
