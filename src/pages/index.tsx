@@ -26,6 +26,13 @@ const Home: NextPage = () => {
         <meta property="og:title" content={t("meta-title")} />
         <meta property="og:url" content={t("meta-url")} />
         <meta property="og:description" content={t("meta-og-desc")} />
+        <meta property="og:image:width" content="1080" />
+        <meta property="og:image:height" content="1080" />
+        <meta
+          property="og:image:secure_url"
+          content="https://raw.githubusercontent.com/ismailinico/nico.ismaili.de/main/public/images/social.jpg"
+        />
+        <meta property="og:image:alt" content={t("")} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>

@@ -101,20 +101,16 @@ export default function Document() {
           sizes="180x180"
           href="/images/favicon/favicon-180.png"
         />
-        <meta name="msapplication-TileColor" content="#F7F7F7" />
+        <meta name="msapplication-TileColor" content="#FCFCFC" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta
           name="msapplication-TileImage"
           content="/images/favicon/favicon-144.png"
         />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:type" content="website" />
-
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image"
-          content="https://nico-ismaili.netlify.app/images/social.webp"
-        ></meta>
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="de_DE" />
       </Head>
       <body>
         <Main />
