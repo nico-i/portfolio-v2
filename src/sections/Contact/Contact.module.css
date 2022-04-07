@@ -2,10 +2,6 @@
   @apply grid grid-cols-1 lg:grid-cols-8 content-center max-w-7xl mt-28 gap-8 mb-10;
 }
 
-.smLinkWrapper {
-  @apply grid grid-cols-6 lg:grid-cols-4 gap-4 lg:gap-0;
-}
-
 .leftCol {
   @apply col-span-1 lg:col-span-2;
 }
@@ -23,15 +19,18 @@
 }
 
 .button {
-  @apply order-first text-lg font-semibold mb-6 mt-4 lg:mt-0 lg:mb-0 lg:order-none transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1;
+  @apply order-first lg:order-4 text-lg font-semibold transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1;
 }
 
 .textArea {
-  @apply h-28 md:h-40 lg:h-96;
+  @apply h-28 md:h-40 lg:h-[26rem];
+}
+.smLinksWrapper {
+  @apply grid grid-cols-6 lg:grid-cols-4 gap-4 lg:gap-0;
 }
 
 .smLink {
-  @apply flex text-dark align-middle col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold justify-center md:justify-start;
+  @apply text-dark col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold;
 }
 
 .smLinkText {

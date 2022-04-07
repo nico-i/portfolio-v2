@@ -1,14 +1,7 @@
 import classNames from "classnames";
 import React from "react";
-import {
-  Fa500Px,
-  FaEnvelope,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaYoutube,
-} from "react-icons/fa";
 import styles from "./Contact.module.css";
+import footerData from "../../data/footerData";
 /**
  *
  * @return {React.ReactNode}
@@ -18,10 +11,8 @@ export default function Contact() {
     <form className={styles.contactWrapper}>
       <div className={styles.leftCol}>
         <h2 className={styles.headline}>
-          Lassen Sie
-          <br className={styles.lgShow} /> uns
-          <br className={styles.smShow} /> etwas{" "}
-          <span className="highlighted">großartiges</span> zusammen schaffen.
+          Lassen Sie uns etwas <span className="highlighted">großartiges</span>{" "}
+          zusammen schaffen.
         </h2>
         <label className={styles.label}>
           Budget
@@ -56,53 +47,29 @@ export default function Contact() {
             className={classNames(styles.input, styles.textArea)}
           ></textarea>
         </label>
-        <div className={styles.smLinkWrapper}>
-          <a
-            className={styles.smLink}
-            href="https://www.linkedin.com/in/ismailinico"
-          >
-            <FaLinkedin size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkSpace}></span>
-            <span className={styles.smLinkText}>ismailinico</span>
-          </a>
-          <a className={styles.smLink} href="https://github.com/ismailinico">
-            <FaGithub size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkSpace}></span>
-            <span className={styles.smLinkText}>ismailinico</span>
-          </a>
-          <a className={styles.smLink} href="mailto:nico@ismaili.de">
-            <FaEnvelope size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkSpace}></span>
-            <span className={styles.smLinkText}>nico@ismaili.de</span>
-          </a>
+        <div className={styles.smLinksWrapper}>
           <button type="submit" className={styles.button}>
             Abschicken
           </button>
-          <a
-            className={styles.smLink}
-            href="https://www.youtube.com/channel/UCZmR0vqCMM1BWo-OkvX99EA"
-          >
-            <FaYoutube size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkSpace}></span>
-            <span className={styles.smLinkText}>Nico Ismaili</span>
-          </a>
-          <a
-            className={styles.smLink}
-            href="https://www.instagram.com/nico.ismaili/"
-          >
-            <FaInstagram size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkSpace}></span>
-            <span className={styles.smLinkText}>nico.ismaili</span>
-          </a>
-          <a
-            className={styles.smLink}
-            href="https://500px.com/p/nicoismaili?view=photos"
-          >
-            <Fa500Px size={25} className={styles.smLinkIcon} />
-            <span className={styles.smLinkText}>
-              <span className={styles.smLinkSpace}></span>nicoismaili
-            </span>
-          </a>
+          {footerData.map((smLink, i) => {
+            let orderNum = i + 1;
+            if (footerData.length / 2 == i) {
+              orderNum += 1;
+            }
+            console.log(orderNum);
+            return (
+              <a
+                className={styles.smLink}
+                href={smLink.href}
+                key={smLink.text}
+                style={{ order: orderNum }}
+              >
+                <smLink.Icon size={25} className={styles.smLinkIcon} />
+                <span className={styles.smLinkSpace}></span>
+                <span className={styles.smLinkText}>{smLink.text}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </form>
