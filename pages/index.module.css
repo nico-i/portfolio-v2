@@ -1,3 +1,0 @@
-.sectionsWrapper {
-  @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
-}

@@ -1,0 +1,7 @@
+{
+    "typed-str-0": "Hi.",
+    "typed-str-1": "My name is<br/><span class=\"highlighted\">Nico</span> Ismaili.",
+    "typed-str-2": "I am a <br class=\"hideOnLg\"/><span class=\"highlighted\">fullstack<br/>developer</span><br class=\"hideOnLg\"/> from<br/>Wiesbaden,<br/>Germany.",
+    "typed-str-3": "Welcome to <br class=\"hideOnLg\"/>my <span class=\"highlighted\">Portfolio</span>.",
+    "full-text": "Hi. My name is Nico Ismaili. I am a fullstack developer from Wiesbaden, Germany. Welcome to my portfolio."
+}

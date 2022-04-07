@@ -1,0 +1,14 @@
+{
+    "h2-0-txt-0": "Lassen Sie uns etwas <span class=\"highlighted\">großartiges</span> zusammen schaffen.",
+    "label-budget": "Budget",
+    "option-budget-0": "€1.000 — €1.500",
+    "option-budget-1": "€2.000 — €2.500",
+    "option-budget-2": "€3.000 — €3.500",
+    "option-budget-3": "€3.000+",
+    "label-name": "Vor- & Nachname",
+    "input-name-placeholder": "Max Mustermann",
+    "label-email": "E-mail Adresse",
+    "input-email-placeholder": "name@beispiel.de",
+    "label-message": "Nachricht",
+    "button-send": "Abschicken"
+}

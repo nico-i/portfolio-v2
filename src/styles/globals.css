@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply transition bg-light dark:bg-dark text-dark dark:text-light font-medium text-base md:text-lg;
+}
+
+h2 {
+  @apply font-semibold text-4xl mb-4 leading-tight;
+}
+
+a {
+  @apply decoration-primary underline decoration-2 underline-offset-4;
+}
+
+p {
+  @apply mb-4 text-justify;
+}
+
+section {
+  @apply flex items-center justify-center w-full h-screen snap-always snap-start px-8;
+}
+
+.fade-in-up {
+  animation: fade-in 0.9s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.1;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.highlighted {
+  @apply text-primary dark:text-primary_dark;
+}
+
+.showOnlyOnLg {
+  @apply hidden lg:inline;
+}
+
+.hideOnLg {
+  @apply inline lg:hidden;
+}
+
+.showOnlyOnMd {
+  @apply hidden md:inline lg:hidden;
+}
+
+.hideOnMd {
+  @apply inline md:hidden lg:inline;
+}
+
+.showOnlyOnSm {
+  @apply inline md:hidden;
+}
+
+.hideOnSm {
+  @apply hidden md:inline;
+}

@@ -1,0 +1,7 @@
+.sectionsWrapper {
+  @apply snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
+}
+
+.introSkills {
+  @apply ml-28 mt-20 w-5/12;
+}
