@@ -4,6 +4,8 @@ module.exports = {
   i18n: {
     defaultLocale: "en-US",
     locales: ["en-US", "de-DE"],
-    localePath: path.resolve("./public/locales"),
   },
+  ...(typeof window === undefined
+    ? { localePath: path.resolve("./public/locales") }
+    : {}),
 };
