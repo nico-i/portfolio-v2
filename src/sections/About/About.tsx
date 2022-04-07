@@ -2,18 +2,20 @@ import React from "react";
 import Image from "next/image";
 import profileImage from "../../../public/images/pb.png";
 import styles from "./About.module.css";
+import { useTranslation } from "next-i18next";
 
 /**
  *
  * @return {React.ReactNode}
  */
 export default function About() {
+  const { t } = useTranslation("about");
   return (
     <div className={styles.aboutWrapper}>
       <div className={styles.profilePicWrapper}>
         <Image
           priority
-          alt="Profile image"
+          alt={t("profile-img-alt")}
           className={styles.profilePic}
           src={profileImage}
           placeholder="blur"
@@ -23,40 +25,32 @@ export default function About() {
       </div>
       <div className={styles.aboutText}>
         <h2>
-          Darf ich mich <span className="highlighted">vorstellen</span>?
+          <span dangerouslySetInnerHTML={{ __html: t("heading") }}></span>
         </h2>
         <p>
-          Wie bereits erwähnt heiße ich Nico. Ich studiere{" "}
-          <a
-            href="https://www.hs-rm.de/de/fachbereiche/design-informatik-medien/studiengaenge/medieninformatik-bsc"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Medieninformatik
-          </a>{" "}
-          im 5. Semester an der{" "}
-          <a href="https://www.hs-rm.de" target="_blank" rel="noreferrer">
-            Hochschule RheinMain
-          </a>{" "}
-          in Wiesbaden.
-        </p>
-        <p>
-          Parallel zu meinem Studium arbeite ich als Werkstudent bei{" "}
-          <a href="https://www.forsuxess.de/" target="_blank" rel="noreferrer">
-            forsuxess
+          {t("p1-0")}
+          <a href={t("p1-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p1-a-0-text")}
           </a>
-          , ein Unternehmen dass sich auf HR-IT spezialisiert.
+          {t("p1-1")}
+          <a href={t("p1-a-1-href")} target="_blank" rel="noreferrer">
+            {t("p1-a-1-text")}
+          </a>
+          {t("p1-2")}
         </p>
         <p>
-          In meiner Freizeit widme ich mich der{" "}
-          <a
-            href="https://500px.com/p/nicoismaili?view=photos"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Fotografie
-          </a>{" "}
-          oder halte mich auf dem Laufenden was die neueste Technik angeht.
+          {t("p2-0")}
+          <a href={t("p2-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p2-a-0-text")}
+          </a>
+          {t("p2-1")}
+        </p>
+        <p>
+          {t("p3-0")}
+          <a href={t("p3-a-0-href")} target="_blank" rel="noreferrer">
+            {t("p3-a-0-text")}
+          </a>
+          {t("p3-1")}
         </p>
       </div>
     </div>
