@@ -46,5 +46,5 @@
 }
 
 .headline {
-  @apply text-[1.7rem] md:text-4xl;
+  @apply block text-[1.7rem] md:text-4xl h-60 lg:flex items-center;
 }
