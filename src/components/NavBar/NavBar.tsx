@@ -5,7 +5,7 @@ import LogoLight from "../../../public/images/emblem_light.svg";
 import LogoDark from "../../../public/images/emblem_dark.svg";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
-import navLinks from "../../data/navData.json";
+import navLinks from "../../data/navLinks.json";
 import { useTranslation } from "next-i18next";
 
 interface Props {
