@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import profileImage from "../../public/images/pb.png";
 import styles from "./About.module.css";
 import { useTranslation } from "next-i18next";
 
@@ -16,9 +15,7 @@ export default function About() {
         <Image
           priority
           alt={t("profile-img-alt")}
-          className={styles.profilePic}
-          src={profileImage}
-          placeholder="blur"
+          src="pb_eotlpi.png"
           height={1080}
           width={1080}
         />

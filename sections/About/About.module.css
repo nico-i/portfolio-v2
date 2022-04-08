@@ -3,11 +3,7 @@
 }
 
 .profilePicWrapper {
-  @apply hidden md:flex max-w-xs justify-self-center items-center;
-}
-
-.profilePic {
-  @apply transition-[outline-color] rounded-full bg-primary dark:bg-primary_dark outline outline-light dark:outline-dark outline-offset-[-1];
+  @apply hidden md:flex overflow-hidden rounded-full bg-primary outline outline-light dark:outline-dark outline-offset-[-1] dark:bg-primary_dark max-w-xs justify-self-center items-center transition-[outline-color];
 }
 
 .aboutText {
