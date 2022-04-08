@@ -63,7 +63,7 @@ export default function Contact() {
               <a
                 className={styles.smLink}
                 href={smLink.href}
-                key={smLink.text}
+                key={`${smLink.text}_${i}`}
                 style={{ order: orderNum }}
               >
                 <smLink.Icon size={25} className={styles.smLinkIcon} />

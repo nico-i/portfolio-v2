@@ -10,6 +10,12 @@ module.exports = {
       includeDirs: ["public"],
     },
   },
+  images: {
+    loader: "cloudinary",
+    path: "https://res.cloudinary.com/dkpx0gxhg/",
+    domains: ["res.cloudinary.com"],
+    formats: ["image/avif", "image/webp"],
+  },
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)
     const rules = config.module.rules.find((r) => !!r.oneOf);
