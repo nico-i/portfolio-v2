@@ -19,18 +19,18 @@
 }
 
 .button {
-  @apply order-first lg:order-4 text-lg font-semibold transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1;
+  @apply order-first lg:order-4 text-lg mb-4 mt-2 lg:mt-0 lg:mb-0 font-semibold transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1;
 }
 
 .textArea {
-  @apply h-28 md:h-40 lg:h-[26rem];
+  @apply h-28 md:h-40 lg:h-[24rem];
 }
 .smLinksWrapper {
-  @apply grid grid-cols-6 lg:grid-cols-4 gap-4 lg:gap-0;
+  @apply grid grid-cols-6 lg:grid-cols-4 gap-4 lg:gap-2 mb-6 md:mb-0;
 }
 
 .smLink {
-  @apply text-dark col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold;
+  @apply flex justify-center items-center md:justify-start text-dark col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold;
 }
 
 .smLinkText {
@@ -38,7 +38,7 @@
 }
 
 .smLinkSpace {
-  @apply px-1;
+  @apply px-1 hidden md:inline;
 }
 
 .smLinkIcon {
@@ -46,5 +46,5 @@
 }
 
 .headline {
-  @apply block text-[1.7rem] md:text-4xl h-60 lg:flex items-center;
+  @apply block text-[1.7rem] md:text-4xl h-52 md:h-32 lg:h-60 lg:flex items-center;
 }

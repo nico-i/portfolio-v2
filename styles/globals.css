@@ -15,11 +15,11 @@ a {
 }
 
 p {
-  @apply mb-4 text-justify;
+  @apply mb-4 md:text-justify;
 }
 
 section {
-  @apply flex items-center justify-center w-full h-screen snap-always snap-start px-8;
+  @apply flex items-center justify-center w-full h-screen snap-none md:snap-always snap-start px-8;
 }
 
 .fade-in-up {
