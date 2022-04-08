@@ -1,10 +1,10 @@
 module.exports = {
   darkMode: "class",
   content: [
-    "./src/pages/**/*.tsx",
-    "./src/components/**/*.tsx",
-    "./src/sections/**/*.tsx",
-    "./src/utils/**/*.tsx",
+    "./pages/**/*.tsx",
+    "./components/**/*.tsx",
+    "./sections/**/*.tsx",
+    "./utils/**/*.tsx",
   ],
   theme: {
     colors: {

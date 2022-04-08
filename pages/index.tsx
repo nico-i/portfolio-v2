@@ -10,9 +10,10 @@ import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
-import tailwindConfig from "../../tailwind.config.js";
+import tailwindConfig from "../tailwind.config.js";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
+import i18nConfig from "../next-i18next.config";
 
 const Home: NextPage = () => {
   const tailwindCfg = resolveConfig(tailwindConfig);
@@ -78,13 +79,11 @@ const Home: NextPage = () => {
 export async function getStaticProps({ locale }: { locale: any }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "nav",
-        "hero",
-        "about",
-        "contact",
-      ])),
+      ...(await serverSideTranslations(
+        locale,
+        ["common", "nav", "hero", "about", "contact"],
+        i18nConfig
+      )),
     },
   };
 }
