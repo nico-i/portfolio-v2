@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import profileImage from "../../../public/images/pb.png";
+import profileImage from "../../public/images/pb.png";
 import styles from "./About.module.css";
 import { useTranslation } from "next-i18next";
 
