@@ -13,7 +13,6 @@ export default function About() {
     <div className={styles.aboutWrapper}>
       <div className={styles.profilePicWrapper}>
         <Image
-          priority
           alt={t("profile-img-alt")}
           src="pb_eotlpi.png"
           height={1080}
