@@ -35,9 +35,7 @@ export default function Contact({ onFormSubmit }: Props) {
         .map((element) => {
           if (element.name === "budget") {
             return (
-              encodeURIComponent(element.name) +
-              "=" +
-              encodeURIComponent(budget)
+              encodeURIComponent("Budget") + "=" + encodeURIComponent(budget)
             );
           }
           return (
