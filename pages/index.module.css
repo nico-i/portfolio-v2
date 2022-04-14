@@ -5,3 +5,7 @@
 .introSkills {
   @apply md:ml-28 md:mt-20 md:w-5/12;
 }
+
+.formSuccess {
+  @apply transition-transform bg-primary dark:bg-primary_dark shadow-lg leading-[2.5em] text-center overflow-hidden right-0 left-0 top-0 z-50 fixed;
+}

@@ -1,21 +1,29 @@
 import classNames from "classnames";
-import React from "react";
-import styles from "./Contact.module.css";
-import footerData from "../../data/footerData";
 import { useTranslation } from "next-i18next";
+import React from "react";
+import footerData from "../../data/footerData";
+import styles from "./Contact.module.css";
+
+interface Props {
+  onFormSubmit: Function;
+}
+
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Contact() {
+export default function Contact({ onFormSubmit }: Props) {
   const { t } = useTranslation("contact");
   return (
     <form
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="#contact"
       name="contact"
+      onSubmit={(event) => {
+        event.preventDefault();
+        onFormSubmit(true);
+      }}
       className={styles.contactWrapper}
     >
       <input type="hidden" name="form-name" value="contact" required={true} />
