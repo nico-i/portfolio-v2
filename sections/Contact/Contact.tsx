@@ -10,33 +10,54 @@ import { useTranslation } from "next-i18next";
 export default function Contact() {
   const { t } = useTranslation("contact");
   return (
-    <form className={styles.contactWrapper}>
+    <form
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      action="/index"
+      name="contact"
+      className={styles.contactWrapper}
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>
+          Do not fill this out: <input name="bot-field" />
+        </label>
+      </p>
       <div className={styles.leftCol}>
         <div className={styles.headline}>
           <h2>
             <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
           </h2>
         </div>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="budget">
           {t("label-budget")}
-          <select className={classNames(styles.input)}>
+          <select
+            className={classNames(styles.input)}
+            name="budget"
+            id="budget"
+          >
             <option>{t("option-budget-0")}</option>
             <option>{t("option-budget-1")}</option>
             <option>{t("option-budget-2")}</option>
             <option>{t("option-budget-3")}</option>
           </select>
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="name">
           {t("label-name")}
           <input
+            name="name"
+            id="name"
             type={"text"}
             placeholder={t("input-name-placeholder")}
             className={styles.input}
           ></input>
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="email">
           {t("label-email")}
           <input
+            name="email"
+            id="email"
             type={"email"}
             placeholder={t("input-email-placeholder")}
             className={styles.input}
@@ -44,9 +65,11 @@ export default function Contact() {
         </label>
       </div>
       <div className={styles.rightCol}>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="message">
           {t("label-message")}
           <textarea
+            name="message"
+            id="message"
             className={classNames(styles.input, styles.textArea)}
           ></textarea>
         </label>
