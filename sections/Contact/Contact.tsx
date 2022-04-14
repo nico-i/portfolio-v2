@@ -33,7 +33,7 @@ export default function Contact({ onFormSubmit }: Props) {
       const filledOutElements = validFormElements
         .filter((elem) => !!elem.value)
         .map((element) => {
-          if (element.name === "budget") {
+          if (encodeURIComponent(element.name).includes("Budget")) {
             return (
               encodeURIComponent("Budget") + "=" + encodeURIComponent(budget)
             );
