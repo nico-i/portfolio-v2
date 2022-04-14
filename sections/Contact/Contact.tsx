@@ -14,16 +14,48 @@ interface Props {
  */
 export default function Contact({ onFormSubmit }: Props) {
   const { t } = useTranslation("contact");
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+    const formElements = [...event.currentTarget.elements];
+    const isValid =
+      formElements.filter((item) => item.name === "bot-field")[0].value === "";
+    const validFormElements = isValid ? formElements : [];
+
+    if (validFormElements.length < 1) {
+      // or some other cheeky error message
+      onFormSubmit(-1);
+    } else {
+      const filledOutElements = validFormElements
+        .filter((elem) => !!elem.value)
+        .map(
+          (element) =>
+            encodeURIComponent(element.name) +
+            "=" +
+            encodeURIComponent(element.value)
+        )
+        .join("&");
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: filledOutElements,
+      })
+        .then(() => {
+          onFormSubmit(1);
+          event.target.reset();
+        })
+        .catch((_) => {
+          onFormSubmit(-1);
+        });
+    }
+  };
   return (
     <form
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       name="contact"
-      onSubmit={(event) => {
-        event.preventDefault();
-        onFormSubmit(true);
-      }}
+      onSubmit={onSubmit}
       className={styles.contactWrapper}
     >
       <input type="hidden" name="form-name" value="contact" required={true} />
