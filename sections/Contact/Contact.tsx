@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
-import React from "react";
+import React, { useState } from "react";
 import footerData from "../../data/footerData";
 import styles from "./Contact.module.css";
 
@@ -14,25 +14,38 @@ interface Props {
  */
 export default function Contact({ onFormSubmit }: Props) {
   const { t } = useTranslation("contact");
+  const budgets = [
+    t("option-budget-0"),
+    t("option-budget-1"),
+    t("option-budget-2"),
+    t("option-budget-3"),
+  ];
+  const [budget, setBudget] = useState(budgets[0]);
   const onSubmit = async (event: any) => {
     event.preventDefault();
     const formElements = [...event.currentTarget.elements];
-    const isValid =
+    const isNoBotSubmit =
       formElements.filter((item) => item.name === "bot-field")[0].value === "";
-    const validFormElements = isValid ? formElements : [];
-
+    const validFormElements = isNoBotSubmit ? formElements : [];
     if (validFormElements.length < 1) {
-      // or some other cheeky error message
       onFormSubmit(-1);
     } else {
       const filledOutElements = validFormElements
         .filter((elem) => !!elem.value)
-        .map(
-          (element) =>
+        .map((element) => {
+          if (element.name === "budget") {
+            return (
+              encodeURIComponent(element.name) +
+              "=" +
+              encodeURIComponent(budget)
+            );
+          }
+          return (
             encodeURIComponent(element.name) +
             "=" +
             encodeURIComponent(element.value)
-        )
+          );
+        })
         .join("&");
 
       await fetch("/", {
@@ -75,20 +88,21 @@ export default function Contact({ onFormSubmit }: Props) {
           <select
             required={true}
             className={classNames(styles.input)}
-            name="budget[]"
+            onChange={(e) => setBudget(e.target.value)}
+            name="Budget"
             id="budget"
           >
-            <option>{t("option-budget-0")}</option>
-            <option>{t("option-budget-1")}</option>
-            <option>{t("option-budget-2")}</option>
-            <option>{t("option-budget-3")}</option>
+            <option value={budgets[0]}>{budgets[0]}</option>
+            <option value={budgets[1]}>{budgets[1]}</option>
+            <option value={budgets[2]}>{budgets[2]}</option>
+            <option value={budgets[3]}>{budgets[3]}</option>
           </select>
         </label>
         <label className={styles.label} htmlFor="name">
           {t("label-name")}
           <input
             required={true}
-            name="name"
+            name="Name"
             id="name"
             type={"text"}
             placeholder={t("input-name-placeholder")}
@@ -99,7 +113,7 @@ export default function Contact({ onFormSubmit }: Props) {
           {t("label-email")}
           <input
             required={true}
-            name="email"
+            name="E-Mail"
             id="email"
             type={"email"}
             placeholder={t("input-email-placeholder")}
@@ -112,7 +126,7 @@ export default function Contact({ onFormSubmit }: Props) {
           {t("label-message")}
           <textarea
             required={true}
-            name="message"
+            name="Message"
             id="message"
             className={classNames(styles.input, styles.textArea)}
           ></textarea>
