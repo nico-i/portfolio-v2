@@ -1,24 +1,30 @@
+import classNames from "classnames";
 import type { NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
-import React from "react";
-import resolveConfig from "tailwindcss/resolveConfig";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
-import tailwindConfig from "../tailwind.config.js";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
-import i18nConfig from "../next-i18next.config";
 
 const Home: NextPage = () => {
-  const tailwindCfg = resolveConfig(tailwindConfig);
+  const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
+  useEffect(() => {
+    if (formSuccess) {
+      setTimeout(() => {
+        setformSuccess(0);
+      }, 2500);
+    }
+  });
   return (
     <>
       <Head>
@@ -35,6 +41,17 @@ const Home: NextPage = () => {
         />
         <meta property="og:image:alt" content={t("")} />
       </Head>
+      <div
+        className={classNames(
+          styles.formSuccess,
+          { "-translate-y-14": formSuccess === 0 },
+          { "translate-y-0": formSuccess === 1 || formSuccess === -1 },
+          { "bg-primary dark:bg-primary_dark": formSuccess === 1 },
+          { "bg-danger dark:bg-danger_dark": formSuccess === -1 }
+        )}
+      >
+        <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
+      </div>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
         <section id="home" style={{ justifyContent: "start" }}>
@@ -62,9 +79,13 @@ const Home: NextPage = () => {
             <p>{t("skills-intro-p")}</p>
           </div>
         </FadeInSection>
-        <Skills theme={theme} tailwindCfg={tailwindCfg} />
+        <Skills />
         <FadeInSection id="contact">
-          <Contact />
+          <Contact
+            onFormSubmit={(newValue: number) => {
+              setformSuccess(newValue);
+            }}
+          />
         </FadeInSection>
       </main>
     </>

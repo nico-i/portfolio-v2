@@ -5,16 +5,11 @@ import SkillCircle from "../../components/SkillCircle/SkillCircle";
 import skillData from "../../data/skillData";
 import styles from "./Skills.module.css";
 
-interface Props {
-  theme: string;
-  tailwindCfg: any;
-}
-
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Skills({ tailwindCfg, theme }: Props) {
+export default function Skills() {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
@@ -27,12 +22,6 @@ export default function Skills({ tailwindCfg, theme }: Props) {
             percentage={entry.percentage}
             duration={1.8}
             size={80}
-            bgColor={
-              theme === "dark"
-                ? tailwindCfg.theme.colors["primary_dark"]
-                : tailwindCfg.theme.colors["primary"]
-            }
-            pathColor={tailwindCfg.theme.colors["light"]}
             inView={inView}
             Icon={entry.Icon}
           />

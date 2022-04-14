@@ -1,42 +1,120 @@
 import classNames from "classnames";
-import React from "react";
-import styles from "./Contact.module.css";
-import footerData from "../../data/footerData";
 import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
+import footerData from "../../data/footerData";
+import styles from "./Contact.module.css";
+
+interface Props {
+  onFormSubmit: Function;
+}
+
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Contact() {
+export default function Contact({ onFormSubmit }: Props) {
   const { t } = useTranslation("contact");
+  const budgets = [
+    t("option-budget-0"),
+    t("option-budget-1"),
+    t("option-budget-2"),
+    t("option-budget-3"),
+  ];
+  const [budget, setBudget] = useState(budgets[0]);
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+    const formElements = [...event.currentTarget.elements];
+    const isNoBotSubmit =
+      formElements.filter((item) => item.name === "bot-field")[0].value === "";
+    const validFormElements = isNoBotSubmit ? formElements : [];
+    if (validFormElements.length < 1) {
+      onFormSubmit(-1);
+    } else {
+      const filledOutElements = validFormElements
+        .filter((elem) => !!elem.value)
+        .map((element) => {
+          if (element.name === "budget") {
+            return (
+              encodeURIComponent(element.name) +
+              "=" +
+              encodeURIComponent(budget)
+            );
+          }
+          return (
+            encodeURIComponent(element.name) +
+            "=" +
+            encodeURIComponent(element.value)
+          );
+        })
+        .join("&");
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: filledOutElements,
+      })
+        .then(() => {
+          onFormSubmit(1);
+          event.target.reset();
+        })
+        .catch((_) => {
+          onFormSubmit(-1);
+        });
+    }
+  };
   return (
-    <form className={styles.contactWrapper}>
+    <form
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      name="contact"
+      onSubmit={onSubmit}
+      className={styles.contactWrapper}
+    >
+      <input type="hidden" name="form-name" value="contact" required={true} />
+      <p hidden>
+        <label>
+          Do not fill this out: <input name="bot-field" />
+        </label>
+      </p>
       <div className={styles.leftCol}>
         <div className={styles.headline}>
           <h2>
             <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
           </h2>
         </div>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="budget">
           {t("label-budget")}
-          <select className={classNames(styles.input)}>
-            <option>{t("option-budget-0")}</option>
-            <option>{t("option-budget-1")}</option>
-            <option>{t("option-budget-2")}</option>
-            <option>{t("option-budget-3")}</option>
+          <select
+            required={true}
+            className={classNames(styles.input)}
+            onChange={(e) => setBudget(e.target.value)}
+            name="Budget"
+            id="budget"
+          >
+            <option value={budgets[0]}>{budgets[0]}</option>
+            <option value={budgets[1]}>{budgets[1]}</option>
+            <option value={budgets[2]}>{budgets[2]}</option>
+            <option value={budgets[3]}>{budgets[3]}</option>
           </select>
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="name">
           {t("label-name")}
           <input
+            required={true}
+            name="Name"
+            id="name"
             type={"text"}
             placeholder={t("input-name-placeholder")}
             className={styles.input}
           ></input>
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="email">
           {t("label-email")}
           <input
+            required={true}
+            name="E-Mail"
+            id="email"
             type={"email"}
             placeholder={t("input-email-placeholder")}
             className={styles.input}
@@ -44,9 +122,12 @@ export default function Contact() {
         </label>
       </div>
       <div className={styles.rightCol}>
-        <label className={styles.label}>
+        <label className={styles.label} htmlFor="message">
           {t("label-message")}
           <textarea
+            required={true}
+            name="Message"
+            id="message"
             className={classNames(styles.input, styles.textArea)}
           ></textarea>
         </label>
