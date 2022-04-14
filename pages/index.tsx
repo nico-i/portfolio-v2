@@ -15,13 +15,13 @@ import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
 
 const Home: NextPage = () => {
-  const [formSuccess, setformSuccess] = useState(false);
+  const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
   useEffect(() => {
     if (formSuccess) {
       setTimeout(() => {
-        setformSuccess(false);
+        setformSuccess(0);
       }, 2500);
     }
   });
@@ -44,7 +44,10 @@ const Home: NextPage = () => {
       <div
         className={classNames(
           styles.formSuccess,
-          formSuccess ? "translate-y-0" : "-translate-y-14"
+          { "-translate-y-14": formSuccess === 0 },
+          { "translate-y-0": formSuccess === 1 || formSuccess === -1 },
+          { "bg-primary dark:bg-primary_dark": formSuccess === 1 },
+          { "bg-danger dark:bg-danger_dark": formSuccess === -1 }
         )}
       >
         Message sent!
@@ -79,7 +82,7 @@ const Home: NextPage = () => {
         <Skills />
         <FadeInSection id="contact">
           <Contact
-            onFormSubmit={(newValue: boolean) => {
+            onFormSubmit={(newValue: number) => {
               setformSuccess(newValue);
             }}
           />
