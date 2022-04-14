@@ -7,5 +7,5 @@
 }
 
 .formSuccess {
-  @apply transition-transform bg-primary dark:bg-primary_dark shadow-lg leading-[2.5em] text-center overflow-hidden right-0 left-0 top-0 z-50 fixed;
+  @apply transition-transform text-light shadow-lg leading-[2.5em] text-center overflow-hidden right-0 left-0 top-0 z-50 fixed;
 }
