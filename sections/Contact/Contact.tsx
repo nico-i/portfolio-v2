@@ -35,7 +35,7 @@ export default function Contact() {
           <select
             required={true}
             className={classNames(styles.input)}
-            name="budget"
+            name="budget[]"
             id="budget"
           >
             <option>{t("option-budget-0")}</option>
