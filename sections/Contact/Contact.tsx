@@ -14,11 +14,11 @@ export default function Contact() {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="/index"
+      action="#contact"
       name="contact"
       className={styles.contactWrapper}
     >
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="form-name" value="contact" required={true} />
       <p hidden>
         <label>
           Do not fill this out: <input name="bot-field" />
@@ -33,6 +33,7 @@ export default function Contact() {
         <label className={styles.label} htmlFor="budget">
           {t("label-budget")}
           <select
+            required={true}
             className={classNames(styles.input)}
             name="budget"
             id="budget"
@@ -46,6 +47,7 @@ export default function Contact() {
         <label className={styles.label} htmlFor="name">
           {t("label-name")}
           <input
+            required={true}
             name="name"
             id="name"
             type={"text"}
@@ -56,6 +58,7 @@ export default function Contact() {
         <label className={styles.label} htmlFor="email">
           {t("label-email")}
           <input
+            required={true}
             name="email"
             id="email"
             type={"email"}
@@ -68,6 +71,7 @@ export default function Contact() {
         <label className={styles.label} htmlFor="message">
           {t("label-message")}
           <textarea
+            required={true}
             name="message"
             id="message"
             className={classNames(styles.input, styles.textArea)}
