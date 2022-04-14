@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           { "bg-danger dark:bg-danger_dark": formSuccess === -1 }
         )}
       >
-        Message sent!
+        <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className={styles.sectionsWrapper}>
