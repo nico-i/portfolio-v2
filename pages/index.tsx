@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     if (formSuccess) {
       setTimeout(() => {
         setformSuccess(false);
-      }, 3000);
+      }, 2500);
     }
   });
   return (
