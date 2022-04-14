@@ -5,3 +5,11 @@
 .skillIcon {
   @apply absolute top-1/2 left-1/2;
 }
+
+.bg {
+  @apply fill-primary dark:fill-primary_dark;
+}
+
+.path {
+  @apply stroke-light;
+}

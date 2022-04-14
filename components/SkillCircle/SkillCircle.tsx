@@ -5,8 +5,6 @@ interface Props {
   size: number;
   percentage: number;
   duration: number;
-  bgColor: string;
-  pathColor: string;
   inView: boolean;
   Icon: IconType;
 }
@@ -18,15 +16,7 @@ interface Props {
  * @return {React.ReactNode}
  */
 
-const SkillCircle = ({
-  percentage,
-  duration,
-  size,
-  bgColor,
-  pathColor,
-  inView,
-  Icon,
-}: Props) => {
+const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     setProgress(inView ? percentage : 0);
@@ -42,15 +32,15 @@ const SkillCircle = ({
     <div className={styles.skillWrapper}>
       <svg width={size} height={size} viewBox={viewBox}>
         <circle
+          className={styles.bg}
           r={radius}
-          fill={bgColor}
           cy={size / 2}
           cx={size / 2}
           strokeWidth={strokeWidth + "px"}
         ></circle>
         <circle
+          className={styles.path}
           fill="none"
-          stroke={pathColor}
           cy={size / 2}
           cx={size / 2}
           r={radius * relSize}
@@ -71,7 +61,6 @@ const SkillCircle = ({
       <Icon
         size={iconSize}
         transform={"translate(-" + iconSize / 2 + " -" + iconSize / 2 + ")"}
-        fill={pathColor}
         className={styles.skillIcon}
       />
     </div>

@@ -62,9 +62,13 @@ const Home: NextPage = () => {
             <p>{t("skills-intro-p")}</p>
           </div>
         </FadeInSection>
-        <Skills theme={theme} tailwindCfg={tailwindCfg} />
+        <Skills />
         <FadeInSection id="contact">
-          <Contact />
+          <Contact
+            onFormSubmit={(newValue: boolean) => {
+              setformSuccess(newValue);
+            }}
+          />
         </FadeInSection>
       </main>
     </>
