@@ -1,0 +1,14 @@
+.outerWrapper {
+  @apply relative inline-block;
+}
+
+/* Used this handy trick to make box shadow appear infront of items in div https://stackoverflow.com/a/12660106/13929165 */
+
+.innerWrapper {
+  @apply h-96 overflow-scroll;
+}
+
+.innerWrapper::before {
+  content: "";
+  @apply absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark;
+}

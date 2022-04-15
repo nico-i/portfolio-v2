@@ -9,6 +9,7 @@ import NavBar from "../components/NavBar/NavBar";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
+import Experience from "../sections/Experience/Experience";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
 import FadeInSection from "../utils/FadeInSection";
@@ -68,6 +69,9 @@ const Home: NextPage = () => {
               ></span>
             </h2>
           </div>
+        </FadeInSection>
+        <FadeInSection>
+          <Experience />
         </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>
           <div className={styles.introSkills}>
