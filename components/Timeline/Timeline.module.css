@@ -1,0 +1,11 @@
+.line {
+  @apply stroke-dark dark:stroke-light;
+}
+
+.itemFrame {
+  @apply stroke-dark dark:stroke-light;
+}
+
+.item {
+  @apply fill-primary dark:fill-primary_dark;
+}
