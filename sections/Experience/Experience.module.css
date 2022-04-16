@@ -5,6 +5,7 @@
 /* Used this handy trick to make box shadow appear infront of items in div https://stackoverflow.com/a/12660106/13929165 */
 
 .innerWrapper {
+  scrollbar-width: none;
   @apply overflow-scroll snap-y snap-mandatory;
 }
 
