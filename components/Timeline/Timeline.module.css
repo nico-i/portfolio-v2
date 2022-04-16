@@ -7,5 +7,12 @@
 }
 
 .item {
-  @apply fill-primary dark:fill-primary_dark;
+  @apply fill-primary dark:fill-primary_dark snap-center;
+}
+.title {
+  @apply flex justify-center items-center w-full h-full text-primary dark:text-primary_dark font-bold pl-8 md:pl-0;
+}
+
+.desc {
+  @apply flex justify-center items-center w-full h-full overflow-visible pr-16 md:pr-0;
 }

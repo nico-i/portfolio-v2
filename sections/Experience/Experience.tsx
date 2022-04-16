@@ -8,15 +8,17 @@ import styles from "./Experience.module.css";
  * @return {React.ReactNode}
  */
 function Experience() {
+  const itemHeight = 400;
   return (
     <div className={styles.outerWrapper}>
-      <div className={styles.innerWrapper}>
+      <div className={styles.innerWrapper} style={{ height: itemHeight }}>
         <Timeline
           items={xpItems}
           itemRelSize={0.55}
-          itemRadius={25}
+          itemRadius={20}
           lineWidth={7}
-          lineHeight={100}
+          lineHeight={itemHeight / 2}
+          itemPadding={15}
         />
       </div>
     </div>
