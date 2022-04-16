@@ -26,7 +26,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        "fade-tb": "inset 0px 15px 10px #FFFFF, inset 0px -15px 10px #FFFFF",
+        "fade-tb": "inset 0px 20px 14px #FFFFF, inset 0px -20px 14px #FFFFF",
       },
     },
     plugins: [require("@tailwindcss/forms")],
