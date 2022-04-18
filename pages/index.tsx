@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         </FadeInSection>
         <FadeInSection>
           <Timeline
-            itemInterval={7}
+            itemInterval={3500}
             loop={true}
             items={xpItems}
             itemHeight={"3rem"}

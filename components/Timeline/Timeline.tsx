@@ -42,9 +42,10 @@ export default function Timeline({
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 3500,
+            delay: itemInterval,
             disableOnInteraction: false,
           }}
+          loop={loop}
           a11y={{
             prevSlideMessage: "Previous slide",
             nextSlideMessage: "Next slide",
