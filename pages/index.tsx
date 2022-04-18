@@ -77,8 +77,7 @@ const Home: NextPage = () => {
             loop={true}
             items={xpItems}
             itemHeight={"3rem"}
-            lineWidth={4}
-            lineHeight={"12rem"}
+            strokeWidth={4}
           />
         </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>

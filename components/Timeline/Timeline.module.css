@@ -9,43 +9,15 @@
   @apply w-72 h-96 md:w-[28rem];
 }
 
-.innerWrapper::before {
-  content: "";
-  @apply z-50 transition-all absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark;
+.bgLine {
+  @apply absolute -z-50 top-0 bottom-0 left-1/2 -translate-x-1/2 h-full;
 }
 
-.line {
-  @apply stroke-dark dark:stroke-light w-0 mx-auto;
+.edgeFade {
+  content: "";
+  @apply z-10 transition-all absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark;
 }
 
 .slide {
-  animation: autoscroll ease-in-out;
-  @apply absolute top-full;
-}
-
-/*  0 - 4 : Slide in from below
-    4 - 25 : Show slide
-    25 - 28: Slide up
-    28 - 100: Hide slide
-    
-    25% because there are 5 items. If the amount of items 
-    changes to length n, change value to 1/n and change 
-    28% to 1/n + 4%. 
-*/
-@keyframes autoscroll {
-  0% {
-    top: 100%;
-  }
-  4% {
-    top: 0%;
-  }
-  25% {
-    top: 0%;
-  }
-  28% {
-    top: -100%;
-  }
-  100% {
-    top: -100%;
-  }
+  @apply flex justify-items-center items-center h-96;
 }

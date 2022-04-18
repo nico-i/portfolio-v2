@@ -7,7 +7,7 @@
 }
 
 .itemFrame {
-  @apply flex stroke-dark dark:stroke-light self-center justify-center items-center rounded-full mx-2 md:mx-6 -my-1;
+  @apply flex transition bg-light dark:bg-dark stroke-dark dark:stroke-light self-center justify-center items-center rounded-full mx-2 md:mx-6 -my-1;
 }
 
 .text {

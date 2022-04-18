@@ -32,11 +32,13 @@ function TimelineItem({
           styles.text,
           "justify-end text-right text-primary dark:text-primary_dark font-extrabold"
         )}
-        style={{ height: itemHeight }}
       >
-        <span dangerouslySetInnerHTML={{ __html: t(itemTitle) }}></span>
+        <span
+          dangerouslySetInnerHTML={{ __html: t(itemTitle) }}
+          style={{ height: itemHeight }}
+        ></span>
       </div>
-      <div>
+      <div className={styles.itemBg}>
         <div
           className={styles.itemFrame}
           style={{
@@ -52,8 +54,11 @@ function TimelineItem({
           ></div>
         </div>
       </div>
-      <div className={styles.text} style={{ height: itemHeight }}>
-        <span dangerouslySetInnerHTML={{ __html: t(itemDescription) }}></span>
+      <div className={styles.text}>
+        <span
+          dangerouslySetInnerHTML={{ __html: t(itemDescription) }}
+          style={{ height: itemHeight }}
+        ></span>
       </div>
     </div>
   );
