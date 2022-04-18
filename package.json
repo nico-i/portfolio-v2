@@ -21,6 +21,7 @@
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.33.1",
+    "swiper": "^8.1.1",
     "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
