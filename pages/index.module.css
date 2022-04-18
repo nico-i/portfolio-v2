@@ -1,5 +1,5 @@
 .sectionsWrapper {
-  @apply snap-none md:snap-y snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
+  @apply snap-none md:snap-y md:snap-mandatory w-full h-screen overflow-scroll scroll-smooth;
 }
 
 .introSkills {

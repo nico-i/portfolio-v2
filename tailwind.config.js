@@ -24,7 +24,12 @@ module.exports = {
     fontFamily: {
       sans: ["Poppins ", "sans-serif "],
     },
+    extend: {
+      boxShadow: {
+        "fade-tb":
+          "inset 0 80px 25px -35px #000000, inset 0 -80px 25px -35px #000000;",
+      },
+    },
+    plugins: [require("@tailwindcss/forms")],
   },
-  extend: {},
-  plugins: [require("@tailwindcss/forms")],
 };

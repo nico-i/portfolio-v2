@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import Timeline from "../components/Timeline/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
@@ -13,6 +14,7 @@ import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
+import xpItems from "./../data/xpItems.json";
 
 const Home: NextPage = () => {
   const [formSuccess, setformSuccess] = useState(0);
@@ -69,6 +71,15 @@ const Home: NextPage = () => {
             </h2>
           </div>
         </FadeInSection>
+        <FadeInSection>
+          <Timeline
+            itemInterval={3500}
+            loop={true}
+            items={xpItems}
+            itemHeight={"3rem"}
+            strokeWidth={4}
+          />
+        </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>
           <div className={styles.introSkills}>
             <h2>
@@ -102,7 +113,7 @@ export async function getStaticProps({ locale }: { locale: any }) {
     props: {
       ...(await serverSideTranslations(
         locale,
-        ["common", "nav", "hero", "about", "contact"],
+        ["common", "nav", "hero", "about", "contact", "xp"],
         i18nConfig
       )),
     },
