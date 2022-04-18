@@ -1,0 +1,15 @@
+.itemFlexBox {
+  @apply flex flex-nowrap justify-items-center justify-center;
+}
+
+.item {
+  @apply h-3/5 w-3/5 flex m-[0.1em] bg-primary dark:bg-primary_dark rounded-full;
+}
+
+.itemFrame {
+  @apply flex stroke-dark dark:stroke-light self-center justify-center items-center rounded-full mx-2 md:mx-6 -my-1;
+}
+
+.text {
+  @apply w-2/5 flex;
+}
