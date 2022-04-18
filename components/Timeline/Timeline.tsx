@@ -16,7 +16,6 @@ interface Props {
   itemHeight: number | string;
   itemColor?: string;
   itemInterval: number;
-  loop: boolean;
 }
 
 /**
@@ -30,7 +29,6 @@ export default function Timeline({
   itemHeight,
   itemColor,
   itemInterval,
-  loop,
 }: Props) {
   return (
     <div className={styles.outerWrapper}>
@@ -41,11 +39,11 @@ export default function Timeline({
           autoHeight={true}
           spaceBetween={30}
           centeredSlides={true}
+          rewind={true}
           autoplay={{
             delay: itemInterval,
             disableOnInteraction: false,
           }}
-          loop={loop}
           a11y={{
             prevSlideMessage: "Previous slide",
             nextSlideMessage: "Next slide",
