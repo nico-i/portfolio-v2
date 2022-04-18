@@ -1,6 +1,7 @@
-import { useTranslation } from "next-i18next";
+import classNames from "classnames";
 import React from "react";
 import styles from "./Timeline.module.css";
+import TimelineItem from "./TimelineItem";
 
 interface Props {
   items: Array<{
@@ -10,12 +11,12 @@ interface Props {
     end: number;
   }>;
   lineWidth: number;
-  lineHeight: number;
-  lineColor?: string;
-  itemRadius: number;
-  itemRelSize: number;
+  lineHeight: number | string;
+  strokeColor?: string;
+  itemHeight: number | string;
   itemColor?: string;
-  itemPadding: number;
+  itemInterval: number;
+  loop: boolean;
 }
 
 /**
@@ -26,89 +27,53 @@ export default function Timeline({
   items,
   lineWidth,
   lineHeight,
-  lineColor,
-  itemRadius,
-  itemRelSize,
+  strokeColor,
+  itemHeight,
   itemColor,
-  itemPadding,
+  itemInterval,
+  loop,
 }: Props) {
-  const { t } = useTranslation("xp");
-  const totalItemHeight = lineHeight * 2;
-  // *5 is for taking the width of a symbol into account
-  const maxTitleWidth = Math.max(...items.map((e) => t(e.title).length * 5));
-  const maxDescWidth = Math.max(
-    ...items.map((e) => t(e.description).length * 5)
-  );
-  // +30 is padding because of the box shadow
-  const boxWidth =
-    maxTitleWidth + maxDescWidth + itemRadius * 2 + lineWidth + 30 + 200;
-  const boxHeight = items.length * totalItemHeight;
-  const xCenter = boxWidth / 2;
   return (
-    <svg width={boxWidth} height={boxHeight}>
-      {items.map((item, index) => {
-        const yZero = totalItemHeight * index;
-        return (
-          <g key={item.title}>
-            <line
-              x1={xCenter}
-              y1={yZero}
-              x2={xCenter}
-              y2={yZero + lineHeight - itemRadius}
-              stroke={lineColor}
-              strokeWidth={lineWidth}
-              className={styles.line}
-            ></line>
-            <line
-              x1={xCenter}
-              y1={lineHeight + itemRadius + yZero}
-              x2={xCenter}
-              y2={lineHeight * 2 + yZero}
-              stroke={lineColor}
-              strokeWidth={lineWidth}
-              className={styles.line}
-            ></line>
-            <circle
-              cx={xCenter}
-              cy={lineHeight + yZero}
-              r={itemRadius}
-              stroke={lineColor}
-              fill="none"
-              strokeWidth={lineWidth}
-              className={styles.itemFrame}
-            />
-            <circle
-              cx={xCenter}
-              cy={lineHeight + yZero}
-              r={itemRadius * itemRelSize}
-              fill={itemColor}
-              className={styles.item}
-            />
-            <foreignObject
-              x={xCenter - itemRadius - lineWidth - itemPadding - 150}
-              y={lineHeight + yZero - 75}
-              width={150}
-              height={150}
+    <div className={styles.outerWrapper}>
+      <div className={styles.innerWrapper}>
+        {items.map((item, i) => {
+          return (
+            <div
+              key={item.title}
+              className={styles.slide}
+              style={{
+                animationIterationCount: loop ? "infinite" : 1,
+                animationDelay: `${i * itemInterval}s`,
+                animationDuration: `${items.length * itemInterval}s`,
+              }}
             >
               <div
-                className={styles.title}
-                dangerouslySetInnerHTML={{ __html: t(item.title) }}
+                className={styles.line}
+                style={{
+                  height: lineHeight,
+                  borderWidth: lineWidth,
+                  borderColor: strokeColor,
+                }}
               ></div>
-            </foreignObject>
-            <foreignObject
-              x={xCenter + itemRadius + lineWidth + itemPadding}
-              y={lineHeight + yZero - 75}
-              width={180}
-              height={150}
-            >
+              <TimelineItem
+                itemHeight={itemHeight}
+                itemTitle={item.title}
+                itemDescription={item.description}
+                itemColor={itemColor}
+                strokeWidth={lineWidth}
+              />
               <div
-                className={styles.desc}
-                dangerouslySetInnerHTML={{ __html: t(item.description) }}
+                className={classNames(styles.line, "-mt-2")}
+                style={{
+                  height: `calc(${lineHeight}*1.4)`,
+                  borderWidth: lineWidth,
+                  borderColor: strokeColor,
+                }}
               ></div>
-            </foreignObject>
-          </g>
-        );
-      })}
-    </svg>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

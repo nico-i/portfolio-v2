@@ -1,18 +1,51 @@
+.outerWrapper {
+  @apply relative inline-block overflow-hidden;
+}
+
+/* Used this handy trick to make box shadow appear infront of items in div https://stackoverflow.com/a/12660106/13929165 */
+
+.innerWrapper {
+  scrollbar-width: none;
+  @apply w-72 h-96 md:w-[28rem];
+}
+
+.innerWrapper::before {
+  content: "";
+  @apply z-50 transition-all absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark;
+}
+
 .line {
-  @apply stroke-dark dark:stroke-light;
+  @apply stroke-dark dark:stroke-light w-0 mx-auto;
 }
 
-.itemFrame {
-  @apply stroke-dark dark:stroke-light;
+.slide {
+  animation: autoscroll ease-in-out;
+  @apply absolute top-full;
 }
 
-.item {
-  @apply fill-primary dark:fill-primary_dark snap-center;
-}
-.title {
-  @apply flex justify-center items-center w-full h-full text-primary dark:text-primary_dark font-bold pl-8 md:pl-0;
-}
-
-.desc {
-  @apply flex justify-center items-center w-full h-full overflow-visible pr-16 md:pr-0;
+/*  0 - 4 : Slide in from below
+    4 - 25 : Show slide
+    25 - 28: Slide up
+    28 - 100: Hide slide
+    
+    25% because there are 5 items. If the amount of items 
+    changes to length n, change value to 1/n and change 
+    28% to 1/n + 4%. 
+*/
+@keyframes autoscroll {
+  0% {
+    top: 100%;
+  }
+  4% {
+    top: 0%;
+  }
+  25% {
+    top: 0%;
+  }
+  28% {
+    top: -100%;
+  }
+  100% {
+    top: -100%;
+  }
 }

@@ -6,14 +6,15 @@ import { useTheme } from "next-themes";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import Timeline from "../components/Timeline/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
-import Experience from "../sections/Experience/Experience";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
 import FadeInSection from "../utils/FadeInSection";
 import styles from "./index.module.css";
+import xpItems from "./../data/xpItems.json";
 
 const Home: NextPage = () => {
   const [formSuccess, setformSuccess] = useState(0);
@@ -71,7 +72,14 @@ const Home: NextPage = () => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <Experience />
+          <Timeline
+            itemInterval={7}
+            loop={true}
+            items={xpItems}
+            itemHeight={"3rem"}
+            lineWidth={4}
+            lineHeight={"12rem"}
+          />
         </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>
           <div className={styles.introSkills}>
