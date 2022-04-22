@@ -1,9 +1,11 @@
 import classNames from "classnames";
-import type { NextPage } from "next";
+import fs from "fs";
+import matter from "gray-matter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
 import Timeline from "../components/Timeline/Timeline";
@@ -13,10 +15,16 @@ import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
 import FadeInSection from "../utils/FadeInSection";
-import styles from "./index.module.css";
 import xpItems from "./../data/xpItems.json";
+import styles from "./index.module.css";
 
-const Home: NextPage = () => {
+interface Props {
+  projects: {
+    [key: string]: string;
+  }[];
+}
+
+const Home = ({ projects }: Props) => {
   const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
@@ -30,7 +38,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
+        <title>Nico Ismaili</title>
         <meta name="description" content={t("meta-desc")} />
         <meta property="og:title" content={t("meta-title")} />
         <meta property="og:url" content={t("meta-url")} />
@@ -41,7 +49,7 @@ const Home: NextPage = () => {
           property="og:image:secure_url"
           content="https://raw.githubusercontent.com/ismailinico/nico.ismaili.de/main/public/images/social.jpg"
         />
-        <meta property="og:image:alt" content={t("")} />
+        <meta property="og:image:alt" content={t("meta-img-alt")} />
       </Head>
       <div
         className={classNames(
@@ -73,8 +81,7 @@ const Home: NextPage = () => {
         </FadeInSection>
         <FadeInSection>
           <Timeline
-            itemInterval={3500}
-            loop={true}
+            itemInterval={5000}
             items={xpItems}
             itemHeight={"3rem"}
             strokeWidth={4}
@@ -91,6 +98,19 @@ const Home: NextPage = () => {
           </div>
         </FadeInSection>
         <Skills />
+        <FadeInSection id="projects">
+          <ul>
+            {projects.map((project) => (
+              <li key={project.slug}>
+                <Link href={`/projects/${project.slug}`}>
+                  <a>
+                    {project.date}:{project.title}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </FadeInSection>
         <FadeInSection id="contact">
           <Contact
             onFormSubmit={(newValue: number) => {
@@ -109,6 +129,17 @@ const Home: NextPage = () => {
  * @return {React.ReactNode}
  */
 export async function getStaticProps({ locale }: { locale: any }) {
+  const projectFiles = fs.readdirSync("./content/projects");
+
+  // Get the front matter and slug (the filename without .md) of all files
+  const projects = projectFiles.map((filename) => {
+    const file = fs.readFileSync(`./content/projects/${filename}`, "utf8");
+    const matterData = matter(file);
+    return {
+      ...matterData.data, // matterData.data contains front matter
+      slug: filename.slice(0, filename.indexOf(".")),
+    };
+  });
   return {
     props: {
       ...(await serverSideTranslations(
@@ -116,6 +147,7 @@ export async function getStaticProps({ locale }: { locale: any }) {
         ["common", "nav", "hero", "about", "contact", "xp"],
         i18nConfig
       )),
+      projects,
     },
   };
 }

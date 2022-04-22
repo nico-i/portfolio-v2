@@ -111,10 +111,29 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale:alternate" content="de_DE" />
+        <script
+          async
+          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+        />
       </Head>
       <body>
         <Main />
         <NextScript />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+          `,
+          }}
+        />
       </body>
     </Html>
   );

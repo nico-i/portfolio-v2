@@ -16,7 +16,7 @@ a {
 }
 
 p {
-  @apply mb-4 md:text-justify;
+  @apply mb-4;
 }
 
 section {
