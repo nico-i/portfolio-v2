@@ -38,7 +38,7 @@ const Home = ({ projects }: Props) => {
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
+        <title>Nico Ismaili</title>
         <meta name="description" content={t("meta-desc")} />
         <meta property="og:title" content={t("meta-title")} />
         <meta property="og:url" content={t("meta-url")} />
@@ -49,7 +49,7 @@ const Home = ({ projects }: Props) => {
           property="og:image:secure_url"
           content="https://raw.githubusercontent.com/ismailinico/nico.ismaili.de/main/public/images/social.jpg"
         />
-        <meta property="og:image:alt" content={t("")} />
+        <meta property="og:image:alt" content={t("meta-img-alt")} />
       </Head>
       <div
         className={classNames(
