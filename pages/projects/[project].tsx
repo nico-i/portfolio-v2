@@ -28,14 +28,19 @@ export default function Blog({ frontmatter, markdown }: Props) {
         <meta property="og:url" content={frontmatter.ogUrl} />
         <meta property="og:title" content={frontmatter.ogTitle} />
         <meta property="og:description" content={frontmatter.ogDescription} />
-        <meta property="og:image:width" content={frontmatter.ogImgWidth} />
-        <meta property="og:image:height" content={frontmatter.ogImgHeight} />
+        <meta property="og:image:width" content={"1080"} />
+        <meta property="og:image:height" content={"1080"} />
         <meta property="og:image" content={frontmatter.ogImgUrl} />
         <meta property="og:image:alt" content={frontmatter.ogImgAlt} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
       <div className="w-full flex justify-center items-center">
-        <Image src={frontmatter.headerImg} alt={frontmatter.headerImageAlt} />
+        <Image
+          src={frontmatter.headerImg}
+          alt={frontmatter.headerImageAlt}
+          height={frontmatter.headerImgHeight}
+          width={frontmatter.headerImgWidth}
+        />
         <h1 className="highlighted text-2xl">{frontmatter.title}</h1>
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </div>

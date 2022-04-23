@@ -101,11 +101,9 @@ const Home = ({ projects }: Props) => {
         <FadeInSection id="projects">
           <ul>
             {projects.map((project) => (
-              <li key={project.slug}>
+              <li key={project.title}>
                 <Link href={`/projects/${project.slug}`}>
-                  <a>
-                    {project.date}:{project.title}
-                  </a>
+                  <a>{project.title}</a>
                 </Link>
               </li>
             ))}
