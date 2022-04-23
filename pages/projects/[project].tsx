@@ -20,6 +20,9 @@ interface Props {
  */
 export default function Blog({ frontmatter, markdown }: Props) {
   const { theme, setTheme } = useTheme();
+  const titleArr = frontmatter.title.split(" ");
+  const highlighted = titleArr.slice(-1);
+  const title = titleArr.slice(0, -1).join(" ");
   return (
     <>
       <Head>
@@ -34,15 +37,23 @@ export default function Blog({ frontmatter, markdown }: Props) {
         <meta property="og:image:alt" content={frontmatter.ogImgAlt} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
-      <div className="w-full flex justify-center items-center">
-        <Image
-          src={frontmatter.headerImg}
-          alt={frontmatter.headerImageAlt}
-          height={frontmatter.headerImgHeight}
-          width={frontmatter.headerImgWidth}
-        />
-        <h1 className="highlighted text-2xl">{frontmatter.title}</h1>
-        <ReactMarkdown>{markdown}</ReactMarkdown>
+      <div className="grid grid-cols-1 w-full px-8 md:px-14 lg:px-96">
+        <div className="drop-shadow-xl mt-28 w-full mx-auto">
+          <Image
+            src={frontmatter.headerImg.split("/").slice(-2).join("/")}
+            alt={frontmatter.headerImageAlt}
+            height={frontmatter.headerImgHeight}
+            width={frontmatter.headerImgWidth}
+            layout="responsive"
+          />
+        </div>
+        <div className="mt-6">
+          <h1 className="font-semibold text-2xl md:text-4xl mb-2">
+            {`${title} `}
+            <span className="highlighted">{highlighted}</span>
+          </h1>
+          <ReactMarkdown>{markdown}</ReactMarkdown>
+        </div>
       </div>
     </>
   );
