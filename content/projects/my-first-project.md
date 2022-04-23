@@ -5,6 +5,7 @@ ogDescription: Summary of the work and creation process that went into the
 ogImgUrl: images/nicoismailide_og.webp
 headerImgWidht: 1920
 date: 24, August, 2021
+headerImgWidth: 1920
 ogImgHeight: 1080
 title: Portfolio website
 metaDescription: A project summary of the making of my very own portfolio website.
