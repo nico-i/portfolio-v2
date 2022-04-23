@@ -14,7 +14,7 @@ export default function About() {
       <div className={styles.profilePicWrapper}>
         <Image
           alt={t("profile-img-alt")}
-          src="pb_eotlpi.png"
+          src="pb.png"
           height={1080}
           width={1080}
         />
