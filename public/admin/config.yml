@@ -2,27 +2,68 @@ backend:
   name: git-gateway
   branch: projects
 
+i18n:
+  structure: multiple_folders
+  locales: [en, de]
+  default_locale: en
+
 media_folder: public/images
 public_folder: /images
 
-publish_mode: editorial_workflow # For Drafts
+publish_mode: editorial_workflow
 
 collections:
-  - name: "projects" # Used in routes, e.g., /admin/collections/blog
-    label: "Project" # Used in the UI
-    folder: "content/projects" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{project}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Meta: Description", name: "metaDescription", widget: "text"}
-      - {label: "Open Graph: Website-URL", name: "ogUrl", widget: "string"}
-      - {label: "Open Graph: Title", name: "ogTitle", widget: "string"}
-      - {label: "Open Graph: Description", name: "ogDescription", widget: "text"}
-      - {label: "Open Graph: Image", name: "ogImgUrl", widget: "image"}
-      - {label: "Open Graph: Image Alt-Text", name: "ogImgAlt", widget: "string"}
-      - {label: "Headerimage", name: "headerImg", widget: "image"}
-      - {label: "Headerimage Width", name: "headerImgWidth", widget: "number"}
-      - {label: "Headerimage Height", name: "headerImgHeight", widget: "number"}
-      - {label: "Headerimage Alt-Text", name: "headerImageAlt", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "projects"
+    label: "Project"
+    folder: "content/projects"
+    create: true
+    i18n: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        i18n: true
+      - label: Header Image
+        name: headerImg
+        widget: image
+        i18n: duplicate
+      - label: Header Image Width
+        name: headerImgWidth
+        widget: number
+        i18n: duplicate
+      - label: Header Image Height
+        name: headerImgHeight
+        widget: number
+        i18n: duplicate
+      - label: Header Image Alt-Text
+        name: headerImageAlt
+        widget: string
+        i18n: true
+      - label: SEO Description
+        name: metaDescription
+        widget: text
+        i18n: true
+      - label: Open Graph Website-URL
+        name: ogUrl
+        widget: string
+        i18n: duplicate
+      - label: Open Graph Title
+        name: ogTitle
+        widget: string
+        i18n: true
+      - label: Open Graph Description
+        name: ogDescription
+        widget: text
+        i18n: true
+      - label: Open Graph Image
+        name: ogImgUrl
+        widget: image
+        i18n: duplicate
+      - label: Open Graph Image Alt-Text
+        name: ogImgAlt
+        widget: string
+        i18n: true
+      - label: Body
+        name: body
+        widget: markdown
+        i18n: true

@@ -6,6 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
 import Timeline from "../components/Timeline/Timeline";
@@ -28,6 +29,7 @@ const Home = ({ projects }: Props) => {
   const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
+  const { locale } = useRouter();
   useEffect(() => {
     if (formSuccess) {
       setTimeout(() => {
@@ -102,7 +104,7 @@ const Home = ({ projects }: Props) => {
           <ul>
             {projects.map((project) => (
               <li key={project.title}>
-                <Link href={`/projects/${project.slug}`}>
+                <Link href={`${locale}/projects/${project.slug}`}>
                   <a>{project.title}</a>
                 </Link>
               </li>
@@ -126,12 +128,15 @@ const Home = ({ projects }: Props) => {
  * @param {string} locale
  * @return {React.ReactNode}
  */
-export async function getStaticProps({ locale }: { locale: any }) {
-  const projectFiles = fs.readdirSync("./content/projects");
+export async function getStaticProps({ locale }: any) {
+  const projectFiles = fs.readdirSync(`./content/projects/${locale}/`);
 
   // Get the front matter and slug (the filename without .md) of all files
   const projects = projectFiles.map((filename) => {
-    const file = fs.readFileSync(`./content/projects/${filename}`, "utf8");
+    const file = fs.readFileSync(
+      `./content/projects/${locale}/${filename}`,
+      "utf8"
+    );
     const matterData = matter(file);
     return {
       ...matterData.data, // matterData.data contains front matter

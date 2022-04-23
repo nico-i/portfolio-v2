@@ -1,24 +1,22 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTheme } from "next-themes";
-import { Params } from "next/dist/server/router";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../../components/NavBar/NavBar";
 
-interface Props {
-  frontmatter: any;
-  markdown: string;
-}
-
-/**
+/** Dynamic page for rendering projects.
  *
- * @param {object} param
- * @return {React.ReactNode}
+ * @param {Object} props An object containing the parsed metadata of the project markdown file and the body of the same file as a string.
+ * @return {React.ReactNode} The page contents.
  */
-export default function Blog({ frontmatter, markdown }: Props) {
+export default function Project({
+  frontmatter,
+  markdown,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const { theme, setTheme } = useTheme();
   const titleArr = frontmatter.title.split(" ");
   const highlighted = titleArr.slice(-1);
@@ -59,14 +57,12 @@ export default function Blog({ frontmatter, markdown }: Props) {
   );
 }
 
-/** Defines which props to fetch when prerendering the page at build time.
- *
- * @param {string} project
- * @return {Props} props
- */
-export async function getStaticProps({ params }: Params) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const fileContent = matter(
-    fs.readFileSync(`./content/projects/${params.project}.md`, "utf8")
+    fs.readFileSync(
+      `./content/projects/${context.locale}/${context.params?.project}.md`,
+      "utf8"
+    )
   );
   const frontmatter = fileContent.data;
   const markdown = fileContent.content;
@@ -74,21 +70,29 @@ export async function getStaticProps({ params }: Params) {
   return {
     props: { frontmatter, markdown },
   };
-}
+};
 
-/** Defines which paths Next.js shall prerender.
- *
- * @return {object} An object with the "paths" and "fallback" properties
- */
-export async function getStaticPaths() {
-  const filesInProjects = fs.readdirSync("./content/projects");
-  const paths = filesInProjects.map((file) => {
-    const filename = file.slice(0, file.indexOf("."));
-    return { params: { project: filename } };
+export const getStaticPaths: GetStaticPaths = async () => {
+  const locales = fs.readdirSync(`./content/projects/`);
+  const paths: { params: { project: string }; locale: string }[] = [];
+  locales.forEach((locale) => {
+    const projects = fs.readdirSync(`./content/projects/${locale}`);
+    projects.forEach((projectFileName) => {
+      //  //{ params: { slug: 'post-1' }, locale: 'en-US' }
+      const projectName = projectFileName.slice(
+        0,
+        projectFileName.indexOf(".")
+      );
+      paths.push({
+        params: {
+          project: projectName.toString(),
+        },
+        locale: locale,
+      });
+    });
   });
-
   return {
     paths,
     fallback: false,
   };
-}
+};
