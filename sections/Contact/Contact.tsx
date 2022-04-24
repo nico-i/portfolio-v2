@@ -69,7 +69,7 @@ export default function Contact({ onFormSubmit }: Props) {
       onSubmit={onSubmit}
       className={styles.contactWrapper}
     >
-      <input type="hidden" name="form-name" value="contact" required={true} />
+      <input type="hidden" name="form-name" value="contact" required />
       <p hidden>
         <label>
           Do not fill this out: <input name="bot-field" />
@@ -84,7 +84,7 @@ export default function Contact({ onFormSubmit }: Props) {
         <label className={styles.label} htmlFor="budget">
           {t("label-budget")}
           <select
-            required={true}
+            required
             className={classNames(styles.input)}
             onChange={(e) => setBudget(e.target.value)}
             name="Budget"
@@ -99,7 +99,7 @@ export default function Contact({ onFormSubmit }: Props) {
         <label className={styles.label} htmlFor="name">
           {t("label-name")}
           <input
-            required={true}
+            required
             name="Name"
             id="name"
             type={"text"}
@@ -110,7 +110,7 @@ export default function Contact({ onFormSubmit }: Props) {
         <label className={styles.label} htmlFor="email">
           {t("label-email")}
           <input
-            required={true}
+            required
             name="E-Mail"
             id="email"
             type={"email"}
@@ -123,7 +123,7 @@ export default function Contact({ onFormSubmit }: Props) {
         <label className={styles.label} htmlFor="message">
           {t("label-message")}
           <textarea
-            required={true}
+            required
             name="Message"
             id="message"
             className={classNames(styles.input, styles.textArea)}

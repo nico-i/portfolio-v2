@@ -36,10 +36,10 @@ export default function Timeline({
       <div className={styles.innerWrapper}>
         <Swiper
           direction={"vertical"}
-          autoHeight={true}
+          autoHeight
           spaceBetween={30}
-          centeredSlides={true}
-          rewind={true}
+          centeredSlides
+          rewind
           autoplay={{
             delay: itemInterval,
             disableOnInteraction: false,
