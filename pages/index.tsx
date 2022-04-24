@@ -77,7 +77,7 @@ const Home = ({ projects }: Props) => {
             <h2>
               <span
                 dangerouslySetInnerHTML={{ __html: t("timeline-intro") }}
-              ></span>
+               />
             </h2>
           </div>
         </FadeInSection>
@@ -94,7 +94,7 @@ const Home = ({ projects }: Props) => {
             <h2>
               <span
                 dangerouslySetInnerHTML={{ __html: t("skills-intro") }}
-              ></span>
+               />
             </h2>
             <p>{t("skills-intro-p")}</p>
           </div>
