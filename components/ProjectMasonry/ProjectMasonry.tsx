@@ -15,7 +15,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
   return (
     <>
       <h2 className="block mb-8">
-        <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
+        <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
       </h2>
       <div className="masonry sm:masonry-sm md:masonry-md">
         {projects.map((project) => (

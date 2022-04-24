@@ -32,7 +32,7 @@ export default function Timeline({
 }: Props) {
   return (
     <div className={styles.outerWrapper}>
-      <span className={styles.edgeFade}></span>
+      <span className={styles.edgeFade} />
       <div className={styles.innerWrapper}>
         <Swiper
           direction={"vertical"}
@@ -69,7 +69,7 @@ export default function Timeline({
       <span
         className={styles.bgLine}
         style={{ borderLeft: strokeColor, borderWidth: strokeWidth }}
-      ></span>
+       />
     </div>
   );
 }

@@ -78,7 +78,7 @@ export default function Contact({ onFormSubmit }: Props) {
       <div className={styles.leftCol}>
         <div className={styles.headline}>
           <h2>
-            <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
+            <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
           </h2>
         </div>
         <label className={styles.label} htmlFor="budget">
@@ -105,7 +105,7 @@ export default function Contact({ onFormSubmit }: Props) {
             type={"text"}
             placeholder={t("input-name-placeholder")}
             className={styles.input}
-          ></input>
+           />
         </label>
         <label className={styles.label} htmlFor="email">
           {t("label-email")}
@@ -116,7 +116,7 @@ export default function Contact({ onFormSubmit }: Props) {
             type={"email"}
             placeholder={t("input-email-placeholder")}
             className={styles.input}
-          ></input>
+           />
         </label>
       </div>
       <div className={styles.rightCol}>
@@ -127,7 +127,7 @@ export default function Contact({ onFormSubmit }: Props) {
             name="Message"
             id="message"
             className={classNames(styles.input, styles.textArea)}
-          ></textarea>
+           />
         </label>
         <div className={styles.smLinksWrapper}>
           <button type="submit" className={styles.button}>
@@ -146,7 +146,7 @@ export default function Contact({ onFormSubmit }: Props) {
                 style={{ order: orderNum }}
               >
                 <smLink.Icon size={25} className={styles.smLinkIcon} />
-                <span className={styles.smLinkSpace}></span>
+                <span className={styles.smLinkSpace} />
                 <span className={styles.smLinkText}>{smLink.text}</span>
               </a>
             );

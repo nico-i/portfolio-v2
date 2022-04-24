@@ -21,7 +21,7 @@ export default function About() {
       </div>
       <div className={styles.aboutText}>
         <h2>
-          <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }}></span>
+          <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
         </h2>
         <p>
           {t("p-1-txt-0")}
