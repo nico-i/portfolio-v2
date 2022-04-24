@@ -5,10 +5,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import { ProjectMasonry } from "../components/ProjectMasonry/ProjectMasonry";
 import Timeline from "../components/Timeline/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
@@ -101,15 +101,9 @@ const Home = ({ projects }: Props) => {
         </FadeInSection>
         <Skills />
         <FadeInSection id="projects">
-          <ul>
-            {projects.map((project) => (
-              <li key={project.title}>
-                <Link href={`${locale}/projects/${project.slug}`}>
-                  <a>{project.title}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ProjectMasonry projects={projects} locale={locale} />
+          </div>
         </FadeInSection>
         <FadeInSection id="contact">
           <Contact
@@ -147,7 +141,7 @@ export async function getStaticProps({ locale }: any) {
     props: {
       ...(await serverSideTranslations(
         locale,
-        ["common", "nav", "hero", "about", "contact", "xp"],
+        ["common", "nav", "hero", "about", "contact", "xp", "projects"],
         i18nConfig
       )),
       projects,
