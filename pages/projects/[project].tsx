@@ -1,25 +1,26 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTheme } from "next-themes";
-import { Params } from "next/dist/server/router";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../../components/NavBar/NavBar";
 
-interface Props {
-  frontmatter: any;
-  markdown: string;
-}
-
-/**
+/** Dynamic page for rendering projects.
  *
- * @param {object} param
- * @return {React.ReactNode}
+ * @param {Object} props An object containing the parsed metadata of the project markdown file and the body of the same file as a string.
+ * @return {React.ReactNode} The page contents.
  */
-export default function Blog({ frontmatter, markdown }: Props) {
+export default function Project({
+  frontmatter,
+  markdown,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const { theme, setTheme } = useTheme();
+  const titleArr = frontmatter.title.split(" ");
+  const highlighted = titleArr.slice(-1);
+  const title = titleArr.slice(0, -1).join(" ");
   return (
     <>
       <Head>
@@ -28,29 +29,40 @@ export default function Blog({ frontmatter, markdown }: Props) {
         <meta property="og:url" content={frontmatter.ogUrl} />
         <meta property="og:title" content={frontmatter.ogTitle} />
         <meta property="og:description" content={frontmatter.ogDescription} />
-        <meta property="og:image:width" content={frontmatter.ogImgWidth} />
-        <meta property="og:image:height" content={frontmatter.ogImgHeight} />
+        <meta property="og:image:width" content={"1080"} />
+        <meta property="og:image:height" content={"1080"} />
         <meta property="og:image" content={frontmatter.ogImgUrl} />
         <meta property="og:image:alt" content={frontmatter.ogImgAlt} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
-      <div className="w-full flex justify-center items-center">
-        <Image src={frontmatter.headerImg} alt={frontmatter.headerImageAlt} />
-        <h1 className="highlighted text-2xl">{frontmatter.title}</h1>
-        <ReactMarkdown>{markdown}</ReactMarkdown>
+      <div className="grid grid-cols-1 w-full px-8 md:px-14 lg:px-96">
+        <div className="drop-shadow-xl mt-28 w-full mx-auto">
+          <Image
+            src={frontmatter.headerImg.split("/").slice(-2).join("/")}
+            alt={frontmatter.headerImageAlt}
+            height={frontmatter.headerImgHeight}
+            width={frontmatter.headerImgWidth}
+            layout="responsive"
+          />
+        </div>
+        <div className="mt-6">
+          <h1 className="font-semibold text-2xl md:text-4xl mb-2">
+            {`${title} `}
+            <span className="highlighted">{highlighted}</span>
+          </h1>
+          <ReactMarkdown>{markdown}</ReactMarkdown>
+        </div>
       </div>
     </>
   );
 }
 
-/** Defines which props to fetch when prerendering the page at build time.
- *
- * @param {string} project
- * @return {Props} props
- */
-export async function getStaticProps({ params }: Params) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const fileContent = matter(
-    fs.readFileSync(`./content/projects/${params.project}.md`, "utf8")
+    fs.readFileSync(
+      `./content/projects/${context.locale}/${context.params?.project}.md`,
+      "utf8"
+    )
   );
   const frontmatter = fileContent.data;
   const markdown = fileContent.content;
@@ -58,21 +70,29 @@ export async function getStaticProps({ params }: Params) {
   return {
     props: { frontmatter, markdown },
   };
-}
+};
 
-/** Defines which paths Next.js shall prerender.
- *
- * @return {object} An object with the "paths" and "fallback" properties
- */
-export async function getStaticPaths() {
-  const filesInProjects = fs.readdirSync("./content/projects");
-  const paths = filesInProjects.map((file) => {
-    const filename = file.slice(0, file.indexOf("."));
-    return { params: { project: filename } };
+export const getStaticPaths: GetStaticPaths = async () => {
+  const locales = fs.readdirSync(`./content/projects/`);
+  const paths: { params: { project: string }; locale: string }[] = [];
+  locales.forEach((locale) => {
+    const projects = fs.readdirSync(`./content/projects/${locale}`);
+    projects.forEach((projectFileName) => {
+      //  //{ params: { slug: 'post-1' }, locale: 'en-US' }
+      const projectName = projectFileName.slice(
+        0,
+        projectFileName.indexOf(".")
+      );
+      paths.push({
+        params: {
+          project: projectName.toString(),
+        },
+        locale: locale,
+      });
+    });
   });
-
   return {
     paths,
     fallback: false,
   };
-}
+};

@@ -7,6 +7,7 @@ import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import styles from "./NavBar.module.css";
 import navLinks from "../../data/navLinks.json";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 interface Props {
   onThemeChange: Function;
@@ -26,10 +27,12 @@ export default function NavBar({ onThemeChange, theme }: Props) {
   const { t } = useTranslation("nav");
   return (
     <header className={styles.nav}>
-      <a href="#home">
-        <div className="w-12 h-12">{logo}</div>
-        <span className="sr-only">{t("home")}</span>
-      </a>
+      <Link href="/#home">
+        <a>
+          <div className="w-12 h-12">{logo}</div>
+          <span className="sr-only">{t("home")}</span>
+        </a>
+      </Link>
       <nav>
         <button
           className={styles.menu}
@@ -47,13 +50,14 @@ export default function NavBar({ onThemeChange, theme }: Props) {
         >
           {navLinks.map((navLink) => (
             <li className={styles.navItem} key={navLink.text}>
-              <a
-                onClick={() => setIsMenuOpen(false)}
-                className={styles.navLink}
-                href={navLink.href}
-              >
-                {t(navLink.text)}
-              </a>
+              <Link href={`/${navLink.href}`}>
+                <a
+                  onClick={() => setIsMenuOpen(false)}
+                  className={styles.navLink}
+                >
+                  {t(navLink.text)}
+                </a>
+              </Link>
             </li>
           ))}
           <li className={styles.modeToggle}>

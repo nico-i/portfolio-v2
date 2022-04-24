@@ -5,9 +5,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import { ProjectMasonry } from "../components/ProjectMasonry/ProjectMasonry";
 import Timeline from "../components/Timeline/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
@@ -28,6 +29,7 @@ const Home = ({ projects }: Props) => {
   const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
+  const { locale } = useRouter();
   useEffect(() => {
     if (formSuccess) {
       setTimeout(() => {
@@ -99,17 +101,9 @@ const Home = ({ projects }: Props) => {
         </FadeInSection>
         <Skills />
         <FadeInSection id="projects">
-          <ul>
-            {projects.map((project) => (
-              <li key={project.slug}>
-                <Link href={`/projects/${project.slug}`}>
-                  <a>
-                    {project.date}:{project.title}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ProjectMasonry projects={projects} locale={locale} />
+          </div>
         </FadeInSection>
         <FadeInSection id="contact">
           <Contact
@@ -128,12 +122,15 @@ const Home = ({ projects }: Props) => {
  * @param {string} locale
  * @return {React.ReactNode}
  */
-export async function getStaticProps({ locale }: { locale: any }) {
-  const projectFiles = fs.readdirSync("./content/projects");
+export async function getStaticProps({ locale }: any) {
+  const projectFiles = fs.readdirSync(`./content/projects/${locale}/`);
 
   // Get the front matter and slug (the filename without .md) of all files
   const projects = projectFiles.map((filename) => {
-    const file = fs.readFileSync(`./content/projects/${filename}`, "utf8");
+    const file = fs.readFileSync(
+      `./content/projects/${locale}/${filename}`,
+      "utf8"
+    );
     const matterData = matter(file);
     return {
       ...matterData.data, // matterData.data contains front matter
@@ -144,7 +141,7 @@ export async function getStaticProps({ locale }: { locale: any }) {
     props: {
       ...(await serverSideTranslations(
         locale,
-        ["common", "nav", "hero", "about", "contact", "xp"],
+        ["common", "nav", "hero", "about", "contact", "xp", "projects"],
         i18nConfig
       )),
       projects,
