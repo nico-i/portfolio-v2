@@ -10,7 +10,12 @@ interface Props {
   locale: string | undefined;
 }
 
-export const ProjectMasonry = ({ projects, locale }: Props) => {
+/**
+ *
+ * @param {object} props
+ * @return {React.ReactNode}
+ */
+export default function ProjectMasonry({ projects, locale }: Props) {
   const { t } = useTranslation("projects");
   return (
     <>
@@ -37,4 +42,4 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
       </div>
     </>
   );
-};
+}

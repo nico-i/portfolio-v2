@@ -8,7 +8,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
-import { ProjectMasonry } from "../components/ProjectMasonry/ProjectMasonry";
 import Timeline from "../components/Timeline/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
@@ -18,6 +17,7 @@ import Skills from "../sections/Skills/Skills";
 import FadeInSection from "../components/FadeInSection/FadeInSection";
 import xpItems from "./../data/xpItems.json";
 import styles from "./index.module.css";
+import ProjectMasonry from "../components/ProjectMasonry/ProjectMasonry";
 
 interface Props {
   projects: {
@@ -25,7 +25,12 @@ interface Props {
   }[];
 }
 
-const Home = ({ projects }: Props) => {
+/**
+ *
+ * @param {object} props
+ * @return {React.ReactNode}
+ */
+export default function HomePage({ projects }: Props) {
   const [formSuccess, setformSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
@@ -111,7 +116,7 @@ const Home = ({ projects }: Props) => {
       </main>
     </>
   );
-};
+}
 
 /**
  *
@@ -144,5 +149,3 @@ export async function getStaticProps({ locale }: any) {
     },
   };
 }
-
-export default Home;

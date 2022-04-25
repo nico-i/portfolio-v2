@@ -1,8 +1,11 @@
-import { NextPage } from "next";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const Page: NextPage = () => {
+/**
+ *
+ * @return {React.ReactNode}
+ */
+export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -10,6 +13,4 @@ const Page: NextPage = () => {
   });
 
   return null;
-};
-
-export default Page;
+}

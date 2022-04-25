@@ -15,8 +15,13 @@ interface Props {
  * @param {Props} props
  * @return {React.ReactNode}
  */
-
-const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
+export default function SkillCircle({
+  percentage,
+  duration,
+  size,
+  inView,
+  Icon,
+}: Props) {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     setProgress(inView ? percentage : 0);
@@ -65,6 +70,4 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
       />
     </div>
   );
-};
-
-export default SkillCircle;
+}
