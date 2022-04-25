@@ -15,7 +15,7 @@ import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
-import FadeInSection from "../utils/FadeInSection";
+import FadeInSection from "../components/FadeInSection/FadeInSection";
 import xpItems from "./../data/xpItems.json";
 import styles from "./index.module.css";
 
@@ -75,9 +75,7 @@ const Home = ({ projects }: Props) => {
         <FadeInSection>
           <div>
             <h2>
-              <span
-                dangerouslySetInnerHTML={{ __html: t("timeline-intro") }}
-               />
+              <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </div>
         </FadeInSection>
@@ -92,9 +90,7 @@ const Home = ({ projects }: Props) => {
         <FadeInSection style={{ justifyContent: "start" }}>
           <div className={styles.introSkills}>
             <h2>
-              <span
-                dangerouslySetInnerHTML={{ __html: t("skills-intro") }}
-               />
+              <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
             <p>{t("skills-intro-p")}</p>
           </div>

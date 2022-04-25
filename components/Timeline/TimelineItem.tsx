@@ -36,7 +36,7 @@ function TimelineItem({
         <span
           dangerouslySetInnerHTML={{ __html: t(itemTitle) }}
           style={{ height: itemHeight }}
-         />
+        />
       </div>
       <div className={styles.itemBg}>
         <div
@@ -48,17 +48,14 @@ function TimelineItem({
             width: itemHeight,
           }}
         >
-          <div
-            className={styles.item}
-            style={{ backgroundColor: itemColor }}
-           />
+          <div className={styles.item} style={{ backgroundColor: itemColor }} />
         </div>
       </div>
       <div className={styles.text}>
         <span
           dangerouslySetInnerHTML={{ __html: t(itemDescription) }}
           style={{ height: itemHeight }}
-         />
+        />
       </div>
     </div>
   );

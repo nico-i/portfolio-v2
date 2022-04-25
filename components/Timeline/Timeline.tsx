@@ -69,7 +69,7 @@ export default function Timeline({
       <span
         className={styles.bgLine}
         style={{ borderLeft: strokeColor, borderWidth: strokeWidth }}
-       />
+      />
     </div>
   );
 }
