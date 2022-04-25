@@ -55,7 +55,7 @@ export default function Contact({ onFormSubmit }: Props) {
           onFormSubmit(1);
           event.target.reset();
         })
-        .catch((_) => {
+        .catch(() => {
           onFormSubmit(-1);
         });
     }
