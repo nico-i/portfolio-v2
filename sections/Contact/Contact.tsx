@@ -105,7 +105,7 @@ export default function Contact({ onFormSubmit }: Props) {
             type={"text"}
             placeholder={t("input-name-placeholder")}
             className={styles.input}
-           />
+          />
         </label>
         <label className={styles.label} htmlFor="email">
           {t("label-email")}
@@ -116,7 +116,7 @@ export default function Contact({ onFormSubmit }: Props) {
             type={"email"}
             placeholder={t("input-email-placeholder")}
             className={styles.input}
-           />
+          />
         </label>
       </div>
       <div className={styles.rightCol}>
@@ -127,7 +127,7 @@ export default function Contact({ onFormSubmit }: Props) {
             name="Message"
             id="message"
             className={classNames(styles.input, styles.textArea)}
-           />
+          />
         </label>
         <div className={styles.smLinksWrapper}>
           <button type="submit" className={styles.button}>

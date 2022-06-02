@@ -37,7 +37,7 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
           cy={size / 2}
           cx={size / 2}
           strokeWidth={strokeWidth + "px"}
-         />
+        />
         <circle
           className={styles.path}
           fill="none"
@@ -56,7 +56,7 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
                 }
               : { transition: "none" }
           }
-         />
+        />
       </svg>
       <Icon
         size={iconSize}
