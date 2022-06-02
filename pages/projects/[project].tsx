@@ -35,22 +35,24 @@ export default function Project({
         <meta property="og:image:alt" content={frontmatter.ogImgAlt} />
       </Head>
       <NavBar onThemeChange={setTheme} theme={theme} />
-      <div className="grid grid-cols-1 w-full px-8 md:px-14 lg:px-96">
-        <div className="drop-shadow-xl mt-28 w-full mx-auto">
-          <Image
-            src={frontmatter.headerImg.split("/").slice(-2).join("/")}
-            alt={frontmatter.headerImageAlt}
-            height={frontmatter.headerImgHeight}
-            width={frontmatter.headerImgWidth}
-            layout="responsive"
-          />
-        </div>
-        <div className="mt-6">
-          <h1 className="font-semibold text-2xl md:text-4xl mb-2">
-            {`${title} `}
-            <span className="highlighted">{highlighted}</span>
-          </h1>
-          <ReactMarkdown>{markdown}</ReactMarkdown>
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1 px-8 md:px-14 w-full lg:w-[60rem]">
+          <div className="drop-shadow-xl mt-28 w-full mx-auto">
+            <Image
+              src={frontmatter.headerImg.split("/").slice(-2).join("/")}
+              alt={frontmatter.headerImageAlt}
+              height={frontmatter.headerImgHeight}
+              width={frontmatter.headerImgWidth}
+              layout="responsive"
+            />
+          </div>
+          <div className="mt-6">
+            <h1 className="font-semibold text-2xl md:text-4xl mb-2">
+              {`${title} `}
+              <span className="highlighted">{highlighted}</span>
+            </h1>
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+          </div>
         </div>
       </div>
     </>
