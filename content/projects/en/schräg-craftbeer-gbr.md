@@ -28,10 +28,10 @@ As soon as the final logo design had been established, I began working on the bu
 
 **\*image goes here\***
 
-![Blank letter template for SCHRÄG craft beer company](/images/letterexample.jpg)
+![Letter template for SCHRÄG craft beer company filled with lorem ipsum text.](/images/letterexample.jpg "Letter template for SCHRÄG craft beer company filled with lorem ipsum text.")
 
 ## Beer Label
 
 The final step of this project was to create a label for the actual beer bottle. I began by creating a refined version of my sketch in Adobe Illustrator and started adding details fitting to the theme of the logo and key visual. One of these details was the background of the label which I filled with traditional proverbs synonymous to the subject of beer. I also added the key visual at the top of the label to ensure recognition of the company. To give an impression on how the label would look on a real beer bottle I used a commercially free mockup from [Simon Stratford](http://simonstratford.com/), which can be seen below.
 
-![Bottle label of SHRÄG craft beer](/images/label.png)
+![Beer bottle label for the SHRÄG craft beer.](/images/label.png "Beer bottle label for the SHRÄG craft beer")
