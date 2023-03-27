@@ -66,7 +66,7 @@ export default function Contact({ onFormSubmit }: Props) {
       data-netlify-honeypot="bot-field"
       name="contact"
       onSubmit={onSubmit}
-      className="grid grid-cols-1 lg:grid-cols-8 content-center max-w-7xl mt-28 gap-8 mb-10"
+      className="grid grid-cols-1 lg:grid-cols-8 content-center max-w-7xl mt-28 gap-8 mb-20"
     >
       <input type="hidden" name="form-name" value="contact" required />
       <p hidden>
@@ -75,8 +75,8 @@ export default function Contact({ onFormSubmit }: Props) {
         </label>
       </p>
       <div className="col-span-1 lg:col-span-2">
-        <div className="block text-[1.7rem] md:text-4xl h-52 md:h-32 lg:h-60 lg:flex items-center">
-          <h2 className="font-semibold text-4xl mb-4 leading-tight">
+        <div className="block text-[1.7rem] md:text-4xl h-auto mb-4 md:h-32 lg:h-60 lg:flex items-center">
+          <h2 className="font-semibold text-4xl md:mb-4 leading-[1.15] md:leading-tight">
             <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
           </h2>
         </div>
@@ -84,7 +84,7 @@ export default function Contact({ onFormSubmit }: Props) {
           {t("label-budget")}
           <select
             required
-            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-lighter dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
+            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-white dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
             onChange={(e) => setBudget(e.target.value)}
             name="Budget"
             id="budget"
@@ -103,7 +103,7 @@ export default function Contact({ onFormSubmit }: Props) {
             id="name"
             type={"text"}
             placeholder={t("input-name-placeholder")}
-            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-lighter dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
+            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-white dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
           />
         </label>
         <label className="block" htmlFor="email">
@@ -114,7 +114,7 @@ export default function Contact({ onFormSubmit }: Props) {
             id="email"
             type={"email"}
             placeholder={t("input-email-placeholder")}
-            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-lighter dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
+            className="transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-white dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10"
           />
         </label>
       </div>
@@ -126,14 +126,14 @@ export default function Contact({ onFormSubmit }: Props) {
             name="Message"
             id="message"
             className={classNames(
-              "transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-lighter dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10 h-28 md:h-40 lg:h-[24rem]"
+              "transition text-lg mt-2 mb-4 py-2 px-3 placeholder:text-dark/50 dark:placeholder:text-light/50 bg-white dark:bg-darker text-dark dark:text-light ring-dark/10 dark:ring-light/5 ring-2 block w-full rounded-lg focus:border-primary/25 dark:focus:border-primary_dark/75 focus:ring-primary focus:ring-4 dark:focus:ring-primary_dark focus:ring-opacity-25 dark:focus:ring-opacity-10 h-28 md:h-40 lg:h-[24rem]"
             )}
           />
         </label>
         <div className="grid grid-cols-6 lg:grid-cols-4 gap-4 lg:gap-2 mb-6 md:mb-0">
           <button
             type="submit"
-            className="order-first lg:order-4 text-lg mb-4 mt-2 lg:mt-0 lg:mb-0 font-semibold transition text-lighter bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1"
+            className="order-first lg:order-4 text-lg mb-4 mt-2 lg:mt-0 lg:mb-0 font-semibold transition text-white bg-primary w-full py-2 rounded-md col-span-6 lg:col-span-1"
           >
             {t("button-send")}
           </button>

@@ -16,9 +16,9 @@ export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation("nav");
   return (
-    <header className="transition z-50 fixed flex items-center w-screen justify-between bg-light dark:bg-dark py-2 pt-4 md:pt-6 lg:pt-10 px-4 md:px-8 lg:px-12">
-      <Link href="/#home">
-        <div className="w-12 h-12">
+    <nav className="transition z-50 fixed flex items-center w-screen justify-between  py-2 pt-4 md:pt-6 lg:pt-10 px-4 md:px-8 lg:px-12">
+      <Link href="/#home" passHref>
+        <div className="w-6 h-6 md:w-12 md:h-12">
           <LogoDark className="dark:block hidden" />
           <LogoLight className="block dark:hidden" />
         </div>
@@ -55,6 +55,6 @@ export default function NavBar() {
           </li>
         </ul>
       </nav>
-    </header>
+    </nav>
   );
 }

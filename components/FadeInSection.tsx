@@ -1,6 +1,5 @@
 import classNames from "classnames";
-import { useRouter } from "next/router";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface Props {
@@ -19,17 +18,7 @@ function FadeInSection({ children, id, style, className, fadeIn }: Props) {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
-  const router = useRouter();
 
-  useEffect(() => {
-    if (inView) {
-      if (id) {
-        router.push(`/#${id}`);
-      } else {
-        router.push("/");
-      }
-    }
-  }, [inView, id, router]);
   return (
     <section
       id={id}

@@ -4,7 +4,6 @@ import {
   DiHtml5,
   DiJsBadge,
   DiMongodb,
-  DiPostgresql,
   DiPython,
   DiTypo3,
 } from "react-icons/di";
@@ -15,6 +14,7 @@ import {
   SiTailwindcss,
   SiAtlassian,
   SiDocker,
+  SiPostgresql,
   SiSpringboot,
   SiGnubash,
   SiReact,
@@ -28,13 +28,15 @@ import {
 import { FaGitAlt, FaJava } from "react-icons/fa";
 import { BsFiletypeSql } from "react-icons/bs";
 
-const skillData: {
+export interface SkillDataType {
   skill: string;
   Icon: IconType;
   percentage: number;
   infoTextId: string;
   url: string;
-}[] = [
+}
+
+export const skillData: SkillDataType[] = [
   {
     skill: "HTML5",
     Icon: DiHtml5,
@@ -170,7 +172,7 @@ const skillData: {
   },
   {
     skill: "PostgreSQL",
-    Icon: DiPostgresql,
+    Icon: SiPostgresql,
     percentage: 80,
     infoTextId: "postgresql",
     url: "https://www.postgresql.org/",
@@ -215,5 +217,3 @@ const skillData: {
     ? a.skill.localeCompare(b.skill)
     : b.percentage - a.percentage
 );
-
-export default skillData;

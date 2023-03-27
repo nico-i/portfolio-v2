@@ -13,7 +13,7 @@ module.exports = {
       primary: "#006AFF",
       primary_dark: "#218CFF",
       light: "#fcfcfc",
-      lighter: "#ffffff",
+      white: "#ffffff",
       danger: "#FF4000",
       danger_dark: "#FF481F",
       dark: "#262626",
@@ -22,13 +22,20 @@ module.exports = {
       warning_dark: "#FFDD1F",
     },
     fontFamily: {
-      sans: ["Poppins ", "sans-serif "],
+      sans: ["Poppins", "sans-serif "],
+    },
+    dropShadow: {
+      "skill-circle": [
+        "0 10px 8px rgb(0 0 0 / 0.03)",
+        "0 4px 3px rgb(0 0 0 / 0.05)",
+      ],
     },
     extend: {
       boxShadow: {
         "fade-tb":
           "inset 0 80px 25px -35px #000000, inset 0 -80px 25px -35px #000000;",
       },
+
       animation: {
         "fade-in": "fade-in 0.9s ease",
       },

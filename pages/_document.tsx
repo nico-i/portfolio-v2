@@ -112,7 +112,10 @@ export default function Document() {
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale:alternate" content="de_DE" />
       </Head>
-      <body>
+      <body
+        className="transition bg-light dark:bg-dark text-dark dark:text-light font-medium text-base md:text-lg"
+        style={{ scrollbarWidth: "thin" }}
+      >
         <Main />
         <NextScript />
       </body>

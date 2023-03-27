@@ -1,7 +1,7 @@
 {
-    "typed-str-0": "Hi.",
-    "typed-str-1": "Mein <br class=\"hideOnLg\"/>Name <br class=\"showOnlyOnSm\"/>ist <br class=\"hideOnSm\"><span class=\"highlighted\">Nico</span> <br class=\"showOnlyOnSm\"/>Ismaili.",
-    "typed-str-2": "Ich bin ein <br/><span class = \"highlighted\">Full-Stack <br class=\"hideOnLg\"/>Entwickler</span><br/> aus <br class=\"hideOnLg\"/>Wiesbaden,<br/> Deutsch&shyland.",
-    "typed-str-3": "Willkommen <br class=\"showOnlyOnMd\"/>zu <br class=\"showOnlyOnLg\"/>meinem <span class=\"highlighted\"><br class=\"hideOnLg\"/>Portfolio<span/>.",
-    "full-text": "Hi, mein Name ist Nico Ismaili. Ich bin ein Full-Stack Entwickler aus Wiesbaden, Deutschland.Willkommen zu meinem Portfolio."
+  "typed-str-0": "Hi.",
+  "typed-str-1": "Mein <br class=\"hideOnLg\"/>Name <br class=\"showOnlyOnSm\"/>ist <br class=\"hideOnSm\"><span class=\"highlighted\">Nico</span> <br class=\"showOnlyOnSm\"/>Ismaili.",
+  "typed-str-2": "Ich bin ein <br/><span class = \"highlighted\">Full-Stack <br class=\"hideOnLg\"/>Entwickler</span><br/> aus <br class=\"hideOnLg\"/>Wiesbaden,<br/> Deutsch&shyland.",
+  "typed-str-3": "Willkommen <br class=\"showOnlyOnMd\"/>zu <br class=\"showOnlyOnLg\"/>meinem <span class=\"highlighted\"><br class=\"hideOnLg\"/>Portfolio<span/>.",
+  "full-text": "Hi, mein Name ist Nico Ismaili. Ich bin ein Full-Stack Entwickler aus Wiesbaden, Deutschland.Willkommen zu meinem Portfolio."
 }
