@@ -1,7 +1,6 @@
 import React from "react";
 import { A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./Timeline.module.css";
 import TimelineItem from "./TimelineItem";
 
 interface Props {
@@ -31,9 +30,15 @@ export default function Timeline({
   itemInterval,
 }: Props) {
   return (
-    <div className={styles.outerWrapper}>
-      <span className={styles.edgeFade} />
-      <div className={styles.innerWrapper}>
+    <div className="relative inline-block overflow-hidden">
+      <span
+        className="z-10 transition-all absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark"
+        style={{ content: "" }}
+      />
+      <div
+        className="w-72 h-96 md:w-[28rem]"
+        style={{ scrollbarWidth: "none" }}
+      >
         <Swiper
           direction={"vertical"}
           autoHeight
@@ -52,7 +57,7 @@ export default function Timeline({
         >
           {items.map((item) => (
             <SwiperSlide key={item.title}>
-              <div className={styles.slide}>
+              <div className="flex justify-items-center items-center h-96">
                 <TimelineItem
                   itemHeight={itemHeight}
                   itemTitle={item.title}
@@ -67,7 +72,7 @@ export default function Timeline({
         </Swiper>
       </div>
       <span
-        className={styles.bgLine}
+        className="absolute -z-50 top-0 bottom-0 left-1/2 -translate-x-1/2 h-full"
         style={{ borderLeft: strokeColor, borderWidth: strokeWidth }}
       />
     </div>

@@ -20,7 +20,10 @@ function FadeInSection({ children, id, style }: Props) {
     <section
       id={id}
       style={style}
-      className={classNames({ "fade-in-up": inView })}
+      className={classNames(
+        { "animate-fade-in": inView },
+        "flex items-center justify-center w-full h-full snap-start snap-always px-8"
+      )}
       ref={ref}
     >
       {children}

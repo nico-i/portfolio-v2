@@ -7,17 +7,16 @@ import { useTheme } from "next-themes";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar/NavBar";
-import { ProjectMasonry } from "../components/ProjectMasonry/ProjectMasonry";
-import Timeline from "../components/Timeline/Timeline";
+import NavBar from "../components/NavBar";
+import { ProjectMasonry } from "../components/ProjectMasonry";
+import Timeline from "../components/Timeline";
 import i18nConfig from "../next-i18next.config";
 import About from "../sections/About/About";
 import Contact from "../sections/Contact/Contact";
 import Hero from "../sections/Hero/Hero";
 import Skills from "../sections/Skills/Skills";
-import FadeInSection from "../utils/FadeInSection";
+import FadeInSection from "../components/FadeInSection";
 import xpItems from "./../data/xpItems.json";
-import styles from "./index.module.css";
 
 interface Props {
   projects: {
@@ -26,14 +25,14 @@ interface Props {
 }
 
 const Home = ({ projects }: Props) => {
-  const [formSuccess, setformSuccess] = useState(0);
+  const [formSuccess, setFormSuccess] = useState(0);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
   const { locale } = useRouter();
   useEffect(() => {
     if (formSuccess) {
       setTimeout(() => {
-        setformSuccess(0);
+        setFormSuccess(0);
       }, 2500);
     }
   });
@@ -55,7 +54,7 @@ const Home = ({ projects }: Props) => {
       </Head>
       <div
         className={classNames(
-          styles.formSuccess,
+          "transition-transform text-light shadow-lg leading-[2.5em] text-center overflow-hidden right-0 left-0 top-0 z-50 fixed",
           { "-translate-y-14": formSuccess === 0 },
           { "translate-y-0": formSuccess === 1 || formSuccess === -1 },
           { "bg-primary dark:bg-primary_dark": formSuccess === 1 },
@@ -65,8 +64,12 @@ const Home = ({ projects }: Props) => {
         <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
       <NavBar onThemeChange={setTheme} theme={theme} />
-      <main className={styles.sectionsWrapper}>
-        <section id="home" style={{ justifyContent: "start" }}>
+      <main className="snap-none md:snap-y md:snap-mandatory w-full h-screen overflow-scroll scroll-smooth">
+        <section
+          className="flex items-center w-full h-full snap-always snap-start px-8 justify-start"
+          id="home"
+          style={{ justifyContent: "start" }}
+        >
           <Hero />
         </section>
         <FadeInSection id="about">
@@ -88,7 +91,7 @@ const Home = ({ projects }: Props) => {
           />
         </FadeInSection>
         <FadeInSection style={{ justifyContent: "start" }}>
-          <div className={styles.introSkills}>
+          <div className="md:ml-28 md:mt-20 md:w-5/12">
             <h2>
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
@@ -104,7 +107,7 @@ const Home = ({ projects }: Props) => {
         <FadeInSection id="contact">
           <Contact
             onFormSubmit={(newValue: number) => {
-              setformSuccess(newValue);
+              setFormSuccess(newValue);
             }}
           />
         </FadeInSection>

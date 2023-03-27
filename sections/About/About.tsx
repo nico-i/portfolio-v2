@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./About.module.css";
 import { useTranslation } from "next-i18next";
 
 /**
@@ -10,8 +9,8 @@ import { useTranslation } from "next-i18next";
 export default function About() {
   const { t } = useTranslation("about");
   return (
-    <div className={styles.aboutWrapper}>
-      <div className={styles.profilePicWrapper}>
+    <div className="flex gap-8 flex-wrap justify-center">
+      <div className="hidden md:flex overflow-hidden rounded-full bg-primary outline outline-light dark:outline-dark outline-offset-[-1] dark:bg-primary_dark max-w-xs justify-self-center items-center transition-[outline-color]">
         <Image
           alt={t("profile-img-alt")}
           src="pb.png"
@@ -19,7 +18,7 @@ export default function About() {
           width={1080}
         />
       </div>
-      <div className={styles.aboutText}>
+      <div className="max-w-2xl justify-self-start">
         <h2>
           <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
         </h2>

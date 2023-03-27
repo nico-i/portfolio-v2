@@ -6,7 +6,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import NavBar from "../../components/NavBar/NavBar";
+import NavBar from "../../components/NavBar";
 
 /** Dynamic page for rendering projects.
  *

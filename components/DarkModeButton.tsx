@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-import styles from "./DarkModeButton.module.css";
 
 interface Props {
   onThemeChange: Function;
@@ -21,7 +20,7 @@ export default function DarkModeButton({ onThemeChange, theme }: Props) {
       aria-label="Toggle Dark Mode"
       type="button"
       onClick={() => onThemeChange(theme === "dark" ? "light" : "dark")}
-      className={styles.themeToggle}
+      className="text-light dark:text-dark text-xl bg-dark dark:bg-light p-1 rounded-full"
     >
       {icon}
     </button>

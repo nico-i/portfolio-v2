@@ -2,67 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  scrollbar-width: thin;
-  @apply transition bg-light dark:bg-dark text-dark dark:text-light font-medium text-base md:text-lg;
-}
-
-h2 {
-  @apply font-semibold text-4xl mb-4 leading-tight;
-}
-
-a {
-  @apply decoration-primary underline decoration-2 underline-offset-4;
-}
-
-p {
-  @apply mb-4;
-}
-
-section {
-  @apply flex items-center justify-center w-full h-full snap-always snap-start px-8;
-}
-
-.fade-in-up {
-  animation: fade-in 0.9s ease;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
+@layer base {
+  body {
+    scrollbar-width: thin;
+    @apply transition bg-light dark:bg-dark text-dark dark:text-light font-medium text-base md:text-lg;
   }
-  20% {
-    opacity: 0.1;
+
+  h2 {
+    @apply font-semibold text-4xl mb-4 leading-tight;
   }
-  100% {
-    opacity: 1;
+
+  a {
+    @apply decoration-primary underline decoration-2 underline-offset-4;
   }
-}
 
-.highlighted {
-  @apply text-primary dark:text-primary_dark;
-}
+  p {
+    @apply mb-4;
+  }
 
-.showOnlyOnLg {
-  @apply hidden lg:inline;
-}
+  .highlighted {
+    @apply text-primary dark:text-primary_dark;
+  }
 
-.hideOnLg {
-  @apply inline lg:hidden;
-}
+  .showOnlyOnLg {
+    @apply hidden lg:inline;
+  }
 
-.showOnlyOnMd {
-  @apply hidden md:inline lg:hidden;
-}
+  .hideOnLg {
+    @apply inline lg:hidden;
+  }
 
-.hideOnMd {
-  @apply inline md:hidden lg:inline;
-}
+  .showOnlyOnMd {
+    @apply hidden md:inline lg:hidden;
+  }
 
-.showOnlyOnSm {
-  @apply inline md:hidden;
-}
+  .hideOnMd {
+    @apply inline md:hidden lg:inline;
+  }
 
-.hideOnSm {
-  @apply hidden md:inline;
+  .showOnlyOnSm {
+    @apply inline md:hidden;
+  }
+
+  .hideOnSm {
+    @apply hidden md:inline;
+  }
 }

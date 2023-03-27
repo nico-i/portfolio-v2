@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import SkillCircle from "../../components/SkillCircle/SkillCircle";
+import SkillCircle from "../../components/SkillCircle";
 import skillData from "../../data/skillData";
-import styles from "./Skills.module.css";
 
 /**
  *
@@ -14,8 +13,14 @@ export default function Skills() {
     threshold: 0.1,
   });
   return (
-    <section ref={ref} className={classNames({ "fade-in-up": inView })}>
-      <div className={styles.skillGrid}>
+    <section
+      ref={ref}
+      className={
+        (classNames({ "animate-fade-in": inView }),
+        "flex items-center justify-center w-full h-full snap-start snap-always px-8")
+      }
+    >
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
         {skillData.map((entry) => (
           <SkillCircle
             key={entry.skill}

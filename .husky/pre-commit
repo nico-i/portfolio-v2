@@ -8,4 +8,3 @@ npm run check-lint
 # Check tsconfig standards
 npm run check-types
 # If everything passes... Now we can commit
-npm run build

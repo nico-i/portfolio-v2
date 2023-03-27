@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import styles from "./SkillCircle.module.css";
 interface Props {
   size: number;
   percentage: number;
@@ -29,17 +28,17 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
   const dash = (progress * circumference) / 100;
   const iconSize = size * 0.35;
   return (
-    <div className={styles.skillWrapper}>
+    <div className="relative">
       <svg width={size} height={size} viewBox={viewBox}>
         <circle
-          className={styles.bg}
+          className="fill-primary dark:fill-primary_dark"
           r={radius}
           cy={size / 2}
           cx={size / 2}
           strokeWidth={strokeWidth + "px"}
         />
         <circle
-          className={styles.path}
+          className="stroke-light"
           fill="none"
           cy={size / 2}
           cx={size / 2}
@@ -61,7 +60,7 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
       <Icon
         size={iconSize}
         transform={"translate(-" + iconSize / 2 + " -" + iconSize / 2 + ")"}
-        className={styles.skillIcon}
+        className="absolute top-1/2 left-1/2 fill-light"
       />
     </div>
   );

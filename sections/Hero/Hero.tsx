@@ -1,7 +1,6 @@
 import { useTranslation } from "next-i18next";
 import React from "react";
 import TypreWriter from "typewriter-effect";
-import styles from "./Hero.module.css";
 /**
  *
  * @return {React.ReactNode}
@@ -9,7 +8,7 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   const { t } = useTranslation("hero");
   return (
-    <h1 className={styles.typedHero}>
+    <h1 className="text-[11.5vmin] md:px-10 font-semibold leading-tight">
       <TypreWriter
         aria-hidden="true"
         options={{
