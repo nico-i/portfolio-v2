@@ -44,13 +44,13 @@ const SkillCircle = ({
       width={size}
       height={size}
       viewBox={viewBox}
-      className="pointer-events-none"
+      className="md:pointer-events-none"
     >
       <circle
         className={classNames(
-          "cursor-pointer pointer-events-auto transition-[fill] duration-300 will-change-[fill] drop-shadow-skill-circle",
-          { "fill-primary dark:fill-light": active },
-          { "fill-white dark:fill-primary": !active }
+          "cursor-pointer fill-white dark:fill-primary pointer-events-auto transition-[fill] duration-300 will-change-[fill] drop-shadow-skill-circle",
+          { "md:fill-primary md:dark:fill-light": active },
+          { "md:fill-white md:dark:fill-primary": !active }
         )}
         r={radius}
         cy={size / 2}
@@ -59,9 +59,9 @@ const SkillCircle = ({
       />
       <circle
         className={classNames(
-          "transition-[stroke] duration-300 will-change-[stroke]",
-          { "stroke-primary dark:stroke-light": !active },
-          { "stroke-white dark:stroke-primary": active }
+          "transition-[stroke] duration-300 stroke-primary dark:stroke-light will-change-[stroke]",
+          { "md:stroke-primary md:dark:stroke-light": !active },
+          { "md:stroke-white md:dark:stroke-primary": active }
         )}
         fill="none"
         cy={size / 2}
@@ -83,13 +83,13 @@ const SkillCircle = ({
       <Icon
         size={iconSize}
         className={classNames(
-          "transition-[fill] duration-300 will-change-[fill]",
+          "transition-[fill] duration-300 will-change-[fill] fill-primary dark:fill-light stroke-primary dark:stroke-light",
           {
-            "fill-primary dark:fill-light stroke-primary dark:stroke-light":
+            "md:fill-primary md:dark:fill-light md:stroke-primary md:dark:stroke-light":
               !active,
           },
           {
-            "fill-white dark:fill-primary stroke-white dark:stroke-primary":
+            "md:fill-white md:dark:fill-primary md:stroke-white md:dark:stroke-primary":
               active,
           }
         )}

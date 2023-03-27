@@ -83,7 +83,7 @@ const Home = ({ projects }: Props) => {
             </h2>
           </div>
         </FadeInSection>
-        <FadeInSection className="flex items-center justify-center w-full snap-center snap-always px-8">
+        <FadeInSection className="flex items-center justify-center w-full mb-32 snap-center snap-always px-8">
           <Timeline
             itemInterval={5000}
             items={xpItems}
@@ -91,7 +91,7 @@ const Home = ({ projects }: Props) => {
             strokeWidth={4}
           />
         </FadeInSection>
-        <FadeInSection className="flex items-center justify-start w-full h-full snap-center snap-always px-8">
+        <FadeInSection className="flex items-center justify-start mb-32 w-full md:h-full snap-center snap-always px-8">
           <div className="md:ml-28 md:mt-20 md:w-[24vw]">
             <h2 className="font-semibold text-4xl mb-4 leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
@@ -102,7 +102,7 @@ const Home = ({ projects }: Props) => {
         <Skills />
         <FadeInSection
           id="projects"
-          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+          className="flex items-center justify-center w-full md:h-full mb-32 snap-center snap-always px-8"
         >
           <div>
             <ProjectMasonry projects={projects} locale={locale} />
