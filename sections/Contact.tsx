@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
-import footerData from "../../data/footerData";
+import footerData from "../data/footerData";
 
 interface Props {
   onFormSubmit: Function;

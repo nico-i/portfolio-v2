@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import SkillCircle from "../../components/SkillCircle";
-import skillData from "../../data/skillData";
+import SkillCircle from "../components/SkillCircle";
+import skillData from "../data/skillData";
 
 /**
  *

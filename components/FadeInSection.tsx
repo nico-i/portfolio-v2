@@ -6,13 +6,14 @@ interface Props {
   id?: string;
   style?: React.CSSProperties;
   children: ReactNode | ReactNode[];
+  className?: string;
 }
 
 /**
  *
  * @return {React.ReactNode}
  */
-function FadeInSection({ children, id, style }: Props) {
+function FadeInSection({ children, id, style, className }: Props) {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
@@ -20,10 +21,7 @@ function FadeInSection({ children, id, style }: Props) {
     <section
       id={id}
       style={style}
-      className={classNames(
-        { "animate-fade-in": inView },
-        "flex items-center justify-center w-full h-full snap-start snap-always px-8"
-      )}
+      className={classNames({ "animate-fade-in": inView }, className)}
       ref={ref}
     >
       {children}

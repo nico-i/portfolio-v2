@@ -11,10 +11,10 @@ import NavBar from "../components/NavBar";
 import { ProjectMasonry } from "../components/ProjectMasonry";
 import Timeline from "../components/Timeline";
 import i18nConfig from "../next-i18next.config";
-import About from "../sections/About/About";
-import Contact from "../sections/Contact/Contact";
-import Hero from "../sections/Hero/Hero";
-import Skills from "../sections/Skills/Skills";
+import About from "../sections/About";
+import Contact from "../sections/Contact";
+import Hero from "../sections/Hero";
+import Skills from "../sections/Skills";
 import FadeInSection from "../components/FadeInSection";
 import xpItems from "./../data/xpItems.json";
 
@@ -66,23 +66,25 @@ const Home = ({ projects }: Props) => {
       <NavBar onThemeChange={setTheme} theme={theme} />
       <main className="snap-none md:snap-y md:snap-mandatory w-full h-screen overflow-scroll scroll-smooth">
         <section
-          className="flex items-center w-full h-full snap-always snap-start px-8 justify-start"
+          className="flex items-center w-full h-full snap-always snap-center px-8 justify-start"
           id="home"
-          style={{ justifyContent: "start" }}
         >
           <Hero />
         </section>
-        <FadeInSection id="about">
+        <FadeInSection
+          id="about"
+          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+        >
           <About />
         </FadeInSection>
-        <FadeInSection>
+        <FadeInSection className="flex items-center justify-center w-full h-full snap-center snap-always px-8">
           <div>
             <h2>
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </div>
         </FadeInSection>
-        <FadeInSection>
+        <FadeInSection className="flex items-center justify-center w-full snap-center snap-always px-8">
           <Timeline
             itemInterval={5000}
             items={xpItems}
@@ -90,8 +92,8 @@ const Home = ({ projects }: Props) => {
             strokeWidth={4}
           />
         </FadeInSection>
-        <FadeInSection style={{ justifyContent: "start" }}>
-          <div className="md:ml-28 md:mt-20 md:w-5/12">
+        <FadeInSection className="flex items-center justify-start w-full h-full snap-center snap-always px-8">
+          <div className="md:ml-28 md:mt-20 md:w-[24vw]">
             <h2>
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
@@ -99,12 +101,18 @@ const Home = ({ projects }: Props) => {
           </div>
         </FadeInSection>
         <Skills />
-        <FadeInSection id="projects">
+        <FadeInSection
+          id="projects"
+          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+        >
           <div>
             <ProjectMasonry projects={projects} locale={locale} />
           </div>
         </FadeInSection>
-        <FadeInSection id="contact">
+        <FadeInSection
+          id="contact"
+          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+        >
           <Contact
             onFormSubmit={(newValue: number) => {
               setFormSuccess(newValue);
