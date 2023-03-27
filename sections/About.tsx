@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
+import pbImage from "../public/images/pb.png";
 
 /**
  *
@@ -11,15 +12,10 @@ export default function About() {
   return (
     <div className="flex gap-8 flex-wrap justify-center">
       <div className="hidden md:flex overflow-hidden rounded-full bg-primary outline outline-light dark:outline-dark outline-offset-[-1] dark:bg-primary_dark max-w-xs justify-self-center items-center transition-[outline-color]">
-        <Image
-          alt={t("profile-img-alt")}
-          src="pb.png"
-          height={1080}
-          width={1080}
-        />
+        <Image alt={t("profile-img-alt")} src={pbImage} />
       </div>
       <div className="max-w-2xl justify-self-start">
-        <h2>
+        <h2 className="font-semibold text-4xl mb-4 leading-tight">
           <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
         </h2>
         <p>

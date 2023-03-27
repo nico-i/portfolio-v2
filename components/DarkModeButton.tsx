@@ -1,17 +1,14 @@
+import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-
-interface Props {
-  onThemeChange: Function;
-  theme: string;
-}
 
 /**
  *
  * @return {React.ReactNode}
  */
-export default function DarkModeButton({ onThemeChange, theme }: Props) {
+export default function DarkModeButton() {
   const [icon, setIcon] = useState(<RiMoonFill />);
+  const { theme, setTheme } = useTheme();
   useEffect(() => {
     setIcon(theme === "light" ? <RiMoonFill /> : <RiSunFill />);
   }, [theme]);
@@ -19,7 +16,7 @@ export default function DarkModeButton({ onThemeChange, theme }: Props) {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      onClick={() => onThemeChange(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="text-light dark:text-dark text-xl bg-dark dark:bg-light p-1 rounded-full"
     >
       {icon}

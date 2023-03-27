@@ -5,21 +5,10 @@ const { i18n } = require("./next-i18next.config");
 module.exports = {
   reactStrictMode: true,
   i18n,
-  unstableNetlifyFunctionsSupport: {
-    "pages/index.tsx": {
-      includeDirs: ["public"],
-    },
-  },
-  images: {
-    loader: "cloudinary",
-    path: "https://res.cloudinary.com/dkpx0gxhg/",
-    domains: ["res.cloudinary.com"],
-    formats: ["image/avif", "image/webp"],
-  },
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)
     const rules = config.module.rules.find((r) => !!r.oneOf);
-    // Interate over the found rules
+    // Iterate over the found rules
     rules.oneOf.forEach((loaders) => {
       // Focus on the the loaders that have an array of `use` statements
       if (Array.isArray(loaders.use)) {

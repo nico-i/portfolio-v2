@@ -3,7 +3,6 @@ import fs from "fs";
 import matter from "gray-matter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTheme } from "next-themes";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -26,7 +25,6 @@ interface Props {
 
 const Home = ({ projects }: Props) => {
   const [formSuccess, setFormSuccess] = useState(0);
-  const { theme, setTheme } = useTheme();
   const { t } = useTranslation("common");
   const { locale } = useRouter();
   useEffect(() => {
@@ -63,14 +61,15 @@ const Home = ({ projects }: Props) => {
       >
         <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
-      <NavBar onThemeChange={setTheme} theme={theme} />
+      <NavBar />
       <main className="snap-none md:snap-y md:snap-mandatory w-full h-screen overflow-scroll scroll-smooth">
-        <section
-          className="flex items-center w-full h-full snap-always snap-center px-8 justify-start"
+        <FadeInSection
           id="home"
+          fadeIn={false}
+          className="flex items-center justify-start w-full h-full snap-center snap-always px-8"
         >
           <Hero />
-        </section>
+        </FadeInSection>
         <FadeInSection
           id="about"
           className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
@@ -79,7 +78,7 @@ const Home = ({ projects }: Props) => {
         </FadeInSection>
         <FadeInSection className="flex items-center justify-center w-full h-full snap-center snap-always px-8">
           <div>
-            <h2>
+            <h2 className="font-semibold text-4xl mb-4 leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </div>
@@ -94,7 +93,7 @@ const Home = ({ projects }: Props) => {
         </FadeInSection>
         <FadeInSection className="flex items-center justify-start w-full h-full snap-center snap-always px-8">
           <div className="md:ml-28 md:mt-20 md:w-[24vw]">
-            <h2>
+            <h2 className="font-semibold text-4xl mb-4 leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
             <p>{t("skills-intro-p")}</p>

@@ -28,41 +28,40 @@ const SkillCircle = ({ percentage, duration, size, inView, Icon }: Props) => {
   const dash = (progress * circumference) / 100;
   const iconSize = size * 0.35;
   return (
-    <div className="relative">
-      <svg width={size} height={size} viewBox={viewBox}>
-        <circle
-          className="fill-primary dark:fill-primary_dark"
-          r={radius}
-          cy={size / 2}
-          cx={size / 2}
-          strokeWidth={strokeWidth + "px"}
-        />
-        <circle
-          className="stroke-light"
-          fill="none"
-          cy={size / 2}
-          cx={size / 2}
-          r={radius * relSize}
-          strokeWidth={strokeWidth}
-          transform={"rotate(-90 " + size / 2 + " " + size / 2 + ")"}
-          strokeDasharray={dash + "," + (circumference - dash)}
-          strokeLinecap="round"
-          style={
-            inView
-              ? {
-                  transition: "stroke-dasharray " + duration + "s",
-                  transitionDelay: "0.1s",
-                }
-              : { transition: "none" }
-          }
-        />
-      </svg>
+    <svg width={size} height={size} viewBox={viewBox}>
+      <circle
+        className="fill-primary dark:fill-primary_dark"
+        r={radius}
+        cy={size / 2}
+        cx={size / 2}
+        strokeWidth={strokeWidth + "px"}
+      />
+      <circle
+        className="stroke-light"
+        fill="none"
+        cy={size / 2}
+        cx={size / 2}
+        r={radius * relSize}
+        strokeWidth={strokeWidth}
+        transform={"rotate(-90 " + size / 2 + " " + size / 2 + ")"}
+        strokeDasharray={dash + "," + (circumference - dash)}
+        strokeLinecap="round"
+        style={
+          inView
+            ? {
+                transition: "stroke-dasharray " + duration + "s",
+                transitionDelay: "0.1s",
+              }
+            : { transition: "none" }
+        }
+      />{" "}
       <Icon
         size={iconSize}
-        transform={"translate(-" + iconSize / 2 + " -" + iconSize / 2 + ")"}
-        className="absolute top-1/2 left-1/2 fill-light"
+        className="fill-light"
+        x={size / 2 - iconSize / 2}
+        y={size / 2 - iconSize / 2}
       />
-    </div>
+    </svg>
   );
 };
 

@@ -1,7 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useTheme } from "next-themes";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
@@ -14,36 +13,37 @@ import NavBar from "../../components/NavBar";
  * @return {React.ReactNode} The page contents.
  */
 export default function Project({
-  frontmatter,
+  frontMatter,
   markdown,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { theme, setTheme } = useTheme();
-  const titleArr = frontmatter.title.split(" ");
+  const titleArr = frontMatter.title.split(" ");
   const highlighted = titleArr.slice(-1);
   const title = titleArr.slice(0, -1).join(" ");
   return (
     <>
       <Head>
-        <title>Nico Ismaili | {frontmatter.title}</title>
-        <meta name="description" content={frontmatter.metaDescription} />
-        <meta property="og:url" content={frontmatter.ogUrl} />
-        <meta property="og:title" content={frontmatter.ogTitle} />
-        <meta property="og:description" content={frontmatter.ogDescription} />
+        <title>Nico Ismaili | {frontMatter.title}</title>
+        <meta name="description" content={frontMatter.metaDescription} />
+        <meta property="og:url" content={frontMatter.ogUrl} />
+        <meta property="og:title" content={frontMatter.ogTitle} />
+        <meta property="og:description" content={frontMatter.ogDescription} />
         <meta property="og:image:width" content={"1080"} />
         <meta property="og:image:height" content={"1080"} />
-        <meta property="og:image" content={frontmatter.ogImgUrl} />
-        <meta property="og:image:alt" content={frontmatter.ogImgAlt} />
+        <meta property="og:image" content={frontMatter.ogImgUrl} />
+        <meta property="og:image:alt" content={frontMatter.ogImgAlt} />
       </Head>
-      <NavBar onThemeChange={setTheme} theme={theme} />
+      <NavBar />
       <div className="flex justify-center">
         <div className="grid grid-cols-1 px-8 md:px-14 w-full lg:w-[60rem]">
           <div className="drop-shadow-xl mt-28 w-full mx-auto">
             <Image
-              src={frontmatter.headerImg.split("/").slice(-2).join("/")}
-              alt={frontmatter.headerImageAlt}
-              height={frontmatter.headerImgHeight}
-              width={frontmatter.headerImgWidth}
-              layout="responsive"
+              src={`/images/${frontMatter.headerImg
+                .split("/")
+                .slice(-2)
+                .join("/")}`}
+              alt={frontMatter.headerImageAlt}
+              height={Number(frontMatter.headerImgHeight)}
+              width={Number(frontMatter.headerImgWidth)}
             />
           </div>
           <div className="mt-6">
@@ -66,11 +66,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
       "utf8"
     )
   );
-  const frontmatter = fileContent.data;
+  const frontMatter = fileContent.data;
   const markdown = fileContent.content;
 
   return {
-    props: { frontmatter, markdown },
+    props: { frontMatter, markdown },
   };
 };
 

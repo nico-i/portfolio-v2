@@ -76,7 +76,7 @@ export default function Contact({ onFormSubmit }: Props) {
       </p>
       <div className="col-span-1 lg:col-span-2">
         <div className="block text-[1.7rem] md:text-4xl h-52 md:h-32 lg:h-60 lg:flex items-center">
-          <h2>
+          <h2 className="font-semibold text-4xl mb-4 leading-tight">
             <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
           </h2>
         </div>
@@ -146,7 +146,7 @@ export default function Contact({ onFormSubmit }: Props) {
               <a
                 className="flex justify-center items-center md:justify-start text-dark col-span-1 md:col-span-2 lg:col-span-1 dark:text-light no-underline font-semibold"
                 href={smLink.href}
-                key={`${smLink.text}`}
+                key={`${smLink.text}-${i}`}
                 style={{ order: orderNum }}
               >
                 <smLink.Icon size={25} className="inline align-middle" />
