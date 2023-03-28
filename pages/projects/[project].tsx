@@ -82,7 +82,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   locales.forEach((locale) => {
     const projects = fs.readdirSync(`./content/projects/${locale}`);
     projects.forEach((projectFileName) => {
-      //  //{ params: { slug: 'post-1' }, locale: 'en-US' }
+      // { params: { slug: 'post-1' }, locale: 'en-US' }
       const projectName = projectFileName.slice(
         0,
         projectFileName.indexOf(".")

@@ -25,7 +25,7 @@ function TimelineItem({
   const { t } = useTranslation("xp");
   return (
     <div className="flex flex-nowrap justify-center justify-items-center">
-      <div className="flex w-2/5 justify-end text-right font-extrabold text-primary dark:text-primary_dark">
+      <div className="flex w-2/5 justify-end text-right font-semibold text-primary dark:text-primary_dark">
         <span
           dangerouslySetInnerHTML={{ __html: t(itemTitle) }}
           style={{ height: itemHeight }}

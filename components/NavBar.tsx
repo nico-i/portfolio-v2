@@ -32,7 +32,7 @@ export default function NavBar() {
       </button>
       <ul
         className={classNames(
-          "fixed inset-x-0 top-14 z-10 h-screen space-y-8 bg-light p-8 transition dark:bg-dark md:static md:inset-auto md:top-auto md:flex md:translate-x-0 md:space-y-0 md:space-x-10 md:bg-none md:p-0",
+          "fixed inset-x-0 top-14 z-10 h-screen space-y-8 bg-light p-8 transition dark:bg-dark md:static md:inset-auto md:top-auto md:flex md:h-auto md:translate-x-0 md:space-y-0 md:space-x-10 md:bg-none md:p-0",
           { "translate-x-0": isMenuOpen },
           { "translate-x-full": !isMenuOpen }
         )}
