@@ -20,14 +20,6 @@ export default function Skills() {
     threshold: 0.1,
   });
 
-  const cols: number[] = [];
-  for (let i = 12; i >= 3; i--) {
-    if (skillData.length % i === 0) {
-      cols.push(i);
-    }
-  }
-  cols.sort((a, b) => a - b);
-
   const skillDiv: React.Ref<HTMLDivElement> = useRef(null);
 
   useEffect(() => {
@@ -104,9 +96,7 @@ export default function Skills() {
               <span className="highlighted">{activeSkill.skill}</span>.
             </>
           ) : (
-            <>
-              What I can <span className="highlighted">do</span>.
-            </>
+            <>{t("title")}</>
           )}
         </h2>
         <p>
@@ -119,16 +109,12 @@ export default function Skills() {
                 target="_blank"
                 rel="noreferrer"
               >
-                More information{" "}
+                {t("more-info")}{" "}
                 <HiExternalLink className="inline -mx-0 mb-1" />
               </a>
             </>
           ) : (
-            <>
-              Select an icon to learn more about the programming languages and
-              tools I have experience with. From Python to SQL, discover my
-              technical skillset here.
-            </>
+            <>{t("description")}</>
           )}
         </p>
       </div>

@@ -24,5 +24,8 @@
   "sql": "SQL, or Structured Query Language, is a programming language used for managing and querying relational databases.",
   "rabbitmq": "RabbitMQ is a popular message broker used for exchanging data between distributed systems, providing reliability and scalability.",
   "arduino": "Arduino is an open-source platform for developing interactive electronic prototypes and IoT applications.",
-  "c++": "C++ is an object-oriented programming language that builds on top of C and is commonly used for applications like games, desktop software, and system programming."
+  "c++": "C++ is an object-oriented programming language that builds on top of C and is commonly used for applications like games, desktop software, and system programming.",
+  "title": "What I can <span className=\"highlighted\">do</span>.",
+  "description": "Select an icon to learn more about the programming languages and tools I have experience with. From Python to SQL, discover my technical skillset here.",
+  "more-info": "More Information"
 }
