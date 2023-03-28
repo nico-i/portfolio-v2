@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { motion } from "framer-motion";
 import fs from "fs";
 import matter from "gray-matter";
 import { useTranslation } from "next-i18next";
@@ -14,7 +15,6 @@ import About from "../sections/About";
 import Contact from "../sections/Contact";
 import Hero from "../sections/Hero";
 import Skills from "../sections/Skills";
-import FadeInSection from "../components/FadeInSection";
 import xpItems from "./../data/xpItems.json";
 
 interface Props {
@@ -62,62 +62,47 @@ const Home = ({ projects }: Props) => {
         <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
       <NavBar />
-      <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y md:snap-mandatory">
-        <FadeInSection
-          id="home"
-          fadeIn={false}
-          className="flex h-full w-full snap-center snap-always items-center justify-start px-8"
-        >
-          <Hero />
-        </FadeInSection>
-        <FadeInSection
-          id="about"
-          className="flex h-full w-full snap-center snap-always items-center justify-center px-8"
-        >
-          <About />
-        </FadeInSection>
-        <FadeInSection className="flex h-full w-full snap-center snap-always items-center justify-center px-8">
-          <div>
-            <h2 className="mb-4 text-4xl font-semibold leading-tight">
+      <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y">
+        <Hero />
+        <About />
+        <div className="flex h-4/6 w-full snap-center snap-normal items-center justify-center px-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
+          >
+            <h2 className="mb-4 text-center text-4xl font-semibold leading-tight md:text-left">
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
-          </div>
-        </FadeInSection>
-        <FadeInSection className="mb-32 flex w-full snap-center snap-always items-center justify-center px-8">
+          </motion.div>
+        </div>
+
+        <div className="flex w-full items-center justify-center px-8">
           <Timeline
             itemInterval={5000}
             items={xpItems}
             itemHeight={"3rem"}
             strokeWidth={4}
           />
-        </FadeInSection>
-        <FadeInSection className="mb-32 flex w-full snap-center snap-always items-center justify-start px-8 md:h-full">
-          <div className="md:ml-28 md:mt-20 md:w-[24vw]">
+        </div>
+
+        <div className="flex h-4/6 w-full snap-center items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, transition: { duration: 1 } }}
+          >
             <h2 className="mb-4 text-4xl font-semibold leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
             <p>{t("skills-intro-p")}</p>
-          </div>
-        </FadeInSection>
+          </motion.div>
+        </div>
         <Skills />
-        <FadeInSection
-          id="projects"
-          className="mb-32 flex w-full snap-center snap-always items-center justify-center px-8 md:h-full"
-        >
-          <div>
-            <ProjectMasonry projects={projects} locale={locale} />
-          </div>
-        </FadeInSection>
-        <FadeInSection
-          id="contact"
-          className="flex h-full w-full snap-center snap-always items-center justify-center px-8"
-        >
-          <Contact
-            onFormSubmit={(newValue: number) => {
-              setFormSuccess(newValue);
-            }}
-          />
-        </FadeInSection>
+        <ProjectMasonry projects={projects} locale={locale} />
+        <Contact
+          onFormSubmit={(newValue: number) => {
+            setFormSuccess(newValue);
+          }}
+        />
       </main>
     </>
   );

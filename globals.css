@@ -10,30 +10,6 @@
   p {
     @apply mb-4;
   }
-
-  .showOnlyOnLg {
-    @apply hidden lg:inline;
-  }
-
-  .hideOnLg {
-    @apply inline lg:hidden;
-  }
-
-  .showOnlyOnMd {
-    @apply hidden md:inline lg:hidden;
-  }
-
-  .hideOnMd {
-    @apply inline md:hidden lg:inline;
-  }
-
-  .showOnlyOnSm {
-    @apply inline md:hidden;
-  }
-
-  .hideOnSm {
-    @apply hidden md:inline;
-  }
 }
 
 @font-face {
@@ -178,4 +154,30 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+}
+
+/** The following classes are only necessary to format the hero typewriter effect correctly. **/
+
+.showOnlyOnLg {
+  @apply hidden lg:inline;
+}
+
+.hideOnLg {
+  @apply inline lg:hidden;
+}
+
+.showOnlyOnMd {
+  @apply hidden md:inline lg:hidden;
+}
+
+.hideOnMd {
+  @apply inline md:hidden lg:inline;
+}
+
+.showOnlyOnSm {
+  @apply inline md:hidden;
+}
+
+.hideOnSm {
+  @apply hidden md:inline;
 }

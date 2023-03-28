@@ -31,29 +31,6 @@ module.exports = {
         "0 4px 3px rgb(0 0 0 / 0.05)",
       ],
     },
-    extend: {
-      boxShadow: {
-        "fade-tb":
-          "inset 0 80px 25px -35px #000000, inset 0 -80px 25px -35px #000000;",
-      },
-
-      animation: {
-        "fade-in": "fade-in 0.9s ease",
-      },
-      keyframes: {
-        "fade-in": {
-          "0%": {
-            opacity: 0,
-          },
-          "20%": {
-            opacity: 0.1,
-          },
-          "100%": {
-            opacity: 1,
-          },
-        },
-      },
-    },
     plugins: [require("@tailwindcss/forms")],
   },
 };

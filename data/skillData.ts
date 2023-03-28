@@ -45,7 +45,7 @@ export const skillData: SkillDataType[] = [
     url: "https://developer.mozilla.org/en-US/docs/Glossary/HTML",
   },
   {
-    skill: "CSS3",
+    skill: "CSS-3",
     Icon: DiCss3,
     percentage: 85,
     infoTextId: "css",
@@ -173,7 +173,7 @@ export const skillData: SkillDataType[] = [
   {
     skill: "PostgreSQL",
     Icon: SiPostgresql,
-    percentage: 80,
+    percentage: 75,
     infoTextId: "postgresql",
     url: "https://www.postgresql.org/",
   },

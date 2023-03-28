@@ -44,7 +44,7 @@ const SkillCircle = ({
       width={size}
       height={size}
       viewBox={viewBox}
-      className="scale-90 md:pointer-events-none md:scale-100"
+      className="md:pointer-events-none"
     >
       <circle
         className={classNames(
