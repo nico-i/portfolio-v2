@@ -27,6 +27,7 @@ const Home = ({ projects }: Props) => {
   const [formSuccess, setFormSuccess] = useState(0);
   const { t } = useTranslation("common");
   const { locale } = useRouter();
+
   useEffect(() => {
     if (formSuccess) {
       setTimeout(() => {
@@ -70,12 +71,11 @@ const Home = ({ projects }: Props) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
           >
-            <h2 className="mb-4 text-center text-4xl font-semibold leading-tight md:text-left">
+            <h2 className="mb-4 text-center text-5xl font-semibold leading-tight md:text-left">
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </motion.div>
         </div>
-
         <div className="flex w-full items-center justify-center px-8">
           <Timeline
             itemInterval={5000}
@@ -84,7 +84,6 @@ const Home = ({ projects }: Props) => {
             strokeWidth={4}
           />
         </div>
-
         <div className="flex h-4/6 w-full snap-center items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4">
           <motion.div
             initial={{ opacity: 0 }}

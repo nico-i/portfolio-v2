@@ -12,7 +12,7 @@ export default function About() {
   const { t } = useTranslation("about");
   return (
     <div
-      className="flex h-1/2 w-full snap-center snap-normal items-center justify-center px-8"
+      className="flex h-full w-full snap-center snap-normal items-center justify-center px-8"
       id="about"
     >
       <motion.div

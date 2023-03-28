@@ -4,7 +4,11 @@
 
 @layer base {
   a {
-    @apply underline decoration-primary decoration-2 underline-offset-4;
+    @apply text-primary dark:text-primary_dark underline decoration-primary dark:decoration-primary_dark decoration-2 underline-offset-4;
+  }
+
+  nav a {
+    @apply text-dark dark:text-light;
   }
 
   p {

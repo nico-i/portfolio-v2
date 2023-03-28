@@ -31,6 +31,12 @@ export default function Skills() {
     }, 150);
   }, [activeSkill]);
 
+  useEffect(() => {
+    if (!isInView) {
+      setActiveSkill(null);
+    }
+  }, [isInView]);
+
   return (
     <div
       className="flex h-5/6 w-full snap-center snap-normal items-center justify-center px-8"
@@ -43,7 +49,7 @@ export default function Skills() {
       >
         <div
           ref={skillDiv}
-          className="grid grid-cols-4 gap-1 md:-ml-10 -ml-0 md:grid-cols-5 md:gap-2"
+          className="-ml-0 grid grid-cols-4 gap-1 md:-ml-10 md:grid-cols-5 md:gap-2"
         >
           {skillData.map((entry) => {
             const SkillEle = (
@@ -102,12 +108,12 @@ export default function Skills() {
                 {t(activeSkill.infoTextId)} <br />
                 <a
                   href={activeSkill.url}
-                  className="text-primary dark:text-primary_dark"
+                  className=""
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {t("more-info")}{" "}
-                  <HiExternalLink className="mb-1 mx-0 inline" />
+                  {t("more-info")}
+                  <HiExternalLink className="mx-1 mb-1 inline" />
                 </a>
               </>
             ) : (

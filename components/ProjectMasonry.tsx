@@ -16,7 +16,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
   return (
     <div
       id="projects"
-      className="flex w-full h-1/2 snap-center snap-always items-center justify-center px-8"
+      className="flex h-1/2 w-full snap-center snap-always items-center justify-center px-8"
     >
       <motion.div
         initial={{ opacity: 0 }}

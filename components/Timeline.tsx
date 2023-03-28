@@ -32,7 +32,7 @@ export default function Timeline({
   return (
     <div className="relative inline-block overflow-hidden">
       <span
-        className="pointer-events-none absolute z-10 h-full w-full shadow-fade-tb shadow-light transition-all dark:shadow-dark"
+        className="shadow-fade-tb pointer-events-none absolute z-10 h-full w-full shadow-light transition-all dark:shadow-dark"
         style={{ content: "" }}
       />
       <div

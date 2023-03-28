@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <div
       id="home"
-      className="flex h-full w-full snap-center snap-normal items-center justify-start px-8"
+      className="relative flex h-full w-full snap-center snap-normal items-center justify-start px-8"
     >
       <h1 className="text-[11.5vmin] font-semibold leading-tight md:px-10">
         <TypreWriter
