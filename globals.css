@@ -4,15 +4,11 @@
 
 @layer base {
   a {
-    @apply decoration-primary underline decoration-2 underline-offset-4;
+    @apply underline decoration-primary decoration-2 underline-offset-4;
   }
 
   p {
     @apply mb-4;
-  }
-
-  .highlighted {
-    @apply text-primary dark:text-primary_dark;
   }
 
   .showOnlyOnLg {

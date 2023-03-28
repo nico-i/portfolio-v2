@@ -14,7 +14,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
   const { t } = useTranslation("projects");
   return (
     <>
-      <h2 className="block mb-8 font-semibold text-4xl leading-tight">
+      <h2 className="mb-8 block text-4xl font-semibold leading-tight">
         <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
       </h2>
       <div className="masonry sm:masonry-sm md:masonry-md">
@@ -23,7 +23,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
             href={`/${locale}/projects/${project.slug}`}
             key={project.title}
             passHref
-            className="inline-block w-96 rounded-lg break-inside drop-shadow-xl hover:opacity-90 transition-all"
+            className="break-inside drop-shadow-xl inline-block w-96 rounded-lg transition-all hover:opacity-90"
           >
             <Image
               src={`/images/${project.headerImg

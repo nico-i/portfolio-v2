@@ -17,7 +17,7 @@ export default function DarkModeButton() {
       aria-label="Toggle Dark Mode"
       type="button"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="text-light dark:text-dark text-xl bg-dark dark:bg-light p-1 rounded-full"
+      className="rounded-full bg-dark p-1 text-xl text-light dark:bg-light dark:text-dark"
     >
       {icon}
     </button>

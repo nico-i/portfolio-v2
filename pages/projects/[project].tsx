@@ -34,8 +34,8 @@ export default function Project({
       </Head>
       <NavBar />
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 px-8 md:px-14 w-full lg:w-[60rem]">
-          <div className="drop-shadow-xl mt-28 w-full mx-auto">
+        <div className="grid w-full grid-cols-1 px-8 md:px-14 lg:w-[60rem]">
+          <div className="drop-shadow-xl mx-auto mt-28 w-full">
             <Image
               src={`/images/${frontMatter.headerImg
                 .split("/")
@@ -47,9 +47,11 @@ export default function Project({
             />
           </div>
           <div className="mt-6">
-            <h1 className="font-semibold text-2xl md:text-4xl mb-2">
+            <h1 className="mb-2 text-2xl font-semibold md:text-4xl">
               {`${title} `}
-              <span className="highlighted">{highlighted}</span>
+              <span className="text-primary dark:text-primary_dark">
+                {highlighted}
+              </span>
             </h1>
             <ReactMarkdown>{markdown}</ReactMarkdown>
           </div>

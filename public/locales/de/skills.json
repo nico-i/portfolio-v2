@@ -25,7 +25,7 @@
   "rabbitmq": "RabbitMQ ist eine Open-Source-Message-Broker-Software, die für die asynchrone Kommunikation zwischen Anwendungen und Systemen verwendet wird.",
   "arduino": "Arduino ist eine Open-Source-Plattform für die Entwicklung von interaktiven elektronischen Prototypen und IoT-Anwendungen.",
   "c++": "C++ ist eine objektorientierte Programmiersprache, die auf C aufbaut und häufig für Anwendungen wie Spiele, Desktop-Software und Systemprogrammierung verwendet wird.",
-  "title": "Meine <span className=\"highlighted\">Stärken</span>.",
+  "title": "Meine <span class=\"text-primary dark:text-primary_dark\">Stärken</span>.",
   "description": "Klick auf ein Icon, um mehr über die Programmiersprachen und Tools zu erfahren, welche ich beherrsche. Von Python bis SQL findest du hier all meine technischen Fähigkeiten.",
   "more-info": "Mehr Informationen"
 }

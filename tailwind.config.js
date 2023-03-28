@@ -6,6 +6,7 @@ module.exports = {
     "./sections/**/*.tsx",
     "./utils/**/*.tsx",
   ],
+  safelist: ["text-primary", "text-primary_dark"],
   theme: {
     colors: {
       transparent: "transparent",

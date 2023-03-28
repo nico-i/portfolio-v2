@@ -24,15 +24,15 @@ function TimelineItem({
 }: Props) {
   const { t } = useTranslation("xp");
   return (
-    <div className="flex flex-nowrap justify-items-center justify-center">
-      <div className="w-2/5 flex justify-end text-right text-primary dark:text-primary_dark font-extrabold">
+    <div className="flex flex-nowrap justify-center justify-items-center">
+      <div className="flex w-2/5 justify-end text-right font-extrabold text-primary dark:text-primary_dark">
         <span
           dangerouslySetInnerHTML={{ __html: t(itemTitle) }}
           style={{ height: itemHeight }}
         />
       </div>
       <div
-        className="flex transition bg-light dark:bg-dark stroke-dark dark:stroke-light self-center justify-center items-center rounded-full mx-2 md:mx-6 -my-1"
+        className="mx-2 -my-1 flex items-center justify-center self-center rounded-full bg-light stroke-dark transition dark:bg-dark dark:stroke-light md:mx-6"
         style={{
           borderWidth: strokeWidth * 1.5,
           borderColor: strokeColor,
@@ -41,11 +41,11 @@ function TimelineItem({
         }}
       >
         <div
-          className="h-3/5 w-3/5 flex m-[0.1em] bg-primary dark:bg-primary_dark rounded-full"
+          className="m-[0.1em] flex h-3/5 w-3/5 rounded-full bg-primary dark:bg-primary_dark"
           style={{ backgroundColor: itemColor }}
         />
       </div>
-      <div className="w-2/5 flex">
+      <div className="flex w-2/5">
         <span
           dangerouslySetInnerHTML={{ __html: t(itemDescription) }}
           style={{ height: itemHeight }}

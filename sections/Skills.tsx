@@ -41,12 +41,12 @@ export default function Skills() {
       id="skills"
       className={
         (classNames({ "animate-fade-in": inView }),
-        "flex items-center gap-0 md:gap-3 justify-center md:h-full mb-32 snap-start snap-always px-8")
+        "mb-32 flex snap-start snap-always items-center justify-center gap-0 px-8 md:h-full md:gap-6")
       }
     >
       <div
         ref={skillDiv}
-        className="grid grid-cols-4 md:grid-cols-[5] gap-1 md:gap-2 md:-ml-8"
+        className="grid grid-cols-4 gap-1 md:-ml-10 md:grid-cols-5 md:gap-2"
       >
         {skillData.map((entry) => {
           const SkillEle = (
@@ -73,7 +73,7 @@ export default function Skills() {
                 href={entry.url}
                 target="_blank"
                 rel="noreferrer"
-                className="md:hidden inline-block"
+                className="inline-block md:hidden"
               >
                 {SkillEle}
               </a>
@@ -86,31 +86,30 @@ export default function Skills() {
         className={classNames(
           { "opacity-0": isTransparent },
           { "opacity-100": !isTransparent },
-          "hidden lg:flex flex-col items-start transition-opacity duration-[150] justify-top"
+          "justify-top hidden flex-col items-start transition-opacity duration-[150] lg:flex"
         )}
         style={{ height: skillDivHeight, width: skillDivWidth }}
       >
-        <h2 className="font-semibold text-5xl leading-relaxed mt-8">
-          {activeSkill ? (
-            <>
-              <span className="highlighted">{activeSkill.skill}</span>.
-            </>
-          ) : (
-            <>{t("title")}</>
-          )}
-        </h2>
+        <h2
+          className="mt-8 text-5xl font-semibold leading-relaxed"
+          dangerouslySetInnerHTML={{
+            __html: activeSkill
+              ? `<span>${activeSkill.skill}</span><span class="text-primary dark:text-primary_dark">.</span>`
+              : `${t("title")}`,
+          }}
+        />
         <p>
           {activeSkill ? (
             <>
               {t(activeSkill.infoTextId)} <br />
               <a
                 href={activeSkill.url}
-                className="highlighted"
+                className="text-primary dark:text-primary_dark"
                 target="_blank"
                 rel="noreferrer"
               >
                 {t("more-info")}{" "}
-                <HiExternalLink className="inline -mx-0 mb-1" />
+                <HiExternalLink className="-mx-0 mb-1 inline" />
               </a>
             </>
           ) : (

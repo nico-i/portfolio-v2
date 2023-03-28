@@ -10,12 +10,12 @@ import pbImage from "../public/images/pb.png";
 export default function About() {
   const { t } = useTranslation("about");
   return (
-    <div className="flex gap-8 flex-wrap justify-center">
-      <div className="hidden md:flex overflow-hidden rounded-full bg-primary outline outline-light dark:outline-dark outline-offset-[-1] dark:bg-primary_dark max-w-xs justify-self-center items-center transition-[outline-color]">
+    <div className="flex flex-wrap justify-center gap-8">
+      <div className="hidden max-w-xs items-center justify-self-center overflow-hidden rounded-full bg-primary outline outline-offset-[-1] outline-light transition-[outline-color] dark:bg-primary_dark dark:outline-dark md:flex">
         <Image alt={t("profile-img-alt")} src={pbImage} />
       </div>
       <div className="max-w-2xl justify-self-start">
-        <h2 className="font-semibold text-4xl mb-4 leading-tight">
+        <h2 className="mb-4 text-4xl font-semibold leading-tight">
           <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
         </h2>
         <p>

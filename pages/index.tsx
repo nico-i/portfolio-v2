@@ -52,7 +52,7 @@ const Home = ({ projects }: Props) => {
       </Head>
       <div
         className={classNames(
-          "transition-transform text-light shadow-lg leading-[2.5em] text-center overflow-hidden right-0 left-0 top-0 z-50 fixed",
+          "fixed right-0 left-0 top-0 z-50 overflow-hidden text-center leading-[2.5em] text-light shadow-lg transition-transform",
           { "-translate-y-14": formSuccess === 0 },
           { "translate-y-0": formSuccess === 1 || formSuccess === -1 },
           { "bg-primary dark:bg-primary_dark": formSuccess === 1 },
@@ -62,28 +62,28 @@ const Home = ({ projects }: Props) => {
         <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
       <NavBar />
-      <main className="snap-none md:snap-y md:snap-mandatory w-full h-screen overflow-scroll scroll-smooth">
+      <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y md:snap-mandatory">
         <FadeInSection
           id="home"
           fadeIn={false}
-          className="flex items-center justify-start w-full h-full snap-center snap-always px-8"
+          className="flex h-full w-full snap-center snap-always items-center justify-start px-8"
         >
           <Hero />
         </FadeInSection>
         <FadeInSection
           id="about"
-          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+          className="flex h-full w-full snap-center snap-always items-center justify-center px-8"
         >
           <About />
         </FadeInSection>
-        <FadeInSection className="flex items-center justify-center w-full h-full snap-center snap-always px-8">
+        <FadeInSection className="flex h-full w-full snap-center snap-always items-center justify-center px-8">
           <div>
-            <h2 className="font-semibold text-4xl mb-4 leading-tight">
+            <h2 className="mb-4 text-4xl font-semibold leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </div>
         </FadeInSection>
-        <FadeInSection className="flex items-center justify-center w-full mb-32 snap-center snap-always px-8">
+        <FadeInSection className="mb-32 flex w-full snap-center snap-always items-center justify-center px-8">
           <Timeline
             itemInterval={5000}
             items={xpItems}
@@ -91,9 +91,9 @@ const Home = ({ projects }: Props) => {
             strokeWidth={4}
           />
         </FadeInSection>
-        <FadeInSection className="flex items-center justify-start mb-32 w-full md:h-full snap-center snap-always px-8">
+        <FadeInSection className="mb-32 flex w-full snap-center snap-always items-center justify-start px-8 md:h-full">
           <div className="md:ml-28 md:mt-20 md:w-[24vw]">
-            <h2 className="font-semibold text-4xl mb-4 leading-tight">
+            <h2 className="mb-4 text-4xl font-semibold leading-tight">
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
             <p>{t("skills-intro-p")}</p>
@@ -102,7 +102,7 @@ const Home = ({ projects }: Props) => {
         <Skills />
         <FadeInSection
           id="projects"
-          className="flex items-center justify-center w-full md:h-full mb-32 snap-center snap-always px-8"
+          className="mb-32 flex w-full snap-center snap-always items-center justify-center px-8 md:h-full"
         >
           <div>
             <ProjectMasonry projects={projects} locale={locale} />
@@ -110,7 +110,7 @@ const Home = ({ projects }: Props) => {
         </FadeInSection>
         <FadeInSection
           id="contact"
-          className="flex items-center justify-center w-full h-full snap-center snap-always px-8"
+          className="flex h-full w-full snap-center snap-always items-center justify-center px-8"
         >
           <Contact
             onFormSubmit={(newValue: number) => {

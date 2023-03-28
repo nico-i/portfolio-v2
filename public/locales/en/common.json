@@ -6,7 +6,7 @@
   "meta-og-desc": "Welcom to my portfolio! Here you can find my contact details, past projects and my skills and qualifications!",
   "form-success": "Message successfully sent!",
   "form-error": "Error sending your message.",
-  "timeline-intro": "What I do with <span class=\"highlighted\">my time</span>?",
-  "skills-intro": "I also invested<br/><span class=\"highlighted\">some time</span> into myself.",
+  "timeline-intro": "What I do with <span class=\"text-primary dark:text-primary_dark\">my time</span>?",
+  "skills-intro": "I also invested<br/><span class=\"text-primary dark:text-primary_dark\">some time</span> into myself.",
   "skills-intro-p": "In which I predominantly focused on expanding my knowledge on new technologies and modern development tools."
 }

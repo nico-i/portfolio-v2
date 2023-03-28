@@ -113,7 +113,7 @@ export default function Document() {
         <meta property="og:locale:alternate" content="de_DE" />
       </Head>
       <body
-        className="transition bg-light dark:bg-dark text-dark dark:text-light font-medium text-base md:text-lg"
+        className="bg-light text-base font-medium text-dark transition dark:bg-dark dark:text-light md:text-lg"
         style={{ scrollbarWidth: "thin" }}
       >
         <Main />

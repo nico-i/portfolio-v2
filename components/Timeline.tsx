@@ -32,11 +32,11 @@ export default function Timeline({
   return (
     <div className="relative inline-block overflow-hidden">
       <span
-        className="z-10 transition-all absolute h-full w-full pointer-events-none shadow-fade-tb shadow-light dark:shadow-dark"
+        className="pointer-events-none absolute z-10 h-full w-full shadow-fade-tb shadow-light transition-all dark:shadow-dark"
         style={{ content: "" }}
       />
       <div
-        className="w-72 h-96 md:w-[28rem]"
+        className="h-96 w-72 md:w-[28rem]"
         style={{ scrollbarWidth: "none" }}
       >
         <Swiper
@@ -57,7 +57,7 @@ export default function Timeline({
         >
           {items.map((item) => (
             <SwiperSlide key={item.title}>
-              <div className="flex justify-items-center items-center h-96">
+              <div className="flex h-96 items-center justify-items-center">
                 <TimelineItem
                   itemHeight={itemHeight}
                   itemTitle={item.title}
@@ -72,7 +72,7 @@ export default function Timeline({
         </Swiper>
       </div>
       <span
-        className="absolute -z-50 top-0 bottom-0 left-1/2 -translate-x-1/2 h-full"
+        className="absolute top-0 bottom-0 left-1/2 -z-50 h-full -translate-x-1/2"
         style={{ borderLeft: strokeColor, borderWidth: strokeWidth }}
       />
     </div>

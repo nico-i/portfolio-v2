@@ -8,7 +8,7 @@ import TypreWriter from "typewriter-effect";
 export default function Hero() {
   const { t } = useTranslation("hero");
   return (
-    <h1 className="text-[11.5vmin] md:px-10 font-semibold leading-tight">
+    <h1 className="text-[11.5vmin] font-semibold leading-tight md:px-10">
       <TypreWriter
         aria-hidden="true"
         options={{

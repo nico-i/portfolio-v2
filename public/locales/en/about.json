@@ -1,6 +1,6 @@
 {
   "profile-img-alt": "Image of Nico Ismaili",
-  "h2-0-txt-0": "May I <span class=\"highlighted\">introduce</span> myself?",
+  "h2-0-txt-0": "May I <span class=\"text-primary dark:text-primary_dark\">introduce</span> myself?",
   "p-1-txt-0": "As mentioned before my name is Nico. I study ",
   "p-1-a-0-txt": "Media Computer Science",
   "p-1-a-0-href": "https://www.hs-rm.de/en/faculties/design-computer-science-media/degree-programs/media-computer-science-bsc",
