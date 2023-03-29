@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
-import footerData from "../data/footerData";
+import footerData from "../data/contactData";
 
 interface Props {
   onFormSubmit: Function;
@@ -63,7 +63,7 @@ export default function Contact({ onFormSubmit }: Props) {
   return (
     <div
       id="contact"
-      className="flex h-full w-full snap-center snap-always items-center justify-center px-8"
+      className="flex h-full w-full items-center justify-center px-8"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -75,7 +75,7 @@ export default function Contact({ onFormSubmit }: Props) {
           data-netlify-honeypot="bot-field"
           name="contact"
           onSubmit={onSubmit}
-          className="mt-28 mb-20 grid max-w-7xl grid-cols-1 content-center gap-8 lg:grid-cols-8"
+          className="mb-14 mt-28 grid max-w-7xl snap-center grid-cols-1 content-center gap-8 lg:grid-cols-8"
         >
           <input type="hidden" name="form-name" value="contact" required />
           <p hidden>
@@ -93,7 +93,7 @@ export default function Contact({ onFormSubmit }: Props) {
               {t("label-budget")}
               <select
                 required
-                className="mt-2 mb-4 block w-full rounded-lg bg-white py-2 px-3 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
+                className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
                 onChange={(e) => setBudget(e.target.value)}
                 name="Budget"
                 id="budget"
@@ -112,7 +112,7 @@ export default function Contact({ onFormSubmit }: Props) {
                 id="name"
                 type={"text"}
                 placeholder={t("input-name-placeholder")}
-                className="mt-2 mb-4 block w-full rounded-lg bg-white py-2 px-3 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
+                className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
               />
             </label>
             <label className="block" htmlFor="email">
@@ -123,7 +123,7 @@ export default function Contact({ onFormSubmit }: Props) {
                 id="email"
                 type={"email"}
                 placeholder={t("input-email-placeholder")}
-                className="mt-2 mb-4 block w-full rounded-lg bg-white py-2 px-3 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
+                className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
               />
             </label>
           </div>
@@ -135,14 +135,14 @@ export default function Contact({ onFormSubmit }: Props) {
                 name="Message"
                 id="message"
                 className={classNames(
-                  "mt-2 mb-4 block h-28 w-full rounded-lg bg-white py-2 px-3 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10 md:h-40 lg:h-[24rem]"
+                  "mb-4 mt-2 block h-28 w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10 md:h-40 lg:h-[24rem]"
                 )}
               />
             </label>
             <div className="mb-6 grid grid-cols-6 gap-4 md:mb-0 lg:grid-cols-4 lg:gap-2">
               <button
                 type="submit"
-                className="order-first col-span-6 mb-4 mt-2 w-full rounded-md bg-primary py-2 text-lg font-semibold text-white transition lg:order-4 lg:col-span-1 lg:mt-0 lg:mb-0"
+                className="order-first col-span-6 mb-4 mt-2 w-full rounded-md bg-primary py-2 text-lg font-semibold text-white transition lg:order-4 lg:col-span-1 lg:mb-0 lg:mt-0"
               >
                 {t("button-send")}
               </button>

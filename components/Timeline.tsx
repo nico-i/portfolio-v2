@@ -1,8 +1,5 @@
 import React from "react";
-import { A11y, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import TimelineItem from "./TimelineItem";
-
 interface Props {
   items: Array<{
     title: string;
@@ -10,71 +7,33 @@ interface Props {
     start: number;
     end: number;
   }>;
-  strokeWidth: number;
-  strokeColor?: string;
-  itemHeight: number | string;
-  itemColor?: string;
-  itemInterval: number;
 }
 
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Timeline({
-  items,
-  strokeWidth,
-  strokeColor,
-  itemHeight,
-  itemColor,
-  itemInterval,
-}: Props) {
+const Timeline: React.FC<Props> = ({ items }) => {
   return (
-    <div className="relative inline-block overflow-hidden">
-      <span
-        className="shadow-fade-tb pointer-events-none absolute z-10 h-full w-full shadow-light transition-all dark:shadow-dark"
-        style={{ content: "" }}
-      />
+    <div className="relative mb-48 h-[175vh] overflow-hidden px-8">
       <div
-        className="h-96 w-72 md:w-[28rem]"
-        style={{ scrollbarWidth: "none" }}
-      >
-        <Swiper
-          direction={"vertical"}
-          autoHeight
-          spaceBetween={30}
-          centeredSlides
-          rewind
-          autoplay={{
-            delay: itemInterval,
-            disableOnInteraction: false,
-          }}
-          a11y={{
-            prevSlideMessage: "Previous slide",
-            nextSlideMessage: "Next slide",
-          }}
-          modules={[A11y, Autoplay]}
-        >
-          {items.map((item) => (
-            <SwiperSlide key={item.title}>
-              <div className="flex h-96 items-center justify-items-center">
-                <TimelineItem
-                  itemHeight={itemHeight}
-                  itemTitle={item.title}
-                  itemDescription={item.description}
-                  itemColor={itemColor}
-                  strokeWidth={strokeWidth}
-                  strokeColor={strokeColor}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <span
-        className="absolute top-0 bottom-0 left-1/2 -z-50 h-full -translate-x-1/2"
-        style={{ borderLeft: strokeColor, borderWidth: strokeWidth }}
+        className="absolute left-1/2 h-full w-[5px] -translate-x-1/2 md:w-[5px]"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 2%, black 10%, black 90%, transparent 98%)",
+        }}
       />
+      <div className="absolute left-1/2 flex h-full w-full -translate-x-1/2 flex-col items-center justify-evenly">
+        {items.map((item) => (
+          <TimelineItem
+            key={item.title}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Timeline;

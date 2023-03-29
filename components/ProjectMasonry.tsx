@@ -16,7 +16,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
   return (
     <div
       id="projects"
-      className="flex h-1/2 w-full snap-center snap-always items-center justify-center px-8"
+      className="min-h-1/4 flex w-full snap-center items-center justify-center px-8"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ export const ProjectMasonry = ({ projects, locale }: Props) => {
               href={`/${locale}/projects/${project.slug}`}
               key={project.title}
               passHref
-              className="break-inside drop-shadow-xl inline-block w-96 rounded-lg transition-all hover:opacity-90"
+              className="break-inside drop-shadow-xl inline-block w-96 rounded-lg drop-shadow-skill-circle transition-opacity duration-300 hover:opacity-90"
             >
               <Image
                 src={`/images/${project.headerImg

@@ -1,58 +1,73 @@
+import classNames from "classnames";
+import { useInView } from "framer-motion";
 import { useTranslation } from "next-i18next";
-import React from "react";
+import React, { useRef } from "react";
 
 interface Props {
-  itemTitle: string;
-  itemDescription: string;
-  itemHeight: number | string;
-  itemColor?: string;
-  strokeWidth: number;
-  strokeColor?: string;
+  title: string;
+  description: string;
+  start?: Date;
+  end?: Date;
 }
 
 /**
  *
  * @return {React.ReactNode}
  */
-function TimelineItem({
-  itemHeight,
-  itemColor,
-  itemTitle,
-  itemDescription,
-  strokeColor,
-  strokeWidth,
-}: Props) {
+const TimelineItem: React.FC<Props> = ({ title, description }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    margin: "-40% 0px -40% 0px",
+    once: true,
+  });
+
   const { t } = useTranslation("xp");
   return (
-    <div className="flex flex-nowrap justify-center justify-items-center">
-      <div className="flex w-2/5 justify-end text-right font-semibold text-primary dark:text-primary_dark">
-        <span
-          dangerouslySetInnerHTML={{ __html: t(itemTitle) }}
-          style={{ height: itemHeight }}
-        />
-      </div>
-      <div
-        className="mx-2 -my-1 flex items-center justify-center self-center rounded-full bg-light stroke-dark transition dark:bg-dark dark:stroke-light md:mx-6"
-        style={{
-          borderWidth: strokeWidth * 1.5,
-          borderColor: strokeColor,
-          height: itemHeight,
-          width: itemHeight,
-        }}
+    <div
+      ref={ref}
+      className="relative flex w-full items-center justify-center gap-5 ease-in md:gap-4"
+    >
+      <span
+        className={classNames(
+          { "opacity-0": !isInView },
+          { "opacity-100": isInView },
+          "w-1/3 text-right text-primary transition-opacity delay-500 duration-500 dark:text-primary_dark md:w-1/5"
+        )}
       >
-        <div
-          className="m-[0.1em] flex h-3/5 w-3/5 rounded-full bg-primary dark:bg-primary_dark"
-          style={{ backgroundColor: itemColor }}
+        {t(title)}
+      </span>
+      <svg className="h-8 w-8 md:h-12 md:w-12" viewBox="0 0 41 41">
+        {/* Outline */}
+        <circle
+          className="fill-light stroke-dark ease-in dark:fill-dark dark:stroke-light"
+          cx="50%"
+          cy="50%"
+          r="18"
+          strokeWidth={5}
         />
-      </div>
-      <div className="flex w-2/5">
-        <span
-          dangerouslySetInnerHTML={{ __html: t(itemDescription) }}
-          style={{ height: itemHeight }}
+        {/* center */}
+        <circle
+          className={classNames(
+            { "scale-0": !isInView },
+            { "scale-100": isInView },
+            "origin-center fill-primary transition-transform duration-300 ease-in dark:fill-primary_dark"
+          )}
+          cx="50%"
+          cy="50%"
+          r="9.5"
         />
-      </div>
+      </svg>
+      <span
+        className={classNames(
+          { "opacity-0": !isInView },
+          { "opacity-100": isInView },
+          "w-1/3 transition-opacity delay-500 duration-500 md:w-1/5"
+        )}
+      >
+        {t(description)}
+      </span>
     </div>
   );
-}
+};
 
 export default TimelineItem;

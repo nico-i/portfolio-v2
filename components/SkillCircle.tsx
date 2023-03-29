@@ -48,7 +48,7 @@ const SkillCircle = ({
     >
       <circle
         className={classNames(
-          "pointer-events-auto cursor-pointer fill-white drop-shadow-skill-circle transition-[fill] duration-300 will-change-[fill] dark:fill-primary",
+          "pointer-events-auto cursor-pointer fill-white drop-shadow-skill-circle transition-[fill] duration-300 ease-in will-change-[fill] dark:fill-primary",
           { "md:fill-primary md:dark:fill-light": active },
           { "md:fill-white md:dark:fill-primary": !active }
         )}
@@ -59,7 +59,7 @@ const SkillCircle = ({
       />
       <circle
         className={classNames(
-          "stroke-primary transition-[stroke] duration-300 will-change-[stroke] dark:stroke-light",
+          "stroke-primary transition-[stroke] duration-300 ease-in will-change-[stroke] dark:stroke-light",
           { "md:stroke-primary md:dark:stroke-light": !active },
           { "md:stroke-white md:dark:stroke-primary": active }
         )}
@@ -83,7 +83,7 @@ const SkillCircle = ({
       <Icon
         size={iconSize}
         className={classNames(
-          "fill-primary stroke-primary transition-[fill] duration-300 will-change-[fill] dark:fill-light dark:stroke-light",
+          "fill-primary stroke-primary transition-[fill] duration-300 ease-in will-change-[fill] dark:fill-light dark:stroke-light",
           {
             "md:fill-primary md:stroke-primary md:dark:fill-light md:dark:stroke-light":
               !active,

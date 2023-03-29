@@ -35,6 +35,7 @@ const Home = ({ projects }: Props) => {
       }, 2500);
     }
   });
+
   return (
     <>
       <Head>
@@ -53,7 +54,7 @@ const Home = ({ projects }: Props) => {
       </Head>
       <div
         className={classNames(
-          "fixed right-0 left-0 top-0 z-50 overflow-hidden text-center leading-[2.5em] text-light shadow-lg transition-transform",
+          "fixed left-0 right-0 top-0 z-50 overflow-hidden text-center leading-[2.5em] text-light shadow-lg transition-transform",
           { "-translate-y-14": formSuccess === 0 },
           { "translate-y-0": formSuccess === 1 || formSuccess === -1 },
           { "bg-primary dark:bg-primary_dark": formSuccess === 1 },
@@ -66,30 +67,23 @@ const Home = ({ projects }: Props) => {
       <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y">
         <Hero />
         <About />
-        <div className="flex h-4/6 w-full snap-center snap-normal items-center justify-center px-8">
+        <div className="mb-48 flex h-1/4 w-full snap-center snap-normal items-center justify-center px-8 md:mb-0 md:h-4/6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
           >
-            <h2 className="mb-4 text-center text-5xl font-semibold leading-tight md:text-left">
+            <h2 className="mb-4 text-center text-3xl font-semibold leading-tight md:w-auto md:text-left md:text-5xl">
               <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
             </h2>
           </motion.div>
         </div>
-        <div className="flex w-full items-center justify-center px-8">
-          <Timeline
-            itemInterval={5000}
-            items={xpItems}
-            itemHeight={"3rem"}
-            strokeWidth={4}
-          />
-        </div>
-        <div className="flex h-4/6 w-full snap-center items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4">
+        <Timeline items={xpItems} />
+        <div className="mb-60 flex w-full items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1, transition: { duration: 1 } }}
           >
-            <h2 className="mb-4 text-4xl font-semibold leading-tight">
+            <h2 className="mb-4 snap-center text-3xl font-semibold leading-tight md:text-4xl">
               <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
             </h2>
             <p>{t("skills-intro-p")}</p>

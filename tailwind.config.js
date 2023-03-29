@@ -8,6 +8,18 @@ module.exports = {
   ],
   safelist: ["text-primary", "text-primary_dark"],
   theme: {
+    extend: {
+      boxShadow: {
+        "fade-y":
+          "0 10px 20px rgba(0, 0, 0, 0.3), 0 -10px 20px rgba(0, 0, 0, 0.3);",
+      },
+    },
+    dropShadow: {
+      "skill-circle": [
+        "0 10px 8px rgb(0 0 0 / 0.03)",
+        "0 4px 3px rgb(0 0 0 / 0.05)",
+      ],
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
@@ -24,12 +36,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Poppins", "sans-serif "],
-    },
-    dropShadow: {
-      "skill-circle": [
-        "0 10px 8px rgb(0 0 0 / 0.03)",
-        "0 4px 3px rgb(0 0 0 / 0.05)",
-      ],
     },
     plugins: [require("@tailwindcss/forms")],
   },
