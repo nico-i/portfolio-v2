@@ -98,7 +98,7 @@ const Skills: React.FC<SkillsProps> = ({ className, id }) => {
         style={{ height: skillDivHeight, width: skillDivWidth }}
       >
         <h2
-          className="mb-3 mt-0 text-5xl font-semibold md:-mt-40"
+          className="mt-0 text-4xl font-semibold md:-mt-40"
           dangerouslySetInnerHTML={{
             __html: activeSkill
               ? `<span>${activeSkill.skill}</span><span class="text-primary dark:text-primary_dark">.</span>`

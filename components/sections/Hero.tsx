@@ -14,8 +14,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ className, id }) => {
   const { t } = useTranslation("hero");
   return (
-    <div id={id} className={className}>
-      <h1 className="text-[11.5vmin] font-semibold leading-tight md:px-10">
+    <section id={id} className={className}>
+      <h1 className="snap-center text-[10vmin] font-semibold leading-tight md:px-10">
         <TypreWriter
           aria-hidden="true"
           options={{
@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ className, id }) => {
         />
         <span className="sr-only">{t("full-text")}</span>
       </h1>
-    </div>
+    </section>
   );
 };
 export default Hero;

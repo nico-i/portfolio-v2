@@ -63,34 +63,34 @@ const Index: React.FC<IndexProps> = ({ projects }) => {
         <span>{formSuccess === 1 ? t("form-success") : t("form-error")}</span>
       </div>
       <NavBar />
-      <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y">
+      <main className="h-screen w-full snap-none overflow-scroll scroll-smooth px-8 md:snap-y md:snap-proximity">
         <Hero
           id="home"
-          className="relative flex h-full w-full snap-center snap-normal items-center justify-start px-8"
+          className="relative mb-40 flex h-screen w-full items-center justify-start "
         />
         <About
           id="about"
-          className="flex h-full w-full snap-center snap-normal items-center justify-center px-8"
+          className="mb-40 flex w-full snap-center items-center justify-center "
         />
-        <TimelineIntro className="mb-20 flex h-4/5 w-full snap-center snap-normal items-center justify-center px-8 md:mb-0 md:h-4/6" />
+        <TimelineIntro className="mb-20 flex h-4/5 w-full snap-center items-center justify-center md:mb-0 md:h-4/6" />
         <Timeline
           id="timeline"
-          className="relative mb-32 h-[175vh] overflow-hidden px-8 md:mb-48"
+          className="relative mb-32 h-[175vh] overflow-hidden md:mb-48"
           items={xpItems}
         />
-        <SkillsIntro className="mb-60 flex w-full items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4" />
+        <SkillsIntro className="mb-60 flex w-full items-center justify-start md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4" />
         <Skills
           id="skills"
-          className="mb-28 flex h-5/6 w-full snap-center items-center justify-center gap-0 px-8 md:mb-0 md:gap-6"
+          className="mb-28 flex h-5/6 w-full snap-center items-center justify-center gap-0 md:gap-6"
         />
         <Projects
           id="projects"
           projects={projects}
-          className="min-h-1/4 flex w-full snap-center items-center justify-center px-8"
+          className="min-h-1/4 mb-60 flex w-full snap-center flex-col items-center justify-center"
         />
         <Contact
           id="contact"
-          className="flex h-full w-full items-center justify-center px-8"
+          className="mb-14 flex w-full snap-center items-center justify-center md:mb-96"
           onFormSubmit={(newValue: number) => {
             setFormSuccess(newValue);
           }}

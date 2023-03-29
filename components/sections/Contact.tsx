@@ -78,7 +78,7 @@ const Contact: React.FC<ContractProps> = ({
           data-netlify-honeypot="bot-field"
           name="contact"
           onSubmit={onSubmit}
-          className="mb-14 mt-28 grid max-w-7xl snap-center grid-cols-1 content-center gap-8 lg:grid-cols-8"
+          className="mt-28 grid max-w-7xl grid-cols-1 content-center gap-8 lg:grid-cols-8"
         >
           <input type="hidden" name="form-name" value="contact" required />
           <p hidden>
