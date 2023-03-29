@@ -1,17 +1,20 @@
 import { useTranslation } from "next-i18next";
 import React from "react";
 import TypreWriter from "typewriter-effect";
+
+interface HeroProps {
+  className?: string;
+  id?: string;
+}
+
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Hero() {
+const Hero: React.FC<HeroProps> = ({ className, id }) => {
   const { t } = useTranslation("hero");
   return (
-    <div
-      id="home"
-      className="relative flex h-full w-full snap-center snap-normal items-center justify-start px-8"
-    >
+    <div id={id} className={className}>
       <h1 className="text-[11.5vmin] font-semibold leading-tight md:px-10">
         <TypreWriter
           aria-hidden="true"
@@ -31,4 +34,5 @@ export default function Hero() {
       </h1>
     </div>
   );
-}
+};
+export default Hero;

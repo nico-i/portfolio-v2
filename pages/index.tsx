@@ -1,32 +1,31 @@
 import classNames from "classnames";
-import { motion } from "framer-motion";
 import fs from "fs";
 import matter from "gray-matter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import { ProjectMasonry } from "../components/ProjectMasonry";
-import Timeline from "../components/Timeline";
+import About from "../components/sections/About";
+import Contact from "../components/sections/Contact";
+import Hero from "../components/sections/Hero";
+import { Projects } from "../components/sections/Projects";
+import Skills from "../components/sections/Skills";
+import SkillsIntro from "../components/sections/SkillsIntro";
+import Timeline from "../components/sections/Timeline";
+import TimelineIntro from "../components/sections/TimelineIntro";
 import i18nConfig from "../next-i18next.config";
-import About from "../sections/About";
-import Contact from "../sections/Contact";
-import Hero from "../sections/Hero";
-import Skills from "../sections/Skills";
 import xpItems from "./../data/xpItems.json";
 
-interface Props {
+interface IndexProps {
   projects: {
     [key: string]: string;
   }[];
 }
 
-const Home = ({ projects }: Props) => {
+const Index: React.FC<IndexProps> = ({ projects }) => {
   const [formSuccess, setFormSuccess] = useState(0);
   const { t } = useTranslation("common");
-  const { locale } = useRouter();
 
   useEffect(() => {
     if (formSuccess) {
@@ -65,33 +64,33 @@ const Home = ({ projects }: Props) => {
       </div>
       <NavBar />
       <main className="h-screen w-full snap-none overflow-scroll scroll-smooth md:snap-y">
-        <Hero />
-        <About />
-        <div className="mb-48 flex h-1/4 w-full snap-center snap-normal items-center justify-center px-8 md:mb-0 md:h-4/6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
-          >
-            <h2 className="mb-4 text-center text-3xl font-semibold leading-tight md:w-auto md:text-left md:text-5xl">
-              <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
-            </h2>
-          </motion.div>
-        </div>
-        <Timeline items={xpItems} />
-        <div className="mb-60 flex w-full items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1, transition: { duration: 1 } }}
-          >
-            <h2 className="mb-4 snap-center text-3xl font-semibold leading-tight md:text-4xl">
-              <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
-            </h2>
-            <p>{t("skills-intro-p")}</p>
-          </motion.div>
-        </div>
-        <Skills />
-        <ProjectMasonry projects={projects} locale={locale} />
+        <Hero
+          id="home"
+          className="relative flex h-full w-full snap-center snap-normal items-center justify-start px-8"
+        />
+        <About
+          id="about"
+          className="flex h-full w-full snap-center snap-normal items-center justify-center px-8"
+        />
+        <TimelineIntro className="mb-20 flex h-4/5 w-full snap-center snap-normal items-center justify-center px-8 md:mb-0 md:h-4/6" />
+        <Timeline
+          id="timeline"
+          className="relative mb-32 h-[175vh] overflow-hidden px-8 md:mb-48"
+          items={xpItems}
+        />
+        <SkillsIntro className="mb-60 flex w-full items-center justify-start px-8 md:ml-28 md:mt-20 md:w-1/2 xl:w-1/4" />
+        <Skills
+          id="skills"
+          className="mb-28 flex h-5/6 w-full snap-center items-center justify-center gap-0 px-8 md:mb-0 md:gap-6"
+        />
+        <Projects
+          id="projects"
+          projects={projects}
+          className="min-h-1/4 flex w-full snap-center items-center justify-center px-8"
+        />
         <Contact
+          id="contact"
+          className="flex h-full w-full items-center justify-center px-8"
           onFormSubmit={(newValue: number) => {
             setFormSuccess(newValue);
           }}
@@ -142,4 +141,4 @@ export async function getStaticProps({ locale }: any) {
   };
 }
 
-export default Home;
+export default Index;

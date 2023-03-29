@@ -1,29 +1,33 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import pbImage from "../public/images/pb.png";
+import pbImage from "../../public/images/pb.png";
 import { motion } from "framer-motion";
+
+interface AboutProps {
+  className?: string;
+  id?: string;
+}
 
 /**
  *
  * @return {React.ReactNode}
  */
-export default function About() {
+const About: React.FC<AboutProps> = ({ className, id }) => {
   const { t } = useTranslation("about");
   return (
-    <div
-      className="flex h-full w-full snap-center snap-normal items-center justify-center px-8"
-      id="about"
-    >
+    <div className={className} id={id}>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
         className="flex flex-wrap justify-center gap-8"
       >
-        <div className="hidden max-w-xs items-center justify-self-center overflow-hidden rounded-full bg-primary outline outline-offset-[-1] outline-light transition-[outline-color] dark:bg-primary_dark dark:outline-dark md:flex">
-          <Image alt={t("profile-img-alt")} src={pbImage} />
-        </div>
-        <div className="max-w-2xl justify-self-start">
+        <Image
+          className="w-3/5 overflow-hidden rounded-full bg-primary dark:bg-primary_dark dark:outline dark:outline-4 dark:outline-offset-[-1] dark:outline-light md:w-64"
+          alt={t("profile-img-alt")}
+          src={pbImage}
+        />
+        <div className="md:max-w-2xl">
           <h2 className="mb-4 text-4xl font-semibold leading-tight">
             <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
           </h2>
@@ -56,4 +60,6 @@ export default function About() {
       </motion.div>
     </div>
   );
-}
+};
+
+export default About;

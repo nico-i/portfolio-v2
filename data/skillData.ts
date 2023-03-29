@@ -54,14 +54,14 @@ export const skillData: SkillDataType[] = [
   {
     skill: "Arduino",
     Icon: SiArduino,
-    percentage: 60,
+    percentage: 70,
     infoTextId: "arduino",
     url: "https://www.arduino.cc/",
   },
   {
     skill: "Docker",
     Icon: SiDocker,
-    percentage: 65,
+    percentage: 50,
     infoTextId: "docker",
     url: "https://www.docker.com/",
   },
@@ -89,7 +89,7 @@ export const skillData: SkillDataType[] = [
   {
     skill: "RabbitMQ",
     Icon: SiRabbitmq,
-    percentage: 35,
+    percentage: 25,
     infoTextId: "rabbitmq",
     url: "https://www.rabbitmq.com/",
   },
@@ -103,7 +103,7 @@ export const skillData: SkillDataType[] = [
   {
     skill: "C++",
     Icon: SiCplusplus,
-    percentage: 50,
+    percentage: 40,
     infoTextId: "c++",
     url: "https://en.cppreference.com/w/cpp",
   },
@@ -187,7 +187,7 @@ export const skillData: SkillDataType[] = [
   {
     skill: "MongoDB",
     Icon: DiMongodb,
-    percentage: 30,
+    percentage: 15,
     infoTextId: "mongodb",
     url: "https://www.mongodb.com/",
   },

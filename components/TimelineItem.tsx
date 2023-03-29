@@ -17,7 +17,7 @@ interface Props {
 const TimelineItem: React.FC<Props> = ({ title, description }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    margin: "-40% 0px -40% 0px",
+    margin: "-25% 0px -25% 0px",
     once: true,
   });
 

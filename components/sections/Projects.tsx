@@ -3,21 +3,25 @@ import React from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
-interface Props {
+interface ProjectsProps {
   projects: {
     [key: string]: string;
   }[];
-  locale: string | undefined;
+  className?: string;
+  id?: string;
 }
 
-export const ProjectMasonry = ({ projects, locale }: Props) => {
+export const Projects: React.FC<ProjectsProps> = ({
+  projects,
+  className,
+  id = undefined,
+}) => {
   const { t } = useTranslation("projects");
+  const { locale } = useRouter();
   return (
-    <div
-      id="projects"
-      className="min-h-1/4 flex w-full snap-center items-center justify-center px-8"
-    >
+    <div id={id} className={className}>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 1 } }}

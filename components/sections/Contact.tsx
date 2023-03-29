@@ -2,17 +2,23 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
-import footerData from "../data/contactData";
+import footerData from "../../data/contactData";
 
-interface Props {
+interface ContractProps {
   onFormSubmit: Function;
+  className?: string;
+  id?: string;
 }
 
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Contact({ onFormSubmit }: Props) {
+const Contact: React.FC<ContractProps> = ({
+  onFormSubmit,
+  className,
+  id = undefined,
+}) => {
   const { t } = useTranslation("contact");
   const budgets = [
     t("option-budget-0"),
@@ -61,10 +67,7 @@ export default function Contact({ onFormSubmit }: Props) {
     }
   };
   return (
-    <div
-      id="contact"
-      className="flex h-full w-full items-center justify-center px-8"
-    >
+    <div id={id} className={className}>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 1 } }}
@@ -84,11 +87,9 @@ export default function Contact({ onFormSubmit }: Props) {
             </label>
           </p>
           <div className="col-span-1 lg:col-span-2">
-            <div className="mb-4 block h-auto items-center text-[1.7rem] md:h-32 md:text-4xl lg:flex lg:h-60">
-              <h2 className="text-4xl font-semibold leading-[1.15] md:mb-4 md:leading-tight">
-                <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
-              </h2>
-            </div>
+            <h2 className="mb-4 block h-auto items-center text-[1.69rem] font-semibold leading-8 md:mb-4 md:h-32 md:text-4xl md:leading-tight lg:flex lg:h-60">
+              <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
+            </h2>
             <label className="block" htmlFor="budget">
               {t("label-budget")}
               <select
@@ -172,4 +173,6 @@ export default function Contact({ onFormSubmit }: Props) {
       </motion.div>
     </div>
   );
-}
+};
+
+export default Contact;

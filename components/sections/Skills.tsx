@@ -3,13 +3,19 @@ import { motion, useInView } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { HiExternalLink } from "react-icons/hi";
-import SkillCircle from "../components/SkillCircle";
-import { skillData, SkillDataType } from "../data/skillData";
+import SkillCircle from "../SkillCircle";
+import { skillData, SkillDataType } from "../../data/skillData";
+
+interface SkillsProps {
+  className?: string;
+  id?: string;
+}
+
 /**
  *
  * @return {React.ReactNode}
  */
-export default function Skills() {
+const Skills: React.FC<SkillsProps> = ({ className, id }) => {
   const [skillDivHeight, setSkillDivHeight] = useState(0);
   const [skillDivWidth, setSkillDivWidth] = useState(0);
   const [activeSkill, setActiveSkill] = useState<SkillDataType | null>(null);
@@ -39,10 +45,10 @@ export default function Skills() {
 
   return (
     <motion.div
-      id="skills"
+      id={id}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { duration: 1 } }}
-      className=" flex h-5/6 w-full snap-center items-center justify-center gap-0 px-8 md:gap-6"
+      className={className}
     >
       <div
         ref={skillDiv}
@@ -92,7 +98,7 @@ export default function Skills() {
         style={{ height: skillDivHeight, width: skillDivWidth }}
       >
         <h2
-          className="mt-0 text-5xl font-semibold leading-relaxed md:-mt-40"
+          className="mb-3 mt-0 text-5xl font-semibold md:-mt-40"
           dangerouslySetInnerHTML={{
             __html: activeSkill
               ? `<span>${activeSkill.skill}</span><span class="text-primary dark:text-primary_dark">.</span>`
@@ -120,4 +126,6 @@ export default function Skills() {
       </div>
     </motion.div>
   );
-}
+};
+
+export default Skills;
