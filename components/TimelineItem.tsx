@@ -18,7 +18,6 @@ const TimelineItem: React.FC<Props> = ({ title, description }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     margin: "-25% 0px -25% 0px",
-    once: true,
   });
 
   const { t } = useTranslation("xp");
