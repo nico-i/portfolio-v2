@@ -3,7 +3,6 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import navLinks from "../data/navLinks.json";
 import LogoDark from "../public/images/emblem_dark.svg";
 import LogoLight from "../public/images/emblem_light.svg";
 import DarkModeButton from "./DarkModeButton";
@@ -15,6 +14,26 @@ import DarkModeButton from "./DarkModeButton";
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation("nav");
+
+  const navLinks = [
+    {
+      href: "#about",
+      text: "about",
+    },
+    {
+      href: "#skills",
+      text: "skills",
+    },
+    {
+      href: "#projects",
+      text: "projects",
+    },
+    {
+      href: "#contact",
+      text: "contact",
+    },
+  ];
+
   return (
     <nav className="items-top fixed z-50 flex w-screen justify-between bg-light px-5 py-4 transition dark:bg-dark md:items-center md:px-8 md:pt-6 lg:px-12 lg:pt-10">
       <Link href="/#home" passHref className="z-20 h-8 w-8 md:h-12 md:w-12">
