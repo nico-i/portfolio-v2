@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { useInView } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import React, { useRef } from "react";
 
 interface Props {
@@ -19,8 +18,6 @@ const TimelineItem: React.FC<Props> = ({ position, company }) => {
   const isInView = useInView(ref, {
     margin: "-25% 0px -25% 0px",
   });
-
-  const { t } = useTranslation("xp");
   return (
     <div
       ref={ref}
@@ -33,7 +30,7 @@ const TimelineItem: React.FC<Props> = ({ position, company }) => {
           "w-1/3 text-right text-primary transition-opacity delay-500 duration-500 dark:text-primary_dark md:w-1/5"
         )}
       >
-        {t(position)}
+        {position}
       </span>
       <svg className="h-8 w-8 md:h-12 md:w-12" viewBox="0 0 41 41">
         {/* Outline */}
@@ -63,7 +60,7 @@ const TimelineItem: React.FC<Props> = ({ position, company }) => {
           "w-1/3 transition-opacity delay-500 duration-500 md:w-1/5"
         )}
       >
-        {t(company)}
+        {company}
       </span>
     </div>
   );

@@ -18,6 +18,7 @@ import {
 } from "../lib/ContactSection";
 import { GeneralData, getGeneralData } from "../lib/GeneralData";
 import { Image } from "../lib/Image";
+import { NavLink, getNavLinks } from "../lib/NavLinks";
 import { Project, getAllProjects } from "../lib/Project";
 import { getProjectSectionData } from "../lib/ProjectSection";
 import { SkillType, getAllSkills } from "../lib/Skill";
@@ -37,6 +38,7 @@ interface IndexProps {
   screenReaderText: string;
   contactSectionData: ContactSectionData;
   projectsHeadline: string;
+  navLinks: NavLink[];
 }
 
 const Index: React.FC<IndexProps> = ({
@@ -48,6 +50,7 @@ const Index: React.FC<IndexProps> = ({
   projectsHeadline,
   aboutHeadline,
   generalAttributes,
+  navLinks,
   contactSectionData,
   typeWriterLines,
   screenReaderText,
@@ -99,7 +102,7 @@ const Index: React.FC<IndexProps> = ({
       >
         <span>{formSuccess === 1 ? "form-success" : "form-error"}</span>
       </div>
-      <NavBar />
+      <NavBar navLinks={navLinks} />
       <main className="h-screen w-full snap-none overflow-scroll scroll-smooth px-8 md:snap-y md:snap-proximity">
         <Hero
           typeWriterLines={typeWriterLines}
@@ -189,12 +192,14 @@ export async function getStaticProps({ locale }: any) {
   const skills = await getAllSkills(locale);
   const timelineItems = await getAllTimelineItems(locale);
   const contactLinks = await getAllContactLinks(locale);
+  const navLinks = await getNavLinks(locale);
   const contactSectionData = await getContactSectionData(locale);
   const { typeWriterLines, screenReaderText } = await getTypeWriterSectionData(
     locale
   );
   return {
     props: {
+      navLinks,
       projectsHeadline,
       contactSectionData,
       generalAttributes,

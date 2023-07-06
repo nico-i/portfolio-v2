@@ -21,11 +21,10 @@ export interface GeneralData {
 
 export const getGeneralData = async (locale: string) => {
   const generalRes = await fetch(
-    `${process.env.STRAPI_API_URL}/general?locale=${locale}`
+    `${process.env.STRAPI_API_URL}/general?locale=${locale}&populate=*`
   ).then((res) => res.json());
-
   return {
     ...generalRes.data.attributes,
-    OgImage: mapStrapiImage(generalRes.data.attributes.OgImage),
+    OgImage: mapStrapiImage(generalRes.data.attributes.OgImage.data.attributes),
   } as GeneralData;
 };
