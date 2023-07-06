@@ -1,5 +1,5 @@
 import React from "react";
-import TypreWriter from "typewriter-effect";
+import TypeWriter from "typewriter-effect";
 
 interface HeroProps {
   className?: string;
@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section id={id} className={className}>
       <h1 className="snap-center text-[10vmin] font-semibold leading-tight md:px-10">
-        <TypreWriter
+        <TypeWriter
           aria-hidden="true"
           options={{
             strings: typeWriterLines,

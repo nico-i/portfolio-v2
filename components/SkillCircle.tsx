@@ -11,8 +11,8 @@ interface Props {
   active?: boolean;
 }
 /**
- * Skillcircle component which represents a skill in a circle with
- * a circulare progression bar. The skill is represented
+ * SkillCircle component which represents a skill in a circle with
+ * a circular progression bar. The skill is represented
  * through an Icon in the middle of the circle.
  * @param {Props} props
  * @return {React.ReactNode}
