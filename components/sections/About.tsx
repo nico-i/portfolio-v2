@@ -1,11 +1,15 @@
-import React from "react";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
-import pbImage from "../../public/images/pb.png";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
 
 interface AboutProps {
   className?: string;
+  text: string;
+  headline: string;
+  imageSrc: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
   id?: string;
 }
 
@@ -13,8 +17,16 @@ interface AboutProps {
  *
  * @return {React.ReactNode}
  */
-const About: React.FC<AboutProps> = ({ className, id }) => {
-  const { t } = useTranslation("about");
+const About: React.FC<AboutProps> = ({
+  className,
+  text,
+  headline,
+  imageWidth,
+  imageHeight,
+  imageAlt,
+  imageSrc,
+  id,
+}) => {
   return (
     <div className={className} id={id}>
       <motion.div
@@ -24,38 +36,16 @@ const About: React.FC<AboutProps> = ({ className, id }) => {
       >
         <Image
           className="w-3/5 overflow-hidden rounded-full bg-primary dark:bg-primary_dark dark:outline dark:outline-4 dark:outline-offset-[-1] dark:outline-light md:w-64"
-          alt={t("profile-img-alt")}
-          src={pbImage}
+          alt={imageAlt}
+          src={imageSrc}
+          width={imageWidth}
+          height={imageHeight}
         />
         <div className="md:max-w-2xl">
           <h2 className="mb-4 text-4xl font-semibold leading-tight">
-            <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
+            <span dangerouslySetInnerHTML={{ __html: headline }} />
           </h2>
-          <p>
-            {t("p-1-txt-0")}
-            <a href={t("p-1-a-0-href")} target="_blank" rel="noreferrer">
-              {t("p-1-a-0-txt")}
-            </a>
-            {t("p-1-txt-1")}
-            <a href={t("p-1-a-1-href")} target="_blank" rel="noreferrer">
-              {t("p-1-a-1-txt")}
-            </a>
-            {t("p-1-txt-2")}
-          </p>
-          <p>
-            {t("p-2-txt-0")}
-            <a href={t("p-2-a-0-href")} target="_blank" rel="noreferrer">
-              {t("p-2-a-0-txt")}
-            </a>
-            {t("p-2-txt-1")}
-          </p>
-          <p>
-            {t("p-3-txt-0")}
-            <a href={t("p-3-a-0-href")} target="_blank" rel="noreferrer">
-              {t("p-3-a-0-txt")}
-            </a>
-            {t("p-3-txt-1")}
-          </p>
+          <span dangerouslySetInnerHTML={{ __html: text }} />
         </div>
       </motion.div>
     </div>

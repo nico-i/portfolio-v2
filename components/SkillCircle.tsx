@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { IconType } from "react-icons";
 import classNames from "classnames";
+import React, { useEffect, useState } from "react";
+import SVG from "react-inlinesvg";
 interface Props {
   size: number;
   percentage: number;
   duration: number;
   inView: boolean;
-  Icon: IconType;
+  svgStr: string;
   onClick?: () => void;
   active?: boolean;
 }
 /**
- * Skillcircle component which represents a skill in a circle with
- * a circulare progression bar. The skill is represented
+ * SkillCircle component which represents a skill in a circle with
+ * a circular progression bar. The skill is represented
  * through an Icon in the middle of the circle.
  * @param {Props} props
  * @return {React.ReactNode}
  */
-
 const SkillCircle = ({
   percentage,
   duration,
   size,
   inView,
-  Icon,
+  svgStr,
   onClick,
   active,
 }: Props) => {
@@ -79,20 +78,20 @@ const SkillCircle = ({
               }
             : { transition: "none" }
         }
-      />{" "}
-      <Icon
-        size={iconSize}
+      />
+      <SVG
+        src={`${svgStr}`}
         className={classNames(
-          "fill-primary stroke-primary transition-[fill] duration-300 ease-in will-change-[fill] dark:fill-light dark:stroke-light",
+          "fill-primary transition-[fill] duration-300 ease-in will-change-[fill] dark:fill-light",
           {
-            "md:fill-primary md:stroke-primary md:dark:fill-light md:dark:stroke-light":
-              !active,
+            "md:fill-primary md:dark:fill-light": !active,
           },
           {
-            "md:fill-white md:stroke-white md:dark:fill-primary md:dark:stroke-primary":
-              active,
+            "md:fill-white md:dark:fill-primary": active,
           }
         )}
+        height={iconSize}
+        width={iconSize}
         x={size / 2 - iconSize / 2}
         y={size / 2 - iconSize / 2}
       />

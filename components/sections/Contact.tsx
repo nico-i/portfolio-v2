@@ -1,13 +1,23 @@
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import React, { useState } from "react";
-import footerData from "../../data/contactData";
-
+import SVG from "react-inlinesvg";
+import { ContactLinkType } from "../../lib/ContactLinks";
 interface ContractProps {
   onFormSubmit: Function;
   className?: string;
   id?: string;
+  links: ContactLinkType[];
+  budgetOptions: string[];
+  headline: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  budgetLabel: string;
+  sendBtnText: string;
 }
 
 /**
@@ -17,15 +27,19 @@ interface ContractProps {
 const Contact: React.FC<ContractProps> = ({
   onFormSubmit,
   className,
+  budgetOptions: budgets,
+  headline,
+  nameLabel,
+  namePlaceholder,
+  budgetLabel,
+  emailLabel,
+  emailPlaceholder,
+  messageLabel,
+  messagePlaceholder,
+  sendBtnText,
+  links,
   id = undefined,
 }) => {
-  const { t } = useTranslation("contact");
-  const budgets = [
-    t("option-budget-0"),
-    t("option-budget-1"),
-    t("option-budget-2"),
-    t("option-budget-3"),
-  ];
   const [budget, setBudget] = useState(budgets[0]);
   const onSubmit = async (event: any) => {
     event.preventDefault();
@@ -81,17 +95,17 @@ const Contact: React.FC<ContractProps> = ({
           className="mt-28 grid max-w-7xl grid-cols-1 content-center gap-8 lg:grid-cols-8"
         >
           <input type="hidden" name="form-name" value="contact" required />
-          <p hidden>
+          <span hidden>
             <label>
               Do not fill this out: <input name="bot-field" />
             </label>
-          </p>
+          </span>
           <div className="col-span-1 lg:col-span-2">
             <h2 className="mb-4 block h-auto items-center text-[1.69rem] font-semibold leading-8 md:mb-4 md:h-32 md:text-4xl md:leading-tight lg:flex lg:h-60">
-              <span dangerouslySetInnerHTML={{ __html: t("h2-0-txt-0") }} />
+              <span dangerouslySetInnerHTML={{ __html: headline }} />
             </h2>
             <label className="block" htmlFor="budget">
-              {t("label-budget")}
+              {budgetLabel}
               <select
                 required
                 className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
@@ -106,32 +120,33 @@ const Contact: React.FC<ContractProps> = ({
               </select>
             </label>
             <label className="block" htmlFor="name">
-              {t("label-name")}
+              {nameLabel}
               <input
                 required
                 name="Name"
                 id="name"
                 type={"text"}
-                placeholder={t("input-name-placeholder")}
+                placeholder={namePlaceholder}
                 className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
               />
             </label>
             <label className="block" htmlFor="email">
-              {t("label-email")}
+              {emailLabel}
               <input
                 required
                 name="E-Mail"
                 id="email"
                 type={"email"}
-                placeholder={t("input-email-placeholder")}
+                placeholder={emailPlaceholder}
                 className="mb-4 mt-2 block w-full rounded-lg bg-white px-3 py-2 text-lg text-dark ring-2 ring-dark/10 transition placeholder:text-dark/50 focus:border-primary/25 focus:ring-4 focus:ring-primary focus:ring-opacity-25 dark:bg-darker dark:text-light dark:ring-light/5 dark:placeholder:text-light/50 dark:focus:border-primary_dark/75 dark:focus:ring-primary_dark dark:focus:ring-opacity-10"
               />
             </label>
           </div>
           <div className="col-span-1 -mt-8 lg:col-span-6 lg:mt-0">
             <label className="block" htmlFor="message">
-              {t("label-message")}
+              {messageLabel}
               <textarea
+                placeholder={messagePlaceholder}
                 required
                 name="Message"
                 id="message"
@@ -145,24 +160,29 @@ const Contact: React.FC<ContractProps> = ({
                 type="submit"
                 className="order-first col-span-6 mb-4 mt-2 w-full rounded-md bg-primary py-2 text-lg font-semibold text-white transition lg:order-4 lg:col-span-1 lg:mb-0 lg:mt-0"
               >
-                {t("button-send")}
+                {sendBtnText}
               </button>
-              {footerData.map((smLink, i) => {
+              {links.map((link, i) => {
                 let orderNum = i + 1;
-                if (footerData.length / 2 == i) {
+                if (links.length / 2 == i) {
                   orderNum += 1;
                 }
                 return (
                   <a
                     className="col-span-1 flex items-center justify-center font-semibold text-dark no-underline dark:text-light md:col-span-2 md:justify-start lg:col-span-1"
-                    href={smLink.href}
-                    key={`${smLink.text}-${i}`}
+                    href={link.url}
+                    key={link.id}
                     style={{ order: orderNum }}
                   >
-                    <smLink.Icon size={25} className="inline align-middle" />
+                    <SVG
+                      src={link.svg}
+                      className="inline align-middle"
+                      height={25}
+                      width={25}
+                    />
                     <span className="hidden px-1 md:inline" />
                     <span className="sr-only md:not-sr-only">
-                      {smLink.text}
+                      {link.username}
                     </span>
                   </a>
                 );

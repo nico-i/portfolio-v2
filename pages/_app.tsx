@@ -1,4 +1,3 @@
-import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 import { AppProps } from "next/app";
 import Script from "next/script";
@@ -34,4 +33,4 @@ function PortfolioApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(PortfolioApp);
+export default PortfolioApp;

@@ -8,16 +8,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
-          rel="stylesheet"
-        />
         <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
         <link
           rel="icon"
@@ -111,7 +101,6 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale:alternate" content="de_DE" />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <body
         className="bg-light text-base font-medium text-dark transition dark:bg-dark dark:text-light md:text-lg"

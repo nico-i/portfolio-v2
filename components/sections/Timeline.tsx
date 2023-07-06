@@ -1,12 +1,8 @@
 import React from "react";
+import { TimelineItemType } from "../../lib/TimelineItem";
 import TimelineItem from "../TimelineItem";
 interface Props {
-  items: Array<{
-    title: string;
-    description: string;
-    start: number;
-    end: number;
-  }>;
+  items: TimelineItemType[];
   className?: string;
   id?: string;
 }
@@ -28,9 +24,9 @@ const Timeline: React.FC<Props> = ({ items, className, id }) => {
       <div className="absolute left-1/2 flex h-full w-full -translate-x-1/2 flex-col items-center justify-evenly">
         {items.map((item) => (
           <TimelineItem
-            key={item.title}
-            title={item.title}
-            description={item.description}
+            key={item.id}
+            position={item.position}
+            company={item.company}
           />
         ))}
       </div>

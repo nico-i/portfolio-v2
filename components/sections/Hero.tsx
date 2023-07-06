@@ -1,9 +1,10 @@
-import { useTranslation } from "next-i18next";
 import React from "react";
-import TypreWriter from "typewriter-effect";
+import TypeWriter from "typewriter-effect";
 
 interface HeroProps {
   className?: string;
+  typeWriterLines: string[];
+  screenReaderText: string;
   id?: string;
 }
 
@@ -11,26 +12,25 @@ interface HeroProps {
  *
  * @return {React.ReactNode}
  */
-const Hero: React.FC<HeroProps> = ({ className, id }) => {
-  const { t } = useTranslation("hero");
+const Hero: React.FC<HeroProps> = ({
+  className,
+  id,
+  typeWriterLines,
+  screenReaderText,
+}) => {
   return (
     <section id={id} className={className}>
       <h1 className="snap-center text-[10vmin] font-semibold leading-tight md:px-10">
-        <TypreWriter
+        <TypeWriter
           aria-hidden="true"
           options={{
-            strings: [
-              t("typed-str-0"),
-              t("typed-str-1"),
-              t("typed-str-2"),
-              t("typed-str-3"),
-            ],
+            strings: typeWriterLines,
             autoStart: true,
             loop: true,
             delay: Math.floor(Math.random() * (130 - 90 + 1)) + 90,
           }}
         />
-        <span className="sr-only">{t("full-text")}</span>
+        <span className="sr-only">{screenReaderText}</span>
       </h1>
     </section>
   );
