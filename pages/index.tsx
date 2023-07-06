@@ -74,13 +74,19 @@ const Index: React.FC<IndexProps> = ({
           property="og:description"
           content={generalAttributes.OgDescription}
         />
-        <meta property="og:image:width" content="1080" />
-        <meta property="og:image:height" content="1080" />
+        <meta
+          property="og:image:width"
+          content={generalAttributes.OgImage.width.toString()}
+        />
+        <meta
+          property="og:image:height"
+          content={generalAttributes.OgImage.height.toString()}
+        />
         <meta
           property="og:image:secure_url"
-          content="https://raw.githubusercontent.com/ismailinico/nico.ismaili.de/main/public/images/social.jpg"
+          content={generalAttributes.OgImage.src}
         />
-        <meta property="og:image:alt" content={"meta-img-alt"} />
+        <meta property="og:image:alt" content={generalAttributes.OgImage.alt} />
       </Head>
       <div
         className={classNames(

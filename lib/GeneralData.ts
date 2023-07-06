@@ -1,7 +1,10 @@
+import { Image, mapStrapiImage } from "./Image";
+
 export interface GeneralData {
   SeoTitle: string;
   SeoDescription: string;
   SeoUrl: string;
+  OgImage: Image;
   OgDescription: string;
   FormSentSuccessMessage: string;
   FormSentFailureMessage: string;
@@ -21,5 +24,8 @@ export const getGeneralData = async (locale: string) => {
     `${process.env.STRAPI_API_URL}/general?locale=${locale}`
   ).then((res) => res.json());
 
-  return generalRes.data.attributes as GeneralData;
+  return {
+    ...generalRes.data.attributes,
+    OgImage: mapStrapiImage(generalRes.data.attributes.OgImage),
+  } as GeneralData;
 };
