@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import React from "react";
 
 interface SkillsIntroProps {
   className?: string;
+  title: string;
+  subtitle: string;
 }
 
-const SkillsIntro: React.FC<SkillsIntroProps> = ({ className }) => {
-  const { t } = useTranslation("common");
+const SkillsIntro: React.FC<SkillsIntroProps> = ({
+  title,
+  subtitle,
+  className,
+}) => {
   return (
     <div className={className}>
       <motion.div
@@ -15,9 +19,9 @@ const SkillsIntro: React.FC<SkillsIntroProps> = ({ className }) => {
         whileInView={{ opacity: 1, transition: { duration: 1 } }}
       >
         <h2 className="mb-4 snap-center text-3xl font-semibold leading-tight md:text-4xl">
-          <span dangerouslySetInnerHTML={{ __html: t("skills-intro") }} />
+          <span dangerouslySetInnerHTML={{ __html: title }} />
         </h2>
-        <p>{t("skills-intro-p")}</p>
+        <span>{subtitle}</span>
       </motion.div>
     </div>
   );

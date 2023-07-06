@@ -1,13 +1,15 @@
 import classNames from "classnames";
 import { motion, useInView } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { HiExternalLink } from "react-icons/hi";
+import { SkillType } from "../../lib/Skill";
 import SkillCircle from "../SkillCircle";
-import { skillData, SkillDataType } from "../../data/skillData";
 
 interface SkillsProps {
   className?: string;
+  skills: SkillType[];
+  defaultTitle: string;
+  defaultSubtitle: string;
   id?: string;
 }
 
@@ -15,12 +17,17 @@ interface SkillsProps {
  *
  * @return {React.ReactNode}
  */
-const Skills: React.FC<SkillsProps> = ({ className, id }) => {
+const Skills: React.FC<SkillsProps> = ({
+  className,
+  id,
+  skills,
+  defaultTitle,
+  defaultSubtitle,
+}) => {
   const [skillDivHeight, setSkillDivHeight] = useState(0);
   const [skillDivWidth, setSkillDivWidth] = useState(0);
-  const [activeSkill, setActiveSkill] = useState<SkillDataType | null>(null);
+  const [activeSkill, setActiveSkill] = useState<SkillType | null>(null);
   const [isTransparent, setIsTransparent] = useState(false);
-  const { t } = useTranslation("skills");
   const skillDiv: React.Ref<HTMLDivElement> = useRef(null);
   const isInView = useInView(skillDiv);
 
@@ -54,29 +61,29 @@ const Skills: React.FC<SkillsProps> = ({ className, id }) => {
         ref={skillDiv}
         className="-ml-0 grid grid-cols-4 gap-1 md:-ml-10 md:grid-cols-5 md:gap-2"
       >
-        {skillData.map((entry) => {
+        {skills.map((skill: SkillType) => {
           const SkillEle = (
             <SkillCircle
-              active={activeSkill === entry}
+              active={activeSkill === skill}
               onClick={() => {
                 setIsTransparent(true);
                 setTimeout(() => {
-                  activeSkill === entry
+                  activeSkill === skill
                     ? setActiveSkill(null)
-                    : setActiveSkill(entry);
+                    : setActiveSkill(skill);
                 }, 150);
               }}
-              percentage={entry.percentage}
+              percentage={skill.proficiencyLevel}
               duration={1.8}
               size={90}
               inView={isInView}
-              Icon={entry.Icon}
+              svgStr={skill.svg}
             />
           );
           return (
-            <Fragment key={entry.skill}>
+            <Fragment key={skill.id}>
               <a
-                href={entry.url}
+                href={skill.url}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center md:hidden"
@@ -101,28 +108,28 @@ const Skills: React.FC<SkillsProps> = ({ className, id }) => {
           className="mt-0 text-4xl font-semibold md:-mt-40"
           dangerouslySetInnerHTML={{
             __html: activeSkill
-              ? `<span>${activeSkill.skill}</span><span class="text-primary dark:text-primary_dark">.</span>`
-              : `${t("title")}`,
+              ? `<span>${activeSkill.skillName}</span><span class="text-primary dark:text-primary_dark">.</span>`
+              : `${defaultTitle}`,
           }}
         />
-        <p>
+        <span>
           {activeSkill ? (
             <>
-              {t(activeSkill.infoTextId)} <br />
+              {activeSkill.summary} <br />
               <a
                 href={activeSkill.url}
                 className=""
                 target="_blank"
                 rel="noreferrer"
               >
-                {t("more-info")}
+                {"more-info"}
                 <HiExternalLink className="mx-1 mb-1 inline" />
               </a>
             </>
           ) : (
-            <>{t("description")}</>
+            <>{defaultSubtitle}</>
           )}
-        </p>
+        </span>
       </div>
     </motion.div>
   );

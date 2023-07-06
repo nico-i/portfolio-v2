@@ -111,7 +111,6 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale:alternate" content="de_DE" />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <body
         className="bg-light text-base font-medium text-dark transition dark:bg-dark dark:text-light md:text-lg"

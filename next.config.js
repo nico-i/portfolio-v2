@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 
-const { i18n } = require("./next-i18next.config");
-
 module.exports = {
   reactStrictMode: true,
-  i18n,
+  i18n: {
+    locales: ["en", "de"],
+    defaultLocale: "en",
+  },
+  images: {
+    domains: ["strapi.srv.inico.dev"],
+  },
+
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)
     const rules = config.module.rules.find((r) => !!r.oneOf);

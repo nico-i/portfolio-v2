@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
 import React from "react";
 
 interface TimelineIntroProps {
   className?: string;
+  title: string;
 }
 
-const TimelineIntro: React.FC<TimelineIntroProps> = ({ className }) => {
-  const { t } = useTranslation("common");
+const TimelineIntro: React.FC<TimelineIntroProps> = ({ className, title }) => {
   return (
     <div className={className}>
       <motion.div
@@ -15,7 +14,7 @@ const TimelineIntro: React.FC<TimelineIntroProps> = ({ className }) => {
         whileInView={{ opacity: 1, transition: { duration: 0.6 } }}
       >
         <h2 className="mb-4 text-center text-3xl font-semibold leading-tight md:w-auto md:text-left md:text-5xl">
-          <span dangerouslySetInnerHTML={{ __html: t("timeline-intro") }} />
+          <span dangerouslySetInnerHTML={{ __html: title }} />
         </h2>
       </motion.div>
     </div>
