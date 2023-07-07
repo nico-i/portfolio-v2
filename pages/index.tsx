@@ -145,7 +145,6 @@ const Index: React.FC<IndexProps> = ({
           projectsHeadline={projectsHeadline}
           id="projects"
           projects={projects}
-          className="min-h-1/4 mb-60 flex w-full snap-center flex-col items-center justify-center"
         />
         <Contact
           budgetOptions={[
