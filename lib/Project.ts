@@ -25,8 +25,10 @@ export async function getAllProjects(locale: string): Promise<Project[]> {
       ogTitle: item.attributes.ogTitle,
       mdSummary: item.attributes.summary,
       slug: item.attributes.slug,
-      headerImage: mapStrapiImage(item.attributes.headerImage.data.attributes),
-      ogImage: mapStrapiImage(item.attributes.ogImage.data.attributes),
+      headerImage: mapStrapiImage(
+        item.attributes.headerImage?.data?.attributes
+      ),
+      ogImage: mapStrapiImage(item.attributes.ogImage?.data?.attributes),
     };
   });
 }

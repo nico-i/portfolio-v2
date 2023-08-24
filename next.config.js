@@ -7,7 +7,7 @@ module.exports = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["strapi.srv.inico.dev"],
+    domains: ["strapi.srv.inico.dev", "res.cloudinary.com"],
   },
 
   webpack: (config) => {

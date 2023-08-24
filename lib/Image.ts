@@ -34,7 +34,8 @@ export interface Image {
   alt: string;
 }
 
-export const mapStrapiImage = (image: StrapiImage): Image => {
+export const mapStrapiImage = (image: StrapiImage | null): Image => {
+  if (!image) return { src: "", width: 0, height: 0, alt: "" };
   if (image.provider === "cloudinary") {
     return {
       src: image.url,
