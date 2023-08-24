@@ -35,6 +35,14 @@ export interface Image {
 }
 
 export const mapStrapiImage = (image: StrapiImage): Image => {
+  if (image.provider === "cloudinary") {
+    return {
+      src: image.url,
+      width: image.width,
+      height: image.height,
+      alt: image.alternativeText,
+    };
+  }
   return {
     src: `${process.env.STRAPI_CMS_URL}${image.url}`,
     width: image.width,
