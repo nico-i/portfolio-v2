@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  #__next {
+    @apply bg-light dark:bg-dark text-dark dark:text-light transition font-medium md:text-lg;
+  }
+
   a {
     @apply text-primary underline decoration-primary decoration-2 underline-offset-4 dark:text-primary_dark dark:decoration-primary_dark;
   }

@@ -2,6 +2,7 @@ import { Image, mapStrapiImage } from "./Image";
 
 export interface Project {
   title: string;
+  projectURL: string;
   seoDescription: string;
   ogWebsiteURL: string;
   ogTitle: string;
@@ -20,6 +21,7 @@ export async function getAllProjects(locale: string): Promise<Project[]> {
       title: item.attributes.title,
       seoDescription: item.attributes.seoDescription,
       ogWebsiteURL: item.attributes.ogWebsiteURL,
+      projectURL: item.attributes.projectURL,
       ogTitle: item.attributes.ogTitle,
       mdSummary: item.attributes.summary,
       slug: item.attributes.slug,

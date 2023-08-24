@@ -20,7 +20,7 @@ interface NavBarProps {
 export default function NavBar({ navLinks }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="items-top fixed z-50 flex w-screen justify-between bg-light px-5 py-4 transition dark:bg-dark md:items-center md:px-8 md:pt-6 lg:px-12 lg:pt-10">
+    <nav className="items-top fixed z-50 flex w-screen justify-between bg-inherit px-5 py-4 md:items-center md:px-8 md:pt-6 lg:px-12 lg:pt-10">
       <Link
         href={navLinks[0].href}
         passHref
@@ -40,7 +40,7 @@ export default function NavBar({ navLinks }: NavBarProps) {
       </button>
       <ul
         className={classNames(
-          "fixed inset-x-0 top-14 z-10 h-screen space-y-8 bg-light p-8 transition dark:bg-dark md:static md:inset-auto md:top-auto md:flex md:h-auto md:translate-x-0 md:space-x-10 md:space-y-0 md:bg-transparent md:p-0",
+          "fixed inset-x-0 top-14 z-10 h-screen space-y-8 p-8 md:static md:inset-auto md:top-auto md:flex md:h-auto md:translate-x-0 md:space-x-10 md:space-y-0 md:bg-transparent md:p-0",
           { "translate-x-0": isMenuOpen },
           { "translate-x-full": !isMenuOpen }
         )}

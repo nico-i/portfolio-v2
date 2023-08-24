@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Project } from "../../lib/Project";
@@ -17,7 +16,7 @@ export const Projects: React.FC<ProjectsProps> = ({
   projectsHeadline,
   id = undefined,
 }) => {
-  const { locale } = useRouter();
+  // TODO: use when project descriptions exist const { locale } = useRouter();
   return (
     <motion.div
       id={id}
@@ -32,9 +31,11 @@ export const Projects: React.FC<ProjectsProps> = ({
         <Masonry gutter="1.75rem">
           {projects.map((project) => (
             <Link
-              href={`/${locale}/projects/${project.slug}`}
+              href={project.projectURL} // TODO: Replace with `/${locale}/projects/${project.slug}` asa projects have descriptions
               key={project.title}
               passHref
+              target="_blank" // TODO: Remove asa projects have descriptions
+              rel="noopener noreferrer"
               className="shadow-lg transition-opacity duration-300 hover:opacity-90 w-full"
             >
               <Image

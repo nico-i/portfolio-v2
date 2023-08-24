@@ -21,6 +21,7 @@ module.exports = {
       ],
     },
     colors: {
+      inherit: "inherit",
       transparent: "transparent",
       current: "currentColor",
       primary: "#006AFF",
